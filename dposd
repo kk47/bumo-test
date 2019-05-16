@@ -1,0 +1,35 @@
+#!/bin/bash
+
+
+cmd=""
+cnt=2
+dir_prefix=/root/dpos/bchain
+
+if [[ $# == 1 ]]; then
+    cmd=${1}
+elif [[ $# == 2 ]]; then
+    cmd=${1}
+    cnt=${2}
+else
+    echo "Usage: bash $0 [status|start|stop|restart|clean] instance_number" && exit 1
+fi
+
+if [[ "$cmd" == "stop" ]]; then
+    for i in `seq -f %02g 1 $cnt`; do ${dir_prefix}${i}/scripts/bumod stop; done
+    kill -9 `pidof bumod`
+elif [[ "$cmd" == "status" ]]; then
+    for i in `seq -f %02g 1 $cnt`; do ${dir_prefix}${i}/scripts/bumod status; done
+elif [[ "$cmd" == "start" ]]; then
+    for i in `seq -f %02g 1 $cnt`; do ${dir_prefix}${i}/scripts/bumod start; done
+elif [[ "$cmd" == "restart" ]]; then
+    for i in `seq -f %02g 1 $cnt`; do ${dir_prefix}${i}/scripts/bumod restart; done
+elif [[ "$cmd" == "drop" ]]; then
+    for i in `seq -f %02g 1 $cnt`; do echo "Dropdb for $HOSTNAME-$i"; ${dir_prefix}${i}/bin/bumo --dropdb; done
+elif [[ "$cmd" == "remove" ]]; then
+    for i in `seq -f %02g 1 $cnt`; do echo "Remove bumo instance ${dir_prefix}${i}";[ -d ${dir_prefix}${i} ] && rm -fr ${dir_prefix}${i}; done
+elif [[ "$cmd" == "clean" ]]; then
+    for i in `seq -f %02g 1 $cnt`; do rm -f ${dir_prefix}${i}/log/bumo-*; done
+    for i in `seq -f %02g 1 $cnt`; do rm -f ${dir_prefix}${i}/coredump/*; done
+elif [[ "$cmd" == "-h" || "$cmd" == "" ]]; then
+    echo "Usage: bash $0 [status|start|stop|restart|clean] instance_number" && exit 1
+fi

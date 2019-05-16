@@ -1,0 +1,213 @@
+#!/bin/bash
+
+#
+#  A simple script to ease the management of BuChian cluster
+#
+
+# Note, the all hostnames should be in /etc/hosts
+dhosts="bm01 bm02 bm03 bm04 bm05 bm06 bm07 bm08 bm09 bm10 bm11 bm12 bm13 bm14 bm15"
+
+function usage
+{
+    cat << EOF
+        usage       - command list
+        ra          - run a command on all nodes
+        rap         - run a command on all nodes in paralell
+        fsync       - sync files or dirs among all nodes
+        tsync       - sync time among all hosts
+        dstart      - start bumod on all nodes
+        dstop       - stop bumod on all nodes
+        dstat       - get bumod status on all nodes
+        pstart      - start bumod on all nodes in parallel
+        pstop       - stop bumod on all nodes in parallel
+        haltall     - halt all nodes
+        rebootall   - reboot all nodes
+EOF
+}
+
+# Run a command on all hosts (ra stands for run all)
+# Note, Should be careful to use wildcard. 
+# For example, ra ls * --> ra 'ls *'
+function ra
+{
+    cmd=${1?"Usage:ra command ..."}
+    for host in $dhosts; do
+        echo "+++ $host +++"
+        $SSH $host "eval PATH=\$PATH:$DAYU_BIN_PATH '$@'"
+    done
+}
+
+# Run a command on all hosts in parallel
+function rap
+{
+    cmd=${1?"Usage: rap command..."}
+    local host tasks
+    for host in $dhosts ; do
+        $SSH $host "eval PATH=\$PATH:$DAYU_BIN_PATH '$@'" 2>&1 | \
+             sed "s/^/[$host] /" &
+        tasks="$tasks $!"
+    done
+
+    wait $tasks &> /dev/null
+}
+
+# Get version of installation
+function version
+{
+    ra 'cat /etc/bumod/version'
+}
+
+# Sync time
+function tsync
+{
+    local d=$(date -u +%m%d%H%M%Y)
+    ra date -u "$d"
+    ra hwclock -w -u
+}
+
+# Sync file or dir
+function fsync
+{
+    : ${1?"Usage: fsync filename/dirname ..."}
+
+    # Get files with absolute path
+    local file
+    local flist=""
+    local source_file=""
+    for file in "$@"; do
+        [[ $file == /* ]] || file=$(pwd)/$file
+
+        if [ -L ${file} ]; then
+            source_file="$(readlink -f $file)"
+            flist="$flist $source_file"
+        fi
+
+        flist="$flist $file"
+    done
+
+    local host
+    for host in $dhosts ; do
+        local islocal=$(/sbin/ifconfig -a | grep "inet addr:$host")
+        [[ $(hostname) == $host || -n "$islocal" ]] && continue
+        echo "+++ Syncing to $host +++"
+        tar cPf - $flist | $SSH $host tar xPvf -
+    done
+}
+
+# Start bumod on all nodes
+function dstart
+{
+    ra '/root/kk/dposd start'
+}
+
+# Stop bumod on all nodes
+function dstop
+{
+    ra '/root/kk/dposd stop'
+}
+
+# Get bumod status on all nodes
+function dstat
+{
+    ra '/root/kk/dposd status'
+}
+
+# Alias for start and stop services in parallel
+function pstart
+{
+    rap '/root/kk/dposd start'
+}
+
+function pstop
+{   
+    rap '/root/kk/dposd stop'
+}
+
+# Reboot all nodes
+function rebootall
+{
+    local value
+    read -p "Are you sure [${eeid}] (y/n)?   " value
+    [[ $value != y && $value != Y ]] && return 1
+    # Stop bumod first
+    rap '/root/kk/dposd stop'
+    
+    local host
+    for host in $dhosts ; do
+        local islocal=$(/sbin/ifconfig -a | grep "inet addr:$host")
+        [[ $(hostname) == $host || -n "$islocal" ]] && continue
+        echo "+++ $host +++"
+        $SSH $host reboot
+    done
+    
+    echo "+++ $(hostname) +++"
+    [ -f /usr/bin/reboot ] && /usr/bin/reboot || /sbin/reboot
+}
+
+# Halt all nodes
+function haltall
+{
+    local value
+    read -p "Are you sure [${eeid}] (y/n)?   " value
+    [[ $value != y && $value != Y ]] && return 1
+    # Stop bumod first
+    rap '/root/kk/dposd stop'
+
+    local host
+    for host in $dhosts ; do
+        local islocal=$(/sbin/ifconfig -a | grep "inet addr:$host")
+        [[ $(hostname) == $host || -n "$islocal" ]] && continue
+        echo "+++ $host +++"
+        $SSH $host halt
+    done
+    
+    echo "+++ $(hostname) +++"
+    [ -f /usr/bin/halt ] && /usr/bin/halt || /sbin/halt
+} 
+function halt
+{
+    local value
+    read -p "Are you sure [${eeid}] (y/n)?   " value
+    if [[ $value == y || $value == Y ]] 
+    then
+        [ -f /usr/bin/halt ] && /usr/bin/halt || /sbin/halt
+    else
+        echo "command halt not found"
+    fi
+}
+function reboot
+{
+    local value
+    read -p "Are you sure [${eeid}] (y/n)?   " value
+    if [[ $value == y || $value == Y ]] 
+    then
+        [ -f /usr/bin/reboot ] && /usr/bin/reboot || /sbin/reboot
+    else
+        echo "command reboot not found"
+    fi
+}
+
+#
+# Main function
+#
+
+bumoddir="/usr/local/buchain"
+
+DAYU_BIN_PATH="${bumoddir}/bin"
+export PATH="$PATH:$DAYU_BIN_PATH"
+
+SSH="ssh -o User=root -o StrictHostKeyChecking=no"
+
+ulimit -c unlimited
+ulimit -n 16384 &> /dev/null
+
+echo "Help:"
+usage
+
+echo "Hosts:"
+let i=1
+for host in $dhosts; do
+    printf "%9d" $i
+    echo "  $host"  
+    let i=i+1
+done

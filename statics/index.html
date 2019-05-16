@@ -1,0 +1,235 @@
+$def with (v_cands, k_cands, committee, votes, proposals, v_rewards, k_rewards, cfg)
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Dpos数据视图</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+	.fakeimg {
+	    height: 200px;
+	    background: #aaa;
+	}
+    </style>
+</head>
+<body>
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <h1>DPOS数据视图</h1>
+</div>
+
+<div class="container">
+  <h2>数据表</h2>
+  <ul class="nav nav-pills">
+    <li class="active"><a data-toggle="pill" href="#home">候选Validator</a></li>
+    <li><a data-toggle="pill" href="#menu1">候选Eco-Node</a></li>
+    <li><a data-toggle="pill" href="#menu2">委员会</a></li>
+    <li><a data-toggle="pill" href="#menu3">投票</a></li>
+    <li><a data-toggle="pill" href="#menu4">提案</a></li>
+    <li><a data-toggle="pill" href="#menu5">Validator待领奖励</a></li>
+    <li><a data-toggle="pill" href="#menu6">Eco-Node待领奖励</a></li>
+    <li><a data-toggle="pill" href="#menu7">DPOS配置</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>候选Validator</h3>
+      <table class="table">
+	<thead>
+	    <tr>
+		<th>序号</th>
+		<th>资金地址</th>
+		<th>权益值</th>
+		<th>节点地址</th>
+	    </tr>
+	    <tbody>
+	    $for i, a, s, n in v_cands:
+		$if i < 20:
+			<tr class="success">
+			    <td>$i</td>
+			    <td>$a</td>
+			    <td>$s</td>
+			    <td>$n</td>
+			</tr>
+		$else:
+			<tr class="danger">
+			    <td>$i</td>
+			    <td>$a</td>
+			    <td>$s</td>
+			    <td>$n</td>
+			</tr>
+	    </tbody>
+	  </thead>
+	</table>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>候选Eco-node</h3>
+      <table class="table">
+	<thead>
+	    <tr>
+		<th>序号</th>
+		<th>资金地址</th>
+		<th>权益值</th>
+	    </tr>
+	    <tbody>
+	    $for i, a, s in k_cands:
+		$if i < 22:
+			<tr class="success">
+			    <td>$i</td>
+			    <td>$a</td>
+			    <td>$s</td>
+			</tr>
+		$else:
+			<tr class="danger">
+			    <td>$i</td>
+			    <td>$a</td>
+			    <td>$s</td>
+			</tr>
+	    </tbody>
+	  </thead>
+	</table>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>委员会</h3>
+      <table class="table">
+	<thead>
+	    <tr>
+		<th>序号</th>
+		<th>资金地址</th>
+	    </tr>
+	    <tbody>
+	    $for i, a in committee:
+		<tr class="success">
+		    <td>$i</td>
+		    <td>$a</td>
+		</tr>
+	    </tbody>
+	  </thead>
+	</table>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <h3>投票</h3>
+      <table class="table">
+	<thead>
+	    <tr>
+		<th>序号</th>
+		<th>地址</th>
+		<th>角色</th>
+		<th>候选人</th>
+		<th>金额</th>
+	    </tr>
+	    <tbody>
+	    $for i, a, r, c, m in votes:
+		<tr class="success">
+		    <td>$i</td>
+		    <td>$a</td>
+		    <td>$r</td>
+		    <td>$c</td>
+		    <td>$m</td>
+		</tr>
+	    </tbody>
+	  </thead>
+	</table>
+    </div>
+    <div id="menu4" class="tab-pane fade">
+      <h3>提案</h3>
+      <table class="table">
+	<thead>
+	    <tr>
+		<th>序号</th>
+		<th>动作</th>
+		<th>角色</th>
+		<th>提案者</th>
+		<th>内容</th>
+	    </tr>
+	    <tbody>
+	    $for i, a, r, p, c in proposals:
+		<tr class="success">
+		    <td>$i</td>
+		    <td>$a</td>
+		    <td>$r</td>
+		    <td>$p</td>
+		    <td>$c</td>
+		</tr>
+	    </tbody>
+	  </thead>
+	</table>
+    </div>
+    <div id="menu5" class="tab-pane fade">
+      <h3>Validator待领奖励</h3>
+      <table class="table">
+	<thead>
+	    <tr>
+		<th>序号</th>
+		<th>超级节点地址</th>
+		<th>金额</th>
+		<th>投票奖励地址</th>
+		<th>投票奖励比率</th>
+	    </tr>
+	    <tbody>
+	    $for i, a, m, p, r in v_rewards:
+		<tr class="success">
+		    <td>$i</td>
+		    <td>$a</td>
+		    <td>$m</td>
+		    <td>$p</td>
+		    <td>$r</td>
+		</tr>
+	    </tbody>
+	  </thead>
+	</table>
+    </div>
+    <div id="menu6" class="tab-pane fade">
+      <h3>Eco-Node待领奖励</h3>
+      <table class="table">
+	<thead>
+	    <tr>
+		<th>序号</th>
+		<th>超级节点地址</th>
+		<th>金额</th>
+		<th>投票奖励地址</th>
+		<th>投票奖励比率</th>
+	    </tr>
+	    <tbody>
+	    $for i, a, m, p, r in k_rewards:
+		<tr class="success">
+		    <td>$i</td>
+		    <td>$a</td>
+		    <td>$m</td>
+		    <td>$p</td>
+		    <td>$r</td>
+		</tr>
+	    </tbody>
+	  </thead>
+	</table>
+    </div>
+    <div id="menu7" class="tab-pane fade">
+      <h3>DPOS配置</h3>
+      <table class="table">
+	<thead>
+	    <tr>
+		<th>序号</th>
+		<th>配置</th>
+		<th>值</th>
+	    </tr>
+	    <tbody>
+	    $for i, c, v in cfg:
+		<tr class="success">
+		    <td>$i</td>
+		    <td>$c</td>
+		    <td>$v</td>
+		</tr>
+	    </tbody>
+	  </thead>
+	</table>
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <p>kuangkai@bubi.cn</p>
+</div>
+
+</body>
+</html>

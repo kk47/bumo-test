@@ -5,10 +5,10 @@
 
 # What is this
 
-A test project for dpos, include:
+A test project for BuChain, include:
 
 1. A multi-instance multi-node cluster automation deploy tool
-2. A bumo function test program
+2. A bumo function and performance test program
 3. A web service to view dpos data
 
 # How to run test

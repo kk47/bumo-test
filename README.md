@@ -16,7 +16,7 @@ A test project for BuChain, include:
 ## 1. Download test porject
 
 ```txt
-http://192.168.1.11/bugit/buproject/blob/master/docs/consensus/other/dpos
+git checkout https://github.com/kk47/bumo-test.git
 ```
 
 ## 2. Upload dpos.tgz to bumo environment
@@ -46,7 +46,7 @@ dpos.tgz
 ## 4. Modify cluster managermant script
 
 ```txt
-[root@d01 dpos]# head -n 8 dayurc
+[root@d01 dpos]# head -n 8 bumorc
 #!/bin/bash
 
 #
@@ -60,25 +60,7 @@ dhosts="d01 d02 d03 d04"
 ## 5. Initialize cluster managermant tool
 
 ```txt
-[root@d01 dpos]# source dayurc
-Help:
-        usage       - command list
-        ra          - run a command on all nodes
-        rap         - run a command on all nodes in paralell
-        fsync       - sync files or dirs among all nodes
-        tsync       - sync time among all hosts
-        dstart      - start bumod on all nodes
-        dstop       - stop bumod on all nodes
-        dstat       - get bumod status on all nodes
-        pstart      - start bumod on all nodes in parallel
-        pstop       - stop bumod on all nodes in parallel
-        haltall     - halt all nodes
-        rebootall   - reboot all nodes
-Hosts:
-        1  d01
-        2  d02
-        3  d03
-        4  d04
+[root@d01 dpos]# source bumorc
 ```
 
 ## 6. Sync deploy script to all nodes
@@ -86,7 +68,7 @@ Hosts:
 ```txt
 
 [root@d01 dpos]# ls
-dayurc     dposd    dpos.log  dpos_test.py  README.md   statics    test.cfg
+bumorc     dposd    dpos.log  dpos_test.py  README.md   statics    test.cfg
 deploy.sh  dpos.db  dpos.py   model         restart.sh  stress.sh
 
 [root@d01 dpos]# fsync dposd

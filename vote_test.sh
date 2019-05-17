@@ -4,13 +4,18 @@
 
 # Set voter account number
 config_file=./test.cfg
+log_file=./vote_test.log
 
 while true; do
-	num=$(head -n 1 $config_file | awk -F'=' '{print $2}')
-	python ./dpos_test.py -c testVote -p voter_num=$num &>>/tmp/stress.log;
+	v_num=$(grep '^VOTER_NUM=' $config_file | awk -F'=' '{print $2}')
+	uv_num=$(grep '^UNVOTE_NUM=' $config_file | awk -F'=' '{print $2}')
+	uv_cand=$(grep '^UNVOTE_CANDIDATES=' $config_file | awk -F'=' '{print $2}')
+
+	python ./dpos_test.py -c testVote -p voter_num=$v_num &>>$log_file
 	[[ $? -ne 0 ]] && sleep 30 || sleep 11
-	python ./dpos_test.py -c testUnVote -p "voter_num=5,candidate=1" &>>/tmp/stress.log;
+	python ./dpos_test.py -c testUnVote -p "voter_num=$uv_num,candidate=$uv_cand" &>>$log_file
 	[[ $? -ne 0 ]] && sleep 30 || sleep 11
+
 	hour=$(date +%H)
 	if [[ "$hour" == "23" ]]; then
 		df -h &>> /tmp/stress.log

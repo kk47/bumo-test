@@ -189,7 +189,7 @@ And you can read dpos data from database
 
 ```txt
 [root@d01 dpos]# sqlite3 dpos.db 
-[root@ip-172-10-2-78 dpos]# sqlite3 dpos.db 
+[root@d01 dpos]# sqlite3 dpos.db 
 SQLite version 3.7.17 2013-05-20 00:56:22
 Enter ".help" for instructions
 Enter SQL statements terminated with a ";"

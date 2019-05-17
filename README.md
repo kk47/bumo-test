@@ -63,7 +63,7 @@ dhosts="d01 d02 d03 d04"
 [root@d01 dpos]# source bumorc
 ```
 
-## 6. Sync deploy script to all nodes
+## 6. Synchronize deploy script to all nodes
 
 ```txt
 
@@ -183,4 +183,31 @@ Start web service dpos.py and access the url from browser
 [root@d01 dpos]# ./restart.sh
 Please use the browser to open:
 http://192.168.21.41:36010
+```
+
+And you can read dpos data from database
+
+```txt
+[root@d01 dpos]# sqlite3 dpos.db 
+[root@ip-172-10-2-78 dpos]# sqlite3 dpos.db 
+SQLite version 3.7.17 2013-05-20 00:56:22
+Enter ".help" for instructions
+Enter SQL statements terminated with a ";"
+sqlite> .tables
+committee                      reward_distribute            
+configuration                  validator_candidates         
+kol_candidates                 validator_reward_distribute  
+kol_reward_distribute          validator_reward_distribution
+kol_reward_distribution        vote                         
+proposal                     
+sqlite> .schema vote
+CREATE TABLE vote(id INTEGER PRIMARY KEY AUTOINCREMENT, voter TEXT, role TEXT, candidate TEXT, amount INT);
+sqlite> select * from vote limit 5;
+1|buQB16BtpngSGYrHFPVbNpE23tbMW8ifwMaz|validator|buQB6qUSkMpRUMKRh5cvwUeJF5ktXwY3NyWh|5000000000
+2|buQB16BtpngSGYrHFPVbNpE23tbMW8ifwMaz|validator|buQBavgUNY4GhcRdTHXCPquUY2ZPK4zgmZab|7000000000
+3|buQB16BtpngSGYrHFPVbNpE23tbMW8ifwMaz|validator|buQW5bcaPF5gfZSP3BnnHmuA69EmBvrV6iWa|12000000000
+4|buQB16BtpngSGYrHFPVbNpE23tbMW8ifwMaz|validator|buQX7WtjqfCqnVZPirYebzdg62uSp58VVkqz|12000000000
+5|buQB16BtpngSGYrHFPVbNpE23tbMW8ifwMaz|validator|buQarUC2Qyo2eHduTKmPvupAuuQjpWPBGjbh|7000000000
+sqlite> select * from vote where voter='buQB16BtpngSGYrHFPVbNpE23tbMW8ifwMaz' and candidate='buQarUC2Qyo2eHduTKmPvupAuuQjpWPBGjbh';
+5|buQB16BtpngSGYrHFPVbNpE23tbMW8ifwMaz|validator|buQarUC2Qyo2eHduTKmPvupAuuQjpWPBGjbh|7000000000
 ```

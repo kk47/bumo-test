@@ -67,11 +67,17 @@ class WebSite(web.application):
 app = WebSite(urls, globals())
 
 if __name__ == '__main__':
+    res, msg = data_update(db_file)
+    if not res:
+        print 'Failed to update dpos data to db, %s' % msg
+    else:
+        print msg
+
     rcode, msg = commands.getstatusoutput("ifconfig|grep 'inet '")
     ip = msg.split()[1].split('/')[0].strip()
-    print 'Please use the browser to open: \n\033[32m\033[4m' + \
-        'http://' + ip + ':' + str(web_port) + '\033[0m'
-    # Perform first fork.
+    print 'Please use the browser to open: \n\033[32m\033[4m' + \'http://' + ip + ':' + str(web_port) + '\033[0m'
+
+    # Perform the first fork.
     try:
         pid = os.fork()
         if pid > 0:
@@ -80,7 +86,7 @@ if __name__ == '__main__':
         sys.stderr.write("fork #1 failed: (%d) %s\n" % (e.errno, e.strerror))
         sys.exit(1)
 
-    # 执行第二次fork
+    # Perform the second fork
     try:
         pid = os.fork()
         if pid > 0:

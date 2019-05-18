@@ -10,7 +10,7 @@ import sys
 import json
 import time
 import logging
-from dpos_test import req
+from dpos_test import ChainApi 
 
 metadatas_hash = 'xxx'
 
@@ -21,7 +21,8 @@ def data_get():
 
     global metadatas_hash
     payload = 'address=buQqzdS9YSnokDjvzg4YaNatcFQfkgXqk6ss'
-    res = req('getAccount', payload)
+    ca = ChainApi(url='http://seed1.bumo.io:16002/')
+    res = ca.req('getAccount', payload)
     if not res or res['error_code'] != 0:
 	return False, 'Failed to get dpos data'
     elif res['result']['metadatas_hash'] == metadatas_hash:

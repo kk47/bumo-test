@@ -69,7 +69,8 @@ commands = [
 class ChainApi(object):
     ''' Http request interaction with blockchain '''
     
-    def __init__(self):
+    def __init__(self, url = base_url):
+        self.url = url
         return
     
     def req(self, module, payload, post=False, sync_wait=False):
@@ -78,9 +79,9 @@ class ChainApi(object):
         cnt = sync_wait and 20 or 1
         for i in xrange(cnt):
             if post:
-                r = requests.post(base_url + module, data=json.dumps(payload))
+                r = requests.post(self.url + module, data=json.dumps(payload))
             else:
-                r = requests.get(base_url + module, params=payload)
+                r = requests.get(self.url + module, params=payload)
             if r.ok:
                 if sync_wait and r.json()['error_code'] != 0:
                     if debug:

@@ -67,7 +67,7 @@ class WebSite(web.application):
 app = WebSite(urls, globals())
 
 if __name__ == '__main__':
-    res, msg = data_update(db_file)
+    res, msg = data_update(db_file, url='http://seed1.bumo.io:16002/')
     if not res:
         print 'Failed to update dpos data to db, %s' % msg
     else:
@@ -75,7 +75,7 @@ if __name__ == '__main__':
 
     rcode, msg = commands.getstatusoutput("ifconfig|grep 'inet '")
     ip = msg.split()[1].split('/')[0].strip()
-    print 'Please use the browser to open: \n\033[32m\033[4m' + \'http://' + ip + ':' + str(web_port) + '\033[0m'
+    print 'Please use the browser to open: \n\033[32m\033[4m' + 'http://' + ip + ':' + str(web_port) + '\033[0m'
 
     # Perform the first fork.
     try:

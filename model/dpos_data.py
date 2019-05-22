@@ -16,12 +16,12 @@ metadatas_hash = 'xxx'
 
 tables = ['validator_candidates', 'kol_candidates', 'committee', 'proposal', 'vote', 'validator_reward_distribution', 'kol_reward_distribution', 'configuration']
 
-def data_get():
+def data_get(url)
     ''' get all dpos data from contract account '''
 
     global metadatas_hash
     payload = 'address=buQqzdS9YSnokDjvzg4YaNatcFQfkgXqk6ss'
-    ca = ChainApi(url='http://seed1.bumo.io:16002/')
+    ca = ChainApi(url)
     res = ca.req('getAccount', payload)
     if not res or res['error_code'] != 0:
 	return False, 'Failed to get dpos data'
@@ -107,9 +107,9 @@ def data_store(data, db_file):
 	cur.execute("CREATE TABLE kol_candidates(id INTEGER PRIMARY KEY AUTOINCREMENT, addr TEXT, stake INT)")
 	data_parse(cur, data['result']['metadatas'])
 
-def data_update(db_file = './dpos.db'):
+def data_update(db_file = './dpos.db', url='http://seed1.bumo.io:16002/'):
     ''' Update sqlite database '''
-    res, data = data_get()
+    res, data = data_get(url)
     if not res:
 	return False, data
     else:

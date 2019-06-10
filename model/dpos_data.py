@@ -16,7 +16,7 @@ metadatas_hash = 'xxx'
 
 tables = ['validator_candidates', 'kol_candidates', 'committee', 'proposal', 'vote', 'validator_reward_distribution', 'kol_reward_distribution', 'configuration']
 
-def data_get(url)
+def data_get(url):
     ''' get all dpos data from contract account '''
 
     global metadatas_hash

@@ -20,6 +20,7 @@ web_port = 36010
 class index:
 
     def GET(self):
+        res, msg = data_update(db_file, url='http://seed1.bumo.io:16002/')
         v_cands=data_read('validator_candidates', db_file)
         k_cands=data_read('kol_candidates', db_file)
         committee=data_read('committee', db_file)
@@ -67,11 +68,6 @@ class WebSite(web.application):
 app = WebSite(urls, globals())
 
 if __name__ == '__main__':
-    res, msg = data_update(db_file, url='http://seed1.bumo.io:16002/')
-    if not res:
-        print 'Failed to update dpos data to db, %s' % msg
-    else:
-        print msg
 
     rcode, msg = commands.getstatusoutput("ifconfig|grep 'inet '")
     ip = msg.split()[1].split('/')[0].strip()

@@ -1971,6 +1971,7 @@ if __name__ == "__main__":
         elif op == '-u':
             url = arg.strip('/') + '/'
             base_url = 'http://' + url
+            print base_url
         elif op == '-f':
             keypairs = arg
         elif op == '-r':

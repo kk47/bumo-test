@@ -22,7 +22,7 @@ max_items = 500 # max tx number per http request
 genesis_account = 'buQs9npaCq9mNFZG18qu88ZcmXYqd6bqpTU3'
 genesis_priv_key = 'privbvYfqQyG3kZyHE4RX4TYVa32htw8xG4WdpCTrymPUJQ923XkKVbM'
 
-committee_path = '/tmp/committees'
+committee_path = './committees'
 keypairs = './keypairs'
 voters_path = '/tmp/voters'
 kols_path = '/tmp/kols'
@@ -69,8 +69,8 @@ commands = [
 class ChainApi(object):
     ''' Http request interaction with blockchain '''
     
-    def __init__(self, url = base_url):
-        self.url = url
+    def __init__(self, url = ''):
+        self.url = url or base_url
         return
     
     def req(self, module, payload, post=False, sync_wait=False):
@@ -457,6 +457,7 @@ class Performance(ChainApi):
             startSeq += span 
             idx += span
             lines.append('%s %.2f\n' % (tc, ts))
+        
         tc, ts = self.getTps(startSeq, endSeq)
         lines.append('%s %.2f\n' % (tc, ts))
         with open('./data.log', 'w') as f:
@@ -1017,6 +1018,7 @@ class Dpos(ChainApi):
         else:
             params = "{\"method\": \"configure\", \"params\": {\"item\": \"%s\", \"value\": %s}}" % (item, value)
         self.addPayload(payload, 'pay_coin', [dpos_addr], account, nonce, input_str=params)
+
         success_count = self.sendRequest(payload)
         
         if debug:
@@ -1920,7 +1922,7 @@ if __name__ == "__main__":
     fhlr = logging.FileHandler('dpos.log') # to log file
     fhlr.setFormatter(formatter)
     logger.addHandler(chlr)
-    #logger.addHandler(fhlr)
+    logger.addHandler(fhlr)
 
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hc:p:P:n:o:s:u:f:l:r:qdU")
@@ -1970,7 +1972,6 @@ if __name__ == "__main__":
         elif op == '-u':
             url = arg.strip('/') + '/'
             base_url = 'http://' + url
-            print base_url
         elif op == '-f':
             keypairs = arg
         elif op == '-r':
@@ -2033,6 +2034,8 @@ if __name__ == "__main__":
         dt.cleanProposal(vec[0], vec[1], vec[2])
     elif cmd == 'init':
         print dt.dposInit(update)
+    elif cmd == 'getDposCfg':
+        print json.dumps(dt.getDposCfg(), indent=4)
     elif cmd == 'updateCfg':
 	vec = para.strip().split('=')
 	if len(vec) != 2:

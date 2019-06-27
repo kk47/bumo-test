@@ -457,7 +457,6 @@ class Performance(ChainApi):
             startSeq += span 
             idx += span
             lines.append('%s %.2f\n' % (tc, ts))
-        
         tc, ts = self.getTps(startSeq, endSeq)
         lines.append('%s %.2f\n' % (tc, ts))
         with open('./data.log', 'w') as f:

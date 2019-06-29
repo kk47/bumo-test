@@ -1,1 +1,1 @@
-/root/dpos/model/dpos_test.py
+model/dpos_test.py

@@ -134,6 +134,7 @@ a. Update some configuration in dpos_test.py, like genesis_account and init_comm
 
 b. Get dpos_delegate.js dpos.js to local directory
 
+c. The dpos_test.py is soft link to model/dpos_test.py, you may need to re-create if it is invalid
 ```txt
 [root@d01 kk]# ./dpos_test.py -h
 Usage :

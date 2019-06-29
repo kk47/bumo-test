@@ -1805,7 +1805,7 @@ def usage():
         %s -c genKeyPairs|testPayCoin|testCreateAccount|testIssueAsset -n number [-o numOpPerTx] [-s startNonce] [-f keypairs]
         %s -c dumpLedgerView -n span [-o startSeq]
         %s -c getTps -n startSeq [-o endSeq]
-        %s -c init|updateCfg|testValidatorElection|testKolElection|testCommittee [-f keypairs] [-U] [-p key=value]
+        %s -c init|getCfg|updateCfg|testValidatorElection|testKolElection|testCommittee [-f keypairs] [-U] [-p key=value]
         %s -c dposTest|testAbolish|cleanProposal [-p malicious|item,operate,address]
         %s -c initVote|testVote|testUnVote [-p 'mode=compete,voter_num=5,candidate_num=5']
         %s -c str2Hex|hex2Str -p raw_string|hex_string
@@ -2034,7 +2034,7 @@ if __name__ == "__main__":
         dt.cleanProposal(vec[0], vec[1], vec[2])
     elif cmd == 'init':
         print dt.dposInit(update)
-    elif cmd == 'getDposCfg':
+    elif cmd == 'getCfg':
         print json.dumps(dt.getDposCfg(), indent=4)
     elif cmd == 'updateCfg':
 	vec = para.strip().split('=')

@@ -706,7 +706,8 @@ class Dpos(ChainApi):
             return False, 'Failed to get dpos configuration'
 
         if role_type == 'validator':
-            coin_amount = int(cfg['validator_min_pledge'])
+            #coin_amount = int(cfg['validator_min_pledge'])
+            coin_amount = 770000000000000
         elif role_type == 'kol':
             coin_amount = int(cfg['kol_min_pledge'])
 
@@ -2040,7 +2041,20 @@ if __name__ == "__main__":
 	vec = para.strip().split('=')
 	if len(vec) != 2:
 	    print 'Failed to parse parameters, %s' % para
-	dt.updateCfg(vec[0], vec[1])
+            sys.exit(1)
+        dt.updateCfg(vec[0], vec[1])
+    elif cmd == 'withdraw':
+	vec = para.strip().split('=')
+	if len(vec) != 2:
+	    print 'Failed to parse parameters, %s' % para
+            sys.exit(1)
+        account={'address': vec[0], 'private_key': vec[1]}
+        if not role:
+            print 'Please set -r role'
+            sys.exit(1)
+	print dt.withdraw(role, account)
+    elif cmd == 'addnodes':
+        print dt.addCandidates(role, keypairs)
     elif cmd in commands:
         if cmd == 'th':
             cmd = 'getTransactionHistory'

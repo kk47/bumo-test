@@ -20,7 +20,8 @@ web_port = 36010
 class index:
 
     def GET(self):
-        res, msg = data_update(db_file, url='http://seed1.bumo.io:16002/')
+        #res, msg = data_update(db_file, url='http://seed1.bumo.io:16002/')
+        res, msg = data_update(db_file, url='http://127.0.0.1:36012/')
         v_cands=data_read('validator_candidates', db_file)
         k_cands=data_read('kol_candidates', db_file)
         committee=data_read('committee', db_file)

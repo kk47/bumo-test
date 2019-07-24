@@ -18,6 +18,7 @@ import pdb
 
 
 base_url = 'http://127.0.0.1:36012/'
+#base_url = 'http://seed1.bumo.io:16002/'
 max_items = 500 # max tx number per http request
 genesis_account = 'buQs9npaCq9mNFZG18qu88ZcmXYqd6bqpTU3'
 genesis_priv_key = 'privbvYfqQyG3kZyHE4RX4TYVa32htw8xG4WdpCTrymPUJQ923XkKVbM'
@@ -660,7 +661,7 @@ class Dpos(ChainApi):
         input_str = "{\"method\": \"init\", \"params\": {\"logic_contract\": \"%s\", \"committee\": [\"buQZoJk8bq6A1AtsmfRw3rYJ79eMHUyct9i2\", \"buQYKj4TTJPVDPXCLWeBZMoCr1JPhq9Z2tJm\", \"buQcYkkoZFMwDNQgCD7DoykNZjtax4FjVSzy\", \"buQmKmaeCyGcPk9KbvnkhpLzQa34tQ9MaWwt\"]}}" % logic_addr
         
         logger.info('Start create dpos delegate contract')
-        res = self.createContract(dpos_addr, newNonce(dpos_creator_account['address']), content, input_str, src_account=dpos_creator_account)
+        res = self.createContract(dpos_addr, self.newNonce(dpos_creator_account['address']), content, input_str, src_account=dpos_creator_account)
         if debug:
             logger.info(json.dumps(res, indent=4))
 

@@ -38,6 +38,7 @@ public:
     uint32_t capacity();
     uint32_t available();
     uint32_t depth();
+    void debug_string();
 private:
     std::string calc_subtree(uint32_t index, uint32_t item_depth);
     uint64_t left_shift(uint64_t v, uint64_t n);

@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "merkle_tree.hpp"
 #include "utils/util.h"
 
@@ -95,18 +97,24 @@ std::string MerkleTree::calc_subtree(uint32_t index, uint32_t item_depth) {
 
 void MerkleTree::get_witness(const std::string& cm, uint32_t& index, std::vector<std::string>& uncles) {
     std::map<uint32_t, std::string>::iterator it = map_commitments.begin();
+    bool found = false;
     for ( ; it != map_commitments.end(); it++) {
         if (it->second == cm) {
             index = it->first - 1;
+            found = true;
             break;
         }
     }
-    if (it == map_commitments.end() && index == 0) return;
+    if (!found) {
+        std::cerr << "Commitment not found" << std::endl;
+        return;
+    }
 
     uint32_t cur_depth = 0;
     uint32_t cur_index = index;
     uint32_t i = 0;
     while (cur_depth < tree_depth) {
+        std::cout << "cur_depth:" << cur_depth << std::endl;
         uncles.push_back(calc_subtree(cur_index^1, cur_depth++));
         cur_index = right_shift(cur_index, 1);
     }
@@ -120,4 +128,11 @@ uint64_t MerkleTree::right_shift(uint64_t v, uint64_t n) {
     return v / (1 << n);
 }
 
+void MerkleTree::debug_string() {
+    std::cout << "Depth:" << depth() << std::endl; 
+    std::cout << "Capacity:" << capacity() << std::endl; 
+    std::cout << "Avaliable:" << available() << std::endl; 
+    std::cout << "Size:" << size() << std::endl; 
+    std::cout << "Root:" << root() << std::endl; 
+}
 

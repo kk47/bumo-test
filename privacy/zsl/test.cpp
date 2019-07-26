@@ -1,63 +1,96 @@
 #include <iostream>
 #include <string>
-#include <ctime>
-#include <cstdlib>
-#include <sstream>
 
-#include <stdio.h>
-
-#include "note.hpp"
-#include "utils/util.h"
 #include "api.hpp"
+#include "utils/util.h"
+#include "merkle_tree.hpp"
+#include "zsl/snark/zsl.h"
 
+unsigned char rho[32];
+unsigned char pk[32];
+unsigned char sk[32];
+uint64_t value = 0;
+
+bool shielding()
+{
+    get_keypair(sk, pk);
+    
+    std::cout << "a_pk:";
+    print_char_array(pk, 32);
+    std::cout << "a_sk:";
+    print_char_array(sk, 32);
+    
+    value = 2378237 ;
+    get_randomness(rho, 32);
+    //std::cout << "rho:";
+    //print_char_array(rho, 32);
+
+
+    // zsl_prove_shielding(void *rho, void *pk, uint64_t value, void *output_proof);
+    unsigned char proof_str[584];
+    std::cout << "here" << std::endl;
+    zsl_prove_shielding(rho, pk, value, proof_str);
+    //std::cout << "shielding proof:";
+    //print_char_array(proof_str, 32);
+    
+    unsigned char send_nf[32];
+    unsigned char cm[32];
+    computeSendNullifier(rho, send_nf);
+    computeCommitment(rho, pk, value, cm);
+    std::cout << "send_nf:";
+    print_char_array(send_nf, 32);
+    std::cout << "cm:";
+    print_char_array(cm, 32);
+
+    bool ret = zsl_verify_shielding(proof_str, send_nf, cm, value);
+    if(!ret) {
+        std::cout << "shield verify failed" << std::endl;
+    } else {
+        std::cout << "shield verify done" << std::endl;
+    }
+    return true;
+}
 
 int main(int argc, char *argv[])
 {
-    /*srand((unsigned)time(0));
-    for(int i=0; i<100000000; ++i) {
-        std::cout << rand() << std::endl; 
+    /*MerkleTree mt(29);
+    mt.add_commitment(cm_str);
+    std::cout << "commitment is:" << cm_str << std::endl;
+    
+    mt.debug_string();
+
+    std::cout << "empty roots is:" << std::endl;
+    for(int i = 0; i < mt.empty_roots.size(); i++) {
+        std::cout << mt.empty_roots[i] << std::endl;
+    }
+
+    std::cout << "commitments map:" << std::endl;
+    std::map<uint32_t, std::string>::iterator it = mt.map_commitments.begin();
+    for ( ; it != mt.map_commitments.end(); it++) {
+        std::cout << it->first << ":" << it->second << std::endl;
+    }
+
+    uint32_t index = 0;
+    std::vector<std::string> uncles;
+    mt.get_witness(cm_str, index, uncles);
+    std::cout << index << std::endl;
+    for(int i = 0; i < uncles.size(); i++) {
+        std::cout << uncles[i] << std::endl;
+    }
+    
+    uint64_t value = 2378237;
+    unsigned char proof_str[584];
+    zsl_prove_shielding(rho, a_pk, value, proof_str);
+    //std::cout << "proof_str:";
+    //print_char_array(proof_str, 584);
+
+    bool ret = zsl_verify_shielding(proof_str, send_nf, cm, value);
+    if(!ret) {
+        std::cout << "shield verify failed" << std::endl;
+    } else {
+        std::cout << "shield verify done" << std::endl;
     }*/
-    
-    /*unsigned char a_pk[32];
-    unsigned char a_sk[32];
-    get_keypair(a_sk, a_pk);
-    print_char_array(a_pk, 32);
-    print_char_array(a_sk, 32);
-    std::cout << sizeof(a_sk) << ":" << sizeof(a_pk) << std::endl;
-    */
-
-    /*std::string rho_str = "dedeffdddedeffdddedeffdddedeffdddedeffdddedeffdddedeffdddedeffdd";
-    std::string pk_str = "e8e55f617b4b693083f883f70926dd5673fa434cefa3660828759947e2276348";
-    std::string sk_str = "f0f0f0f00f0f0ffffffffff000000f0f0f0f0f00f0000f0f00f00f0f0f0f00ff";
-    
-    unsigned char rho[rho_str.size()/2];
-    unsigned char pk[32];
-    unsigned char sk[32];
-    unsigned char send_nf[32];
-    unsigned char send_nf1[32];
-    unsigned char cm[32];
-    unsigned char spend_nf[32];
-
-    hex_str_to_array(rho_str, rho);
-    hex_str_to_array(pk_str, pk);
-    hex_str_to_array(sk_str, sk);
-
-    //computeSendNullifier(rho, send_nf);
-    computeCommitment(rho, pk, 2378237, cm);
-    computeSpendNullifier(rho, sk, spend_nf);
-
-    //print_char_array(send_nf, 32);
-    print_char_array(cm, 32);
-    print_char_array(spend_nf, 32);*/
-    
-    std::string rho_str = "0000000000000000000000000000000000000000000000000000000000000000";
-    unsigned char rho[64];
-    unsigned char rho_hash[32];
-    hex_str_to_array(rho_str+rho_str, rho);
-    sha256(rho, 32, rho_hash);
-    print_char_array(rho_hash, 32);
-
-    std::cout << sha256(rho_str + rho_str) << std::endl;
+    bool ret = shielding();
 
     return 0;
 }

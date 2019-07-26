@@ -15,6 +15,12 @@ std::string to_string(T value) {
     return os.str();
 }
 
+void print_char_array(unsigned char *array, int len) {
+    for(int i=0; i < len; i++)
+        printf("%02x", array[i]);
+    printf("\n");
+}
+
 void sha256(unsigned char *str, int len, unsigned char *buf) {
     SHA256_CTX sha256;
     SHA256_Init(&sha256);
@@ -44,21 +50,15 @@ std::string array_to_hex_str(unsigned char *array, int len) {
     return result;
 }
 
-void print_char_array(unsigned char *array, int len) {
-    for(int i=0; i < len; i++)
-        printf("%02x", array[i]);
-    printf("\n");
-}
 
 std::string sha256(const std::string& hex_str) {
-    SHA256_CTX sha256;
-    SHA256_Init(&sha256);
     int len = hex_str.size()/2;
     unsigned char array[len];
     hex_str_to_array(hex_str, array);
-    SHA256_Update(&sha256, array, len);
     unsigned char buf_arr[32];
-    SHA256_Final(buf_arr, &sha256);
+    
+    sha256(array, len, buf_arr);
+
     return array_to_hex_str(buf_arr, 32);
 }
 

@@ -1,5 +1,7 @@
+*.o
 *.pk
 *.vk
 a.out
 zsltest
 *.bak
+core*

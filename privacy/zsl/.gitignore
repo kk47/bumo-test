@@ -1,2 +1,5 @@
 *.pk
 *.vk
+a.out
+zsltest
+*.bak

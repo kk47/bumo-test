@@ -1,307 +1,116 @@
-#include <openssl/rand.h>
-#include <openssl/err.h>
+#include <openssl/sha.h>
+#include <stdio.h>
 
-#include <string>
 #include <iostream>
-#include <fstream>
-#include <curses.h>
-#include <exception>
-#include <cstring>
+#include <string>
 #include <iomanip>
-#include <algorithm>
+#include <fstream>
+#include <sstream>
+#include <cstdlib>
 
-#include "util.h"
+template <typename T>
+std::string to_string(T value) {
+    std::ostringstream os;
+    os << value;
+    return os.str();
+}
 
+void sha256(unsigned char *str, int len, unsigned char *buf) {
+    SHA256_CTX sha256;
+    SHA256_Init(&sha256);
+    SHA256_Update(&sha256, str, len);
+    SHA256_Final(buf, &sha256);
+}
 
-void printChar(const unsigned char c) {
-    for(int j = 8; j >= 0; j--) {
-        std::cout << ((c >> j) & 1);
+void hex_str_to_array(const std::string& hex_str, unsigned char *array) {
+    unsigned int c;
+    for (int i = 0; i < hex_str.size(); i+=2) {
+        std::istringstream hex_stream(hex_str.substr(i, 2));
+        hex_stream >> std::hex >> c;
+        array[i/2] = c;
     }
-    std::cout << std::endl;
 }
 
-void printVector(const std::vector<bool>& v) {
-    std::cout << v.size() << " MSB ";
-    for(size_t i = 0; i < v.size(); i++) {
-        std::cout << v.at(i);
+std::string array_to_hex_str(unsigned char *array, int len) {
+    std::string result;
+    result.resize(len * 2);
+    for (size_t i = 0; i < len; i++) {
+        uint8_t item = array[i];
+        uint8_t high = (item >> 4);
+        uint8_t low = (item & 0x0f);
+        result[2 * i] = (high >= 0 && high <= 9) ? (high + '0') : (high - 10 + 'a');
+        result[2 * i + 1] = (low >= 0 && low <= 9) ? (low + '0') : (low - 10 + 'a');
     }
-    std::cout << " LSB" << std::endl;
+    return result;
 }
 
-void printVector(const std::string str, const std::vector<bool>& v) {
-    std::cout << str << " " << v.size() << " MSB ";
-    for(size_t i = 0; i < v.size(); i++) {
-        std::cout << v.at(i);
+void print_char_array(unsigned char *array, int len) {
+    for(int i=0; i < len; i++)
+        printf("%02x", array[i]);
+    printf("\n");
+}
+
+std::string sha256(const std::string& hex_str) {
+    SHA256_CTX sha256;
+    SHA256_Init(&sha256);
+    int len = hex_str.size()/2;
+    unsigned char array[len];
+    hex_str_to_array(hex_str, array);
+    SHA256_Update(&sha256, array, len);
+    unsigned char buf_arr[32];
+    SHA256_Final(buf_arr, &sha256);
+    return array_to_hex_str(buf_arr, 32);
+}
+
+static std::string BinToHexString(const char *value, int len) {
+    std::string result;
+    result.resize(len * 2);
+    for (size_t i = 0; i < len; i++) {
+        uint8_t item = value[i];
+        uint8_t high = (item >> 4);
+        uint8_t low = (item & 0x0F);
+        result[2 * i] = (high >= 0 && high <= 9) ? (high + '0') : (high - 10 + 'a');
+        result[2 * i + 1] = (low >= 0 && low <= 9) ? (low + '0') : (low - 10 + 'a');
     }
-    std::cout << " LSB" << std::endl;
+    return result;
 }
 
-void printVectorAsHex(const std::vector<bool>& v) {
-    unsigned char bytes[int(v.size() / 8)];
-    convertVectorToBytes(v, bytes);
+template<class T>
+T get_randomness()
+{
+    union {
+        T value;
+        char cs[sizeof(T)];
+    } u;
 
-    for(int i = 0; i < int(v.size() / 8); i++) {
-        std::cout << std::setw(2) << std::setfill('0') << std::hex << (int) bytes[i];
-    }
-    std::cout << std::dec << std::endl;
+    std::ifstream rfin("/dev/urandom");
+    rfin.read(u.cs, sizeof(u.cs));
+    rfin.close();
+
+    return u.value;
 }
 
-void printVectorAsHex(const std::string str, const std::vector<bool>& v) {
-    unsigned char bytes[int(v.size() / 8)];
-    convertVectorToBytes(v, bytes);
-
-    std::cout << str << " ";
-    for(int i = 0; i < int(v.size() / 8); i++) {
-        std::cout << std::setw(2) << std::setfill('0') << std::hex << (int) bytes[i];
-    }
-    std::cout << std::dec << std::endl;
-}
-
-void printBytesVector(const std::vector<unsigned char>& v) {
-    std::vector<bool> boolVec(v.size() * 8);
-    convertBytesVectorToVector(v, boolVec);
-    printVector(boolVec);
-}
-
-void printBytesVector(const std::string str, const std::vector<unsigned char>& v) {
-    std::vector<bool> boolVec(v.size() * 8);
-    convertBytesVectorToVector(v, boolVec);
-    printVector(str, boolVec);
-}
-
-void printBytesVectorAsHex(const std::vector<unsigned char>& v) {
-    std::vector<bool> boolVec(v.size() * 8);
-    convertBytesVectorToVector(v, boolVec);
-    printVectorAsHex(boolVec);
-}
-
-void printBytesVectorAsHex(const std::string str, const std::vector<unsigned char>& v) {
-    std::vector<bool> boolVec(v.size() * 8);
-    convertBytesVectorToVector(v, boolVec);
-    printVectorAsHex(str, boolVec);
-}
-
-void getRandBytes(unsigned char* bytes, int num) {
-    int ret = RAND_bytes(bytes, num);
-    if(ret != 1)
-        std::cout << "rand_bytes error!" << ERR_get_error() << std::endl;
-}
-
-void convertBytesToVector(const unsigned char* bytes, std::vector<bool>& v) {
-    int numBytes = v.size() / 8;
-    unsigned char c;
-    for(int i = 0; i < numBytes; i++) {
-        c = bytes[i];
-
-        for(int j = 0; j < 8; j++) {
-            v.at((i*8)+j) = ((c >> (7-j)) & 1);
+void get_randomness(std::string &output, int len) {
+    char *buf = new char[len];
+    std::ifstream urandom("/dev/urandom", std::ios::in|std::ios::binary);
+    if(urandom) {
+        urandom.read(buf, len);
+        if(urandom) {
+            output = BinToHexString(buf, len);
         }
+        urandom.close();
     }
+    return;
+}
+void get_randomness(unsigned char *output, int len) {
+    std::string hex_str;
+    get_randomness(hex_str, len);
+    hex_str_to_array(hex_str, output);
+    return;
 }
 
-void convertVectorToBytes(const std::vector<bool>& v, unsigned char* bytes) {
-    int numBytes = v.size() / 8;
-    unsigned char c = '\0';
-
-    for(int i = 0; i < numBytes; i++) {
-        c = '\0';
-        for(int j = 0; j < 8; j++) {
-            if(j == 7)
-                c = ((c | v.at((i*8)+j)));
-            else
-                c = ((c | v.at((i*8)+j)) << 1);
-        }
-        bytes[i] = c;
-    }
-}
-
-void convertBytesToBytesVector(const unsigned char* bytes, std::vector<unsigned char>& v) {
-    for(size_t i = 0; i < v.size(); i++) {
-        v.at(i) = bytes[i];
-    }
-}
-
-void convertBytesVectorToBytes(const std::vector<unsigned char>& v, unsigned char* bytes) {
-    for(size_t i = 0; i < v.size(); i++) {
-        bytes[i] = v.at(i);
-    }
-}
-
-void convertBytesVectorToVector(const std::vector<unsigned char>& bytes, std::vector<bool>& v) {
-	v.resize(bytes.size() * 8);
-    unsigned char bytesArr[bytes.size()];
-    convertBytesVectorToBytes(bytes, bytesArr);
-    convertBytesToVector(bytesArr, v);
-}
-
-void convertVectorToBytesVector(const std::vector<bool>& v, std::vector<unsigned char>& bytes) {
-    unsigned char bytesArr[int(ceil(v.size() / 8.))];
-    convertVectorToBytes(v, bytesArr);
-    convertBytesToBytesVector(bytesArr, bytes);
-}
-
-void convertIntToBytesVector(const uint64_t val_int, std::vector<unsigned char>& bytes) {
-     for(size_t i = 0; i < bytes.size(); i++) {
-         bytes[bytes.size()-1-i] = (val_int >> (i * 8));
-    }
-}
-
-uint64_t convertBytesVectorToInt(const std::vector<unsigned char>& bytes) {
-    uint64_t val_int = 0;
-
-    for(size_t i = 0; i < bytes.size(); i++) {
-        val_int = val_int + (bytes[i] << ((bytes.size()-1-i) * 8));
-    }
-
-    return val_int;
-}
-
-void concatenateVectors(const std::vector<bool>& A, const std::vector<bool>& B, std::vector<bool>& result) {
-    result.reserve(A.size() + B.size());
-    result.insert(result.end(), A.begin(), A.end());
-    result.insert(result.end(), B.begin(), B.end());
-}
-
-void concatenateVectors(const std::vector<unsigned char>& A, const std::vector<unsigned char>& B, std::vector<unsigned char>& result) {
-    result.reserve(A.size() + B.size());
-    result.insert(result.end(), A.begin(), A.end());
-    result.insert(result.end(), B.begin(), B.end());
-}
-
-void concatenateVectors(const std::vector<bool>& A, const std::vector<bool>& B, const std::vector<bool>& C, std::vector<bool>& result) {
-    result.reserve(A.size() + B.size() + C.size());
-    result.insert(result.end(), A.begin(), A.end());
-    result.insert(result.end(), B.begin(), B.end());
-    result.insert(result.end(), C.begin(), C.end());
-}
-
-void concatenateVectors(const std::vector<unsigned char>& A, const std::vector<unsigned char>& B, const std::vector<unsigned char>& C, std::vector<unsigned char>& result) {
-    result.reserve(A.size() + B.size() + C.size());
-    result.insert(result.end(), A.begin(), A.end());
-    result.insert(result.end(), B.begin(), B.end());
-    result.insert(result.end(), C.begin(), C.end());
-}
-
-void sha256(unsigned char* input, unsigned char* hash, int len) {
-	SHA256_CTX_mod ctx256;
-
-	sha256_init(&ctx256);
-	sha256_update(&ctx256, input, len);
-	sha256_final(&ctx256, hash);
-}
-
-void sha256(SHA256_CTX_mod* ctx256, unsigned char* input, unsigned char* hash, int len) {
-	sha256_init(ctx256);
-	sha256_update(ctx256, input, len);
-	sha256_final(ctx256, hash);
-}
-
-void hashVector(SHA256_CTX_mod* ctx256, const std::vector<bool> input, std::vector<bool>& output) {
-    int size = int(input.size() / 8);
-    unsigned char bytes[size];
-    convertVectorToBytes(input, bytes);
-
-    unsigned char hash[SHA256_BLOCK_SIZE];
-    sha256(ctx256, bytes, hash, (int)size);
-
-    convertBytesToVector(hash, output);
-}
-
-void hashVector(SHA256_CTX_mod* ctx256, const std::vector<unsigned char> input, std::vector<unsigned char>& output) {
-    int size = int(input.size());
-    unsigned char bytes[size];
-    convertBytesVectorToBytes(input, bytes);
-
-    unsigned char hash[SHA256_BLOCK_SIZE];
-    sha256(ctx256, bytes, hash, (int)size);
-
-    convertBytesToBytesVector(hash, output);
-}
-
-void hashVector(const std::vector<bool> input, std::vector<bool>& output) {
-	SHA256_CTX_mod ctx256;
-
-    int size = int(input.size() / 8);
-    unsigned char bytes[size];
-    convertVectorToBytes(input, bytes);
-
-    unsigned char hash[SHA256_BLOCK_SIZE];
-    sha256(&ctx256, bytes, hash, (int)size);
-
-    convertBytesToVector(hash, output);
-}
-
-void hashVector(const std::vector<unsigned char> input, std::vector<unsigned char>& output) {
-	SHA256_CTX_mod ctx256;
-
-    int size = int(input.size());
-    unsigned char bytes[size];
-    convertBytesVectorToBytes(input, bytes);
-
-    unsigned char hash[SHA256_BLOCK_SIZE];
-    sha256(&ctx256, bytes, hash, (int)size);
-
-    convertBytesToBytesVector(hash, output);
-}
-
-void hashVectors(SHA256_CTX_mod* ctx256, const std::vector<bool> left, const std::vector<bool> right, std::vector<bool>& output) {
-    std::vector<bool> concat;
-    concatenateVectors(left, right, concat);
-
-    int size = int(concat.size() / 8);
-    unsigned char bytes[size];
-    convertVectorToBytes(concat, bytes);
-
-    unsigned char hash[SHA256_BLOCK_SIZE];
-    sha256(ctx256, bytes, hash, (int)size);
-
-    convertBytesToVector(hash, output);
-}
-
-void hashVectors(SHA256_CTX_mod* ctx256, const std::vector<unsigned char> left, const std::vector<unsigned char> right, std::vector<unsigned char>& output) {
-    std::vector<unsigned char> concat;
-    concatenateVectors(left, right, concat);
-
-    int size = int(concat.size());
-    unsigned char bytes[size];
-    convertBytesVectorToBytes(concat, bytes);
-
-    unsigned char hash[SHA256_BLOCK_SIZE];
-    sha256(ctx256, bytes, hash, (int)size);
-
-    convertBytesToBytesVector(hash, output);
-}
-
-void hashVectors(const std::vector<bool> left, const std::vector<bool> right, std::vector<bool>& output) {
-	std::cout << std::endl;
-
-    std::vector<bool> concat;
-    concatenateVectors(left, right, concat);
-
-    int size = int(concat.size() / 8);
-    unsigned char bytes[size];
-    convertVectorToBytes(concat, bytes);
-
-    unsigned char hash[SHA256_BLOCK_SIZE];
-    sha256(bytes, hash, (int)size);
-
-    convertBytesToVector(hash, output);
-}
-
-void hashVectors(const std::vector<unsigned char> left, const std::vector<unsigned char> right, std::vector<unsigned char>& output) {
-    std::vector<unsigned char> concat;
-    concatenateVectors(left, right, concat);
-
-    int size = int(concat.size());
-    unsigned char bytes[size];
-    convertBytesVectorToBytes(concat, bytes);
-
-    unsigned char hash[SHA256_BLOCK_SIZE];
-    sha256(bytes, hash, (int)size);
-
-    convertBytesToBytesVector(hash, output);
-}
-
-bool VectorIsZero(const std::vector<bool> test) {
-	return (test.end() == std::find(test.begin(), test.end(), true));
+/* get new address */
+void get_keypair(unsigned char *priv, unsigned char *pub) {
+    get_randomness(priv, 32);
+    sha256(priv, 32, pub);
 }

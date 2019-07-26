@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
 
-#include "note.hpp"
 #include "api.hpp"
+#include "utils/util.h"
 #include "zsl/snark/zsl.h"
+#include "merkle_tree.hpp"
 
 unsigned char rho[32];
 unsigned char pk[32];
@@ -66,6 +67,16 @@ bool unshileding()
         for (int j = 0; j < 32; j++) {
             auth_path[i][j] = path_item[j];
         }
+    }
+    
+    MerkleTree mt(29);
+    mt.add_commitment(rho_str);
+    uint32_t index = 0;
+    std::vector<std::string> uncles;
+    mt.get_witness(rho_str, index, uncles);
+    std::cout << index << std::endl;
+    for(int i = 0; i < uncles.size(); i++) {
+        std::cout << uncles[i] << std::endl;
     }
 
     /*unsigned char auth_path[29][32] = {

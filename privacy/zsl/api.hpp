@@ -5,7 +5,7 @@
 #include <iostream>
 #include <fstream>
 
-#include "note.hpp"
+#include "utils/util.h"
 
 
 void computeSendNullifier(unsigned char *rho, unsigned char *send_nf) {

@@ -1,7 +1,9 @@
 *.o
 *.pk
 *.vk
+tags
 a.out
 zsltest
+bak*
 *.bak
 core*

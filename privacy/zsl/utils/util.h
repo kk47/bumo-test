@@ -1,10 +1,16 @@
 #ifndef _UTIL_H_
 #define _UITL_H_
-#include <string>
 
+#include <string>
+#include <sstream>
 
 template <typename T>
-std::string to_string(T value);
+std::string to_string(T value) {
+    std::ostringstream os;
+    os << value;
+    return os.str();
+}
+
 static std::string BinToHexString(const char *value, int len);
 void print_char_array(unsigned char *array, int len);
 

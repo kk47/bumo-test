@@ -8,12 +8,6 @@
 #include <sstream>
 #include <cstdlib>
 
-template <typename T>
-std::string to_string(T value) {
-    std::ostringstream os;
-    os << value;
-    return os.str();
-}
 
 void print_char_array(unsigned char *array, int len) {
     for(int i=0; i < len; i++)

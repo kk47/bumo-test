@@ -43,7 +43,6 @@ private:
     std::string calc_subtree(uint32_t index, uint32_t item_depth);
     uint64_t left_shift(uint64_t v, uint64_t n);
     uint64_t right_shift(uint64_t v, uint64_t n);
-
 };
 
 #endif

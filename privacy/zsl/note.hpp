@@ -3,6 +3,9 @@
 
 #include "utils/uint256.h"
 
+void computeSendNullifier(unsigned char *rho, unsigned char *send_nf);
+void computeSpendNullifier(unsigned char *rho, unsigned char *sk, unsigned char *spend_nf);
+void computeCommitment(unsigned char *rho, unsigned char *pk, uint64_t value, unsigned char *commitment);
 
 /* Note class */
 class Note {

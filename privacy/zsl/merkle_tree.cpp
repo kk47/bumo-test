@@ -114,7 +114,6 @@ void MerkleTree::get_witness(const std::string& cm, uint32_t& index, std::vector
     uint32_t cur_index = index;
     uint32_t i = 0;
     while (cur_depth < tree_depth) {
-        std::cout << "cur_depth:" << cur_depth << std::endl;
         uncles.push_back(calc_subtree(cur_index^1, cur_depth++));
         cur_index = right_shift(cur_index, 1);
     }

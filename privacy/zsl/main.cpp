@@ -236,7 +236,7 @@ int main(int argc, char *argv[])
 
     // unsheilding zk-snark test
     //zsl_paramgen_unshielding();
-    ret = unshileding();
+    //ret = unshileding();
     
     // transfer zk-snark test
     //zsl_paramgen_transfer();

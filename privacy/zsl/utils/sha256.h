@@ -1,34 +1,32 @@
-/*********************************************************************
-* Filename:   sha256.h
-* Author:     Brad Conte (brad AT bradconte.com)
-* Copyright:
-* Disclaimer: This code is presented "as is" without any guarantees.
-* Details:    Defines the API for the corresponding SHA1 implementation.
-*********************************************************************/
+// Copyright (c) 2014 The Bitcoin Core developers
+// Distributed under the MIT software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef SHA256H_H
-#define SHA256H_H
+#ifndef BITCOIN_CRYPTO_SHA256_H
+#define BITCOIN_CRYPTO_SHA256_H
 
-/*************************** HEADER FILES ***************************/
-#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
 
-/****************************** MACROS ******************************/
-#define SHA256_BLOCK_SIZE 32            // SHA256 outputs a 32 byte digest
+/** A hasher class for SHA-256. */
+class CSHA256
+{
+public:
+    static const size_t OUTPUT_SIZE = 32;
 
-/**************************** DATA TYPES ****************************/
-typedef unsigned char BYTE;             // 8-bit byte
-typedef unsigned int  WORD;             // 32-bit word, change to "long" for 16-bit machines
+    CSHA256();
+    CSHA256& Write(const unsigned char* data, size_t len);
+    void Finalize(unsigned char hash[OUTPUT_SIZE]);
+    void FinalizeNoPadding(unsigned char hash[OUTPUT_SIZE]) {
+    	FinalizeNoPadding(hash, true);
+    };
+    CSHA256& Reset();
 
-typedef struct {
-	BYTE data[64];
-	WORD datalen;
-	unsigned long long bitlen;
-	WORD state[8];
-} SHA256_CTX_mod;
+private:
+    uint32_t s[8];
+    unsigned char buf[64];
+    size_t bytes;
+    void FinalizeNoPadding(unsigned char hash[OUTPUT_SIZE], bool enforce_compression);
+};
 
-/*********************** FUNCTION DECLARATIONS **********************/
-void sha256_init(SHA256_CTX_mod *ctx);
-void sha256_update(SHA256_CTX_mod *ctx, const BYTE data[], size_t len);
-void sha256_final(SHA256_CTX_mod *ctx, BYTE hash[]);
-
-#endif   // SHA256H_H
+#endif // BITCOIN_CRYPTO_SHA256_H

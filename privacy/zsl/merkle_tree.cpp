@@ -23,8 +23,9 @@ std::vector<std::string>& MerkleTree::get_empty_roots() {
 }
 
 std::string MerkleTree::combine(const std::string& left, const std::string& right) {
-    std::string tmpstr = left + right;
-    return sha256(tmpstr);
+    //std::string tmpstr = left + right;
+    //return sha256(tmpstr);
+    return sha256_compress(left, right);
 }
 
 /*uint32_t MerkleTree::get_leaf_index(std::string& cm) {

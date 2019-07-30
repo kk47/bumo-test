@@ -8,6 +8,8 @@
 #include <sstream>
 #include <cstdlib>
 
+#include "sha256.h"
+
 
 void print_char_array(unsigned char *array, int len) {
     for(int i=0; i < len; i++)
@@ -20,6 +22,13 @@ void sha256(unsigned char *str, int len, unsigned char *buf) {
     SHA256_Init(&sha256);
     SHA256_Update(&sha256, str, len);
     SHA256_Final(buf, &sha256);
+}
+
+void sha256_compress(unsigned char *a, unsigned char *b, unsigned char *output) {
+    CSHA256 hasher;
+    hasher.Write(a, 32);
+    hasher.Write(b, 32);
+    hasher.FinalizeNoPadding(output);
 }
 
 void hex_str_to_array(const std::string& hex_str, unsigned char *array) {
@@ -54,6 +63,20 @@ std::string sha256(const std::string& hex_str) {
     sha256(array, len, buf_arr);
 
     return array_to_hex_str(buf_arr, 32);
+}
+
+std::string sha256_compress(const std::string& a, const std::string& b) {
+    CSHA256 hasher;
+    
+    unsigned char char_a[a.size()/2];
+    unsigned char char_b[b.size()/2];
+    unsigned char char_o[32];
+    hex_str_to_array(a, char_a);
+    hex_str_to_array(b, char_b);
+    hasher.Write(char_a, a.size()/2);
+    hasher.Write(char_b, b.size()/2);
+    hasher.FinalizeNoPadding(char_o);
+    return array_to_hex_str(char_o, 32);
 }
 
 static std::string BinToHexString(const char *value, int len) {

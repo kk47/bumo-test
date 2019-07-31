@@ -96,7 +96,7 @@ std::string MerkleTree::calc_subtree(uint32_t index, uint32_t item_depth) {
 
 }
 
-void MerkleTree::get_witness(const std::string& cm, uint32_t& index, std::vector<std::string>& uncles) {
+void MerkleTree::get_witness(const std::string& cm, uint64_t& index, std::vector<std::string>& uncles) {
     std::map<uint32_t, std::string>::iterator it = map_commitments.begin();
     bool found = false;
     for ( ; it != map_commitments.end(); it++) {

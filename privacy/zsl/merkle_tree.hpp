@@ -31,7 +31,7 @@ public:
     //std::string get_commitment_at_leaf_index(uint32_t index);
     void add_commitment(std::string& cm);
     bool commitment_exists(const std::string& cm);
-    void get_witness(const std::string& cm, uint32_t& index, std::vector<std::string>& uncles);
+    void get_witness(const std::string& cm, uint64_t& index, std::vector<std::string>& uncles);
    
     std::string root();
     uint32_t size();

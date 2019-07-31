@@ -5,6 +5,7 @@ import (
     "encoding/binary"
     "fmt"
 
+    "api"
 )
 
 // send nullifier, SHA256(0x00 || rho)

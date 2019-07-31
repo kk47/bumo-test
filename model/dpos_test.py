@@ -17,7 +17,7 @@ import logging
 import pdb
 
 
-base_url = 'http://127.0.0.1:36012/'
+base_url = 'http://127.0.0.1:36002/'
 #base_url = 'http://seed1.bumo.io:16002/'
 max_items = 500 # max tx number per http request
 genesis_account = 'buQs9npaCq9mNFZG18qu88ZcmXYqd6bqpTU3'

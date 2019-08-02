@@ -4,12 +4,12 @@
 #include <string>
 #include <sstream>
 
-template <typename T>
+/*template <typename T>
 std::string to_string(T value) {
     std::ostringstream os;
     os << value;
     return os.str();
-}
+}*/
 
 static std::string BinToHexString(const char *value, int len);
 void print_char_array(unsigned char *array, int len);
@@ -28,4 +28,5 @@ void get_randomness(std::string &output, int len);
 void get_randomness(unsigned char *output, int len);
 
 void get_keypair(unsigned char *priv, unsigned char *pub);
+void get_keypair(std::string& priv, std::string& pub);
 #endif

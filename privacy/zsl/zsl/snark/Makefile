@@ -4,7 +4,7 @@ CXXFLAGS += -I./libsnark/ -I./libsnark/src/ -DCURVE_ALT_BN128 -DBINARY_OUTPUT -D
 CXXFLAGS += $(OPTFLAGS)
 LDFLAGS += -flto
 
-LDLIBS += -lgmpxx -lgmp -lboost_system -fopenmp
+LDLIBS += -lgmpxx -lgmp -lboost_system -fopenmp 
 
 all:
 	$(CXX) -o zsl.o -x c++ impl.tcc -c $(CXXFLAGS)

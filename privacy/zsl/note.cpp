@@ -8,31 +8,54 @@
 
 Note::Note() {
 
-    std::string a_pk_str;
-    get_randomness(a_pk_str, 32);
-    if(!a_pk_str.empty()) rho = uint256S(a_pk_str);
-
-    std::string rho_str;
-    get_randomness(rho_str, 32);
-    if(!rho_str.empty()) rho = uint256S(rho_str);
+    get_randomness(pk, 32);
+    get_randomness(rho, 32);
 }
 
-uint256 Note::cm() const {
-    std::string data;
-    data += a_pk.ToString();
-    data += to_string(value);
-    data += rho.ToString();
-    std::string output = sha256(data);
-    return uint256S(output);
+std::string Note::cm() const {
+    return computeCommitment(rho, pk, value);
 }
 
-uint256 Note::nullifier(const uint256& a_sk) const {
-    std::string output = sha256(rho.ToString());
-    return uint256S(output); 
+std::string Note::spend_nf(const std::string& sk) const {
+    return computeSpendNullifier(rho, sk);
 }
 
+std::string Note::send_nf() const {
+    return computeSendNullifier(rho);
+}
 
-void computeSendNullifier(unsigned char *rho, unsigned char *send_nf) {
+std::string Note::computeSendNullifier(const std::string& rho) {
+    unsigned char rho_array[rho.size()/2];
+    unsigned char send_nf[32];
+    hex_str_to_array(rho, rho_array);
+    computeSendNullifier(rho_array, send_nf);
+
+    return array_to_hex_str(send_nf, 32);
+}
+
+std::string Note::computeSpendNullifier(const std::string& rho, const std::string& sk) {
+    unsigned char rho_array[rho.size()/2];
+    unsigned char sk_array[sk.size()/2];
+    unsigned char spend_nf[32];
+    hex_str_to_array(rho, rho_array);
+    hex_str_to_array(sk, sk_array);
+    computeSpendNullifier(rho_array, sk_array, spend_nf);
+
+    return array_to_hex_str(spend_nf, 32);
+}
+
+std::string Note::computeCommitment(const std::string& rho, const std::string& pk, uint64_t value) {
+    unsigned char rho_array[rho.size()/2];
+    unsigned char pk_array[pk.size()/2];
+    unsigned char cm[32];
+    hex_str_to_array(rho, rho_array);
+    hex_str_to_array(pk, pk_array);
+    computeCommitment(rho_array, pk_array, value, cm);
+
+    return array_to_hex_str(cm, 32);
+}
+
+void Note::computeSendNullifier(unsigned char *rho, unsigned char *send_nf) {
     unsigned char data[33];
     data[0] = 0x00;
 
@@ -45,7 +68,7 @@ void computeSendNullifier(unsigned char *rho, unsigned char *send_nf) {
     return;
 }
 
-void computeSpendNullifier(unsigned char *rho, unsigned char *sk, unsigned char *spend_nf) {
+void Note::computeSpendNullifier(unsigned char *rho, unsigned char *sk, unsigned char *spend_nf) {
     unsigned char data[65];
     data[0] = 0x01;
 
@@ -62,7 +85,7 @@ void computeSpendNullifier(unsigned char *rho, unsigned char *sk, unsigned char 
     return;
 }
 
-void computeCommitment(unsigned char *rho, unsigned char *pk, uint64_t value, unsigned char *commitment) {
+void Note::computeCommitment(unsigned char *rho, unsigned char *pk, uint64_t value, unsigned char *commitment) {
     unsigned char data[64+sizeof(value)];
 
     for(int i = 0; i < 32; i++) {
@@ -81,16 +104,3 @@ void computeCommitment(unsigned char *rho, unsigned char *pk, uint64_t value, un
 
     return;
 }
-
-/*void CreateShielding(unsigned char *rho, unsigned char *pk, uint64_t value, std::map<std::string, std::string>) {
-
-    return;
-}
-
-
-void CreateShieldedTransfer(unsigned char *rho_1, unsigned char *sk_1, uint64_t value_1, uint64_t treeIndex_1, std::vector<std::string> authPath_1,
-        unsigned char *rho_2, unsigned char *sk_2, uint64_t value_2, uint64_t treeIndex_1, std::vector<std::string> authPath_2,
-        unsigned char *out_rho_1, unsigned char *out_pk_1, uint64_t out_value_1,
-        unsigned char *out_rho_2, unsigned char *out_pk_2, uint64_t out_value_2) {
-    return;
-}*/

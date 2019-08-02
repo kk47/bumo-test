@@ -131,3 +131,8 @@ void get_keypair(unsigned char *priv, unsigned char *pub) {
     get_randomness(priv, 32);
     sha256(priv, 32, pub);
 }
+
+void get_keypair(std::string& priv, std::string& pub) {
+    get_randomness(priv, 32);
+    pub = sha256(priv);
+}

@@ -2,258 +2,137 @@
 #include <string>
 
 #include "note.hpp"
+#include "api.hpp"
 #include "utils/util.h"
 #include "merkle_tree.hpp"
-#include "zsl/snark/zsl.h"
 #include "utils/sha256.h"
 
-unsigned char rho[32];
-unsigned char pk[32];
-unsigned char sk[32];
-unsigned char spend_nf[32];
-unsigned char send_nf[32];
-unsigned char cm[32];
-unsigned char proof_s[584];
-uint64_t value = 0;
+std::string sk= "f0f0f0f00f0f0ffffffffff000000f0f0f0f0f00f0000f0f00f00f0f0f0f00ff";
+std::string pk= "e8e55f617b4b693083f883f70926dd5673fa434cefa3660828759947e2276348";
+std::string rho= "dedeffdddedeffdddedeffdddedeffdddedeffdddedeffdddedeffdddedeffdd";
 
-MerkleTree mt(29);
 
 bool shielding()
 {
-    /*get_keypair(sk, pk);
-    get_randomness(rho, 32);
+    uint64_t value = 2378237 ;
+    std::cout << "rho:" << rho<< std::endl;
+    std::cout << "pk:" << pk<< std::endl;
+    std::cout << "sk:" << sk<< std::endl;
     
-    std::cout << "a_pk:";
-    print_char_array(pk, 32);
-    std::cout << "a_sk:";
-    print_char_array(sk, 32);
-    std::cout << "rho:";
-    print_char_array(rho, 32);
-    */
 
-    std::string sk_str = "f0f0f0f00f0f0ffffffffff000000f0f0f0f0f00f0000f0f00f00f0f0f0f00ff";
-    std::string pk_str = "e8e55f617b4b693083f883f70926dd5673fa434cefa3660828759947e2276348";
-    std::string rho_str = "dedeffdddedeffdddedeffdddedeffdddedeffdddedeffdddedeffdddedeffdd";
-    std::cout << "rho:" << rho_str << std::endl;
-    std::cout << "pk:" << pk_str << std::endl;
-    std::cout << "sk:" << sk_str << std::endl;
+    std::string proof;
+    zsl_prove_shielding(rho, pk, value, proof);
+    std::cout << "shielding proof:" << proof << std::endl;;
     
-    hex_str_to_array(sk_str, sk);
-    hex_str_to_array(pk_str, pk);
-    hex_str_to_array(rho_str, rho);
+    std::string send_nf = Note::computeSendNullifier(rho);
+    std::cout << "send_nf:" << send_nf << std::endl;
 
-    value = 2378237 ;
-
-    // zsl_prove_shielding(void *rho, void *pk, uint64_t value, void *output_proof);
-    zsl_prove_shielding(rho, pk, value, proof_s);
-    //std::cout << "shielding proof:";
-    //print_char_array(proof_str, 32);
-
-    computeSendNullifier(rho, send_nf);
-    std::cout << "send_nf:";
-    print_char_array(send_nf, 32);
-
-    computeCommitment(rho, pk, value, cm);
-    std::cout << "cm:";
-    print_char_array(cm, 32);
-
-    bool ret = zsl_verify_shielding(proof_s, send_nf, cm, value);
-    if(ret) {
-        std::string cm_str = array_to_hex_str(cm, 32);
-        mt.add_commitment(cm_str);
-        std::cout << "add commitment to merkle tree:" << cm_str << std::endl;
-        std::cout << "root is:" << mt.root() << std::endl;
-    }
+    std::string cm = Note::computeCommitment(rho, pk, value);
+    std::cout << "cm:" << cm << std::endl;
+    
+    bool ret = zsl_verify_shielding(proof, send_nf, cm, value);
     return ret;
 }
 
 bool unshielding()
 {
-    
-    /*std::cout << "empty roots is:" << std::endl;
-    for(int i = 0; i < mt.empty_roots.size(); i++) {
-        std::cout << mt.empty_roots[i] << std::endl;
-    }*/
-
-    /*std::cout << "commitments map:" << std::endl;
-    std::map<uint32_t, std::string>::iterator it = mt.map_commitments.begin();
-    for ( ; it != mt.map_commitments.end(); it++) {
-        std::cout << it->first << ":" << it->second << std::endl;
-    }*/
-
+    MerkleTree mt(29);
     uint64_t index = 0;
+    uint64_t value = 2378237 ;
+
+    std::string cm = Note::computeCommitment(rho, pk, value);
+    mt.add_commitment(cm);
     std::vector<std::string> uncles;
-    std::string cm_str = array_to_hex_str(cm, 32);
+    mt.get_witness(cm, index, uncles);
 
-    mt.get_witness(cm_str, index, uncles);
+    std::cout << "index:" << index << std::endl;
 
-    std::cout << index << std::endl;
-    unsigned char auth_path[29][32];
-    for(int i = 0; i < uncles.size(); i++) {
-        unsigned char item[32];
-        hex_str_to_array(uncles[i], item);
-        for(int j = 0; j < 32; j++) {
-            auth_path[i][j] = item[j];
-        }
-        //std::cout << uncles[i] << std::endl;
-    }
-
-    computeSpendNullifier(rho, sk, spend_nf);
-    std::cout << "spend_nf:";
-    print_char_array(spend_nf, 32);
+    std::string spend_nf = Note::computeSpendNullifier(rho, sk);
+    std::cout << "spend_nf:" << spend_nf << std::endl;
     
-    unsigned char root[32];
-    //std::string rt_str = "8610652739ac0c6bb6b5353649bb822b26543f0ebe88f32a489a56843cd04f03";
-    hex_str_to_array(mt.root(), root);
-    
-    unsigned char proof_u[584] = {0x00};
-    //zsl_prove_unshielding(rho, sk, value, 0, auth_path, proof_u);
-    zsl_prove_unshielding(rho, sk, value, index, auth_path, proof_u);
-    
-    bool ret = zsl_verify_unshielding(proof_u, spend_nf, root, value);
+    value = 2378237;
+    std::string proof_u;
+    zsl_prove_unshielding(rho, sk, value, index, uncles, proof_u);
+    std::cout << "unshielding proof:" << proof_u << std::endl;
+     
+    bool ret = zsl_verify_unshielding(proof_u, spend_nf, mt.root(), value);
     return ret;
 
 }
 
-void copy_uchar(unsigned char *src, unsigned char *dst, int len)
-{
-    for (int i = 0; i < len; i++) {
-        dst[i] = src[i];
-    }
-}
-
 bool shield_transfer()
 {
-    unsigned char rho_1[32];
-    unsigned char pk_1[32];
-    
-    copy_uchar(rho, rho_1, 32); 
-    copy_uchar(pk, pk_1, 32); 
+    MerkleTree mt(29);
+    std::string input_rho1 = rho;
+    //get_randomness(input_rho1, 32);
+    Note input_note1(pk, 100, input_rho1);
 
-    unsigned char output_sk[32];
-    unsigned char output_pk[32];
-    unsigned char output_rho[32];
+    std::string pk1;
+    std::string sk1;
+    get_keypair(sk1, pk1);
 
-    /*get_keypair(output_sk, output_pk);
-    get_randomness(output_rho, 32);
+    std::string input_rho2;
+    get_randomness(input_rho2, 32);
+    Note input_note2(pk1, 100, input_rho2);
  
-    std::cout << "output a_pk:";
-    print_char_array(output_pk, 32);
-    std::cout << "output a_sk:";
-    print_char_array(output_sk, 32);
-    std::cout << "output rho:";
-    print_char_array(output_rho, 32);
-    */
+    std::string input_cm1 = input_note1.cm();
+    mt.add_commitment(input_cm1);
+    std::string input_cm2 = input_note2.cm();
+    mt.add_commitment(input_cm2);
 
-    //std::string sk_str = "f0f0f0f00f0f0ffffffffff000000f0f0f0f0f00f0000f0f00f00f0f0f0f00ff";
-    std::string output_pk_str = "acfbacfbacfbacfbacfbacfbacfbacfbacfbacfbacfbacfbacfbacfbacfbacfb";
-    std::string output_rho_str = "fbacfbacfbacfbacfbacfbacfbacfbacfbacfbacfbacfbacfbacfbacfbacfbac";
-    std::cout << "output rho:" << output_rho_str << std::endl;
-    std::cout << "output pk:" << output_pk_str << std::endl;
-    //std::cout << "sk:" << sk_str << std::endl;
-    
-    //hex_str_to_array(sk_str, sk);
-    hex_str_to_array(output_pk_str, output_pk);
-    hex_str_to_array(output_rho_str, output_rho);
-    //unsigned char output_sk_1[32];
-    unsigned char output_pk_1[32];
-    unsigned char output_rho_1[32];
-    
-    //copy_uchar(output_sk, output_sk_1, 32); 
-    copy_uchar(output_pk, output_pk_1, 32); 
-    copy_uchar(output_rho, output_rho_1, 32); 
-    
-    uint64_t value_1 = 2378237;
-    uint64_t output_value = 2378237;
-    uint64_t output_value_1 = 2378237;
-    uint64_t input_tree_postion = 0;
-
-    
-    std::vector<std::string> uncles;
-    std::string cm_str = array_to_hex_str(cm, 32);
-    mt.get_witness(cm_str, input_tree_postion, uncles);
-    uint64_t input_tree_postion_1 = input_tree_postion;
-    
-    std::cout << "auth_path:" << std::endl;
-    unsigned char auth_path[29][32];
-    for(int i = 0; i < uncles.size(); i++) {
-        unsigned char item[32];
-        hex_str_to_array(uncles[i], item);
-        for(int j = 0; j < 32; j++) {
-            auth_path[i][j] = item[j];
-        }
-        std::cout << uncles[i] << std::endl;
+    uint64_t index1 = 0;
+    std::vector<std::string> auth_path1;
+    mt.get_witness(input_cm1, index1, auth_path1);
+    //std::vector<std::string> auth_path1 = mt.getWitness(intput_cm1);
+    std::cout << "index1:" << index1 << std::endl;
+    for(int i = 0; i < 29; i++) {
+        //auth_path1.push_back("8000000000000000000000000000000000000000000000000000000000000100");
+        std::cout << auth_path1[i] << std::endl;
     }
-
-    std::cout << "auth_path_1:" << std::endl;
-    unsigned char auth_path_1[29][32];
-    for(int i = 0; i < uncles.size(); i++) {
-        unsigned char item[32];
-        hex_str_to_array(uncles[i], item);
-        for(int j = 0; j < 32; j++) {
-            auth_path_1[i][j] = item[j];
-        }
-        std::cout << uncles[i] << std::endl;
+    std::cout << "===== auth path 2" << std::endl;
+    uint64_t index2 = 0;
+    std::vector<std::string> auth_path2;
+    mt.get_witness(input_cm2, index2, auth_path2);
+    //std::vector<std::string> auth_path2 = mt.getWitness(intput_cm2);
+    std::cout << "index2:" << index2 << std::endl;
+    for(int i = 0; i < 29; i++) {
+        //auth_path2.push_back("8000000000000000000000000000000000000000000000000000000000000100");
+        std::cout << auth_path2[i] << std::endl;
     }
+ 
+    std::string output_pk;
+    std::string output_sk;
+    get_keypair(output_sk, output_pk);
+    
+    std::string output_pk1;
+    std::string output_sk1;
+    get_keypair(output_sk1, output_pk1);
 
-    unsigned char proof_t[584];
-    
-    std::cout << "rho:";
-    print_char_array(rho, 32);
-    std::cout << "pk:";
-    print_char_array(pk, 32);
-    std::cout << "value:" << value << std::endl;
-    std::cout << "rho_1:";
-    print_char_array(rho_1, 32);
-    std::cout << "pk_1:";
-    print_char_array(pk_1, 32);
-    std::cout << "value_1:" << value_1 << std::endl;
-    std::cout << "output_rho:";
-    print_char_array(output_rho, 32);
-    std::cout << "output_pk:";
-    print_char_array(output_pk, 32);
-    std::cout << "output_value:" << output_value << std::endl;
-    std::cout << "output_rho_1:";
-    print_char_array(output_rho_1, 32);
-    std::cout << "output_pk_1:";
-    print_char_array(output_pk_1, 32);
-    std::cout << "output_value_1:" << output_value_1 << std::endl;
-    zsl_prove_transfer(proof_t, rho, pk, value, input_tree_postion, auth_path, rho_1, pk_1, value_1, input_tree_postion_1, auth_path_1, output_rho, output_pk, output_value, output_rho_1, output_pk_1, output_value_1);
-    
-    unsigned char anchor[32];
-    hex_str_to_array(mt.root(), anchor);
-   
-    unsigned char output_send_nf[32];
-    computeSendNullifier(output_rho, output_send_nf);
+    std::string output_rho1;
+    get_randomness(output_rho1, 32);
+    std::string output_rho2;
+    get_randomness(output_rho2, 32);
 
-    unsigned char spend_nf_1[32];
-    unsigned char output_send_nf_1[32];
-    copy_uchar(spend_nf, spend_nf_1, 32);
-    copy_uchar(output_send_nf, output_send_nf_1, 32);
-    std::cout << "output_send_nf:";
-    print_char_array(output_send_nf, 32);
+    Note output_note1(output_pk, 150, output_rho1);
+    Note output_note2(pk, 50, output_rho2);
+ 
+    std::string anchor = mt.root();
+    //std::string anchor = "8610652739ac0c6bb6b5353649bb822b26543f0ebe88f32a489a56843cd04f03";
     
-    unsigned char output_cm[32];
-    unsigned char output_cm_1[32];
-    computeCommitment(output_rho, output_pk, output_value, output_cm);
-    std::cout << "output_cm:";
-    print_char_array(output_cm, 32);
-    copy_uchar(output_cm, output_cm_1, 32);
+    std::cout << "input_note1:" << std::endl;
+    input_note1.debug_string();
+    std::cout << "input_note2:" << std::endl;
+    input_note2.debug_string();
+    std::cout << "output_note1:" << std::endl;
+    output_note1.debug_string();
+    std::cout << "output_note1:" << std::endl;
+    output_note2.debug_string();
+
+
+    std::string proof_t;
+    zsl_prove_transfer(proof_t, input_note1.rho, sk, input_note1.value, index1, auth_path1, input_note2.rho, sk1, input_note2.value, index2, auth_path2, output_note1.rho, output_note1.pk, output_note1.value, output_note2.rho, output_note2.pk, output_note2.value);
     
-    std::cout << "anchor:";
-    print_char_array(anchor, 32);
-    
-    /*std::string proof_str = "";
-    hex_str_to_array(proof_str, proof_t);
-    std::cout << "proof_t:";
-    print_char_array(proof_t, 584);
-    print_char_array(spend_nf, 32);
-    print_char_array(spend_nf_1, 32);
-    print_char_array(output_send_nf, 32);
-    print_char_array(output_send_nf_1, 32);
-    print_char_array(output_cm, 32);
-    print_char_array(output_cm_1, 32);*/
-    bool ret = zsl_verify_transfer(proof_t, anchor, spend_nf, spend_nf_1, output_send_nf, output_send_nf_1, output_cm, output_cm_1);
+    bool ret = zsl_verify_transfer(proof_t, anchor, input_note1.spend_nf(sk), input_note2.spend_nf(sk1), output_note1.send_nf(), output_note2.send_nf(), output_note1.cm(), output_note2.cm());
     return ret;
 }
 
@@ -272,15 +151,15 @@ int main(int argc, char *argv[])
 
     // unsheilding zk-snark test
     //zsl_paramgen_unshielding();
-    ret = unshielding();
+    /*ret = unshielding();
     if(!ret) {
         std::cout << "unshield verify failed" << std::endl;
     } else {
         std::cout << "unshield verify done" << std::endl;
-    }
+    }*/
 
-    // Transfer shield asset
-    
+    // sheilding transfer zk-snark test
+    //zsl_paramgen_transfer();
     ret = shield_transfer();
     if(!ret) {
         std::cout << "shield tranfer verify failed" << std::endl;

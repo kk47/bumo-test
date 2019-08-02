@@ -22,7 +22,7 @@ bool shielding()
 
     std::string proof;
     zsl_prove_shielding(rho, pk, value, proof);
-    std::cout << "shielding proof:" << proof << std::endl;;
+    //std::cout << "shielding proof:" << proof << std::endl;;
     
     std::string send_nf = Note::computeSendNullifier(rho);
     std::cout << "send_nf:" << send_nf << std::endl;
@@ -53,7 +53,7 @@ bool unshielding()
     value = 2378237;
     std::string proof_u;
     zsl_prove_unshielding(rho, sk, value, index, uncles, proof_u);
-    std::cout << "unshielding proof:" << proof_u << std::endl;
+    //std::cout << "unshielding proof:" << proof_u << std::endl;
      
     bool ret = zsl_verify_unshielding(proof_u, spend_nf, mt.root(), value);
     return ret;
@@ -83,22 +83,10 @@ bool shield_transfer()
     uint64_t index1 = 0;
     std::vector<std::string> auth_path1;
     mt.get_witness(input_cm1, index1, auth_path1);
-    //std::vector<std::string> auth_path1 = mt.getWitness(intput_cm1);
-    std::cout << "index1:" << index1 << std::endl;
-    for(int i = 0; i < 29; i++) {
-        //auth_path1.push_back("8000000000000000000000000000000000000000000000000000000000000100");
-        std::cout << auth_path1[i] << std::endl;
-    }
-    std::cout << "===== auth path 2" << std::endl;
+
     uint64_t index2 = 0;
     std::vector<std::string> auth_path2;
     mt.get_witness(input_cm2, index2, auth_path2);
-    //std::vector<std::string> auth_path2 = mt.getWitness(intput_cm2);
-    std::cout << "index2:" << index2 << std::endl;
-    for(int i = 0; i < 29; i++) {
-        //auth_path2.push_back("8000000000000000000000000000000000000000000000000000000000000100");
-        std::cout << auth_path2[i] << std::endl;
-    }
  
     std::string output_pk;
     std::string output_sk;
@@ -114,25 +102,49 @@ bool shield_transfer()
     get_randomness(output_rho2, 32);
 
     Note output_note1(output_pk, 150, output_rho1);
-    Note output_note2(pk, 50, output_rho2);
+    Note output_note2(output_pk1, 50, output_rho2);
  
     std::string anchor = mt.root();
-    //std::string anchor = "8610652739ac0c6bb6b5353649bb822b26543f0ebe88f32a489a56843cd04f03";
     
-    std::cout << "input_note1:" << std::endl;
+    /*std::cout << "input_note1:" << std::endl;
     input_note1.debug_string();
     std::cout << "input_note2:" << std::endl;
     input_note2.debug_string();
     std::cout << "output_note1:" << std::endl;
     output_note1.debug_string();
     std::cout << "output_note1:" << std::endl;
-    output_note2.debug_string();
+    output_note2.debug_string();*/
 
 
     std::string proof_t;
     zsl_prove_transfer(proof_t, input_note1.rho, sk, input_note1.value, index1, auth_path1, input_note2.rho, sk1, input_note2.value, index2, auth_path2, output_note1.rho, output_note1.pk, output_note1.value, output_note2.rho, output_note2.pk, output_note2.value);
     
     bool ret = zsl_verify_transfer(proof_t, anchor, input_note1.spend_nf(sk), input_note2.spend_nf(sk1), output_note1.send_nf(), output_note2.send_nf(), output_note1.cm(), output_note2.cm());
+    if (ret) {
+        std::cout << "spend the new output note test" << std::endl;
+        std::string new_input_cm1 = output_note1.cm();
+        mt.add_commitment(new_input_cm1);
+        std::string new_input_cm2 = output_note2.cm();
+        mt.add_commitment(new_input_cm2);
+        
+        auth_path1.clear();
+        auth_path2.clear();
+        mt.get_witness(new_input_cm1, index1, auth_path1);
+        mt.get_witness(new_input_cm2, index2, auth_path2);
+
+        get_randomness(output_rho1, 32);
+        get_randomness(output_rho2, 32);
+
+        Note new_output_note1(pk, 190, output_rho1);
+        Note new_output_note2(output_pk, 10, output_rho2);
+     
+        std::string anchor = mt.root();
+
+        std::string new_proof;
+        zsl_prove_transfer(new_proof, output_note1.rho, output_sk, output_note1.value, index1, auth_path1, output_note2.rho, output_sk1, output_note2.value, index2, auth_path2, new_output_note1.rho, new_output_note1.pk, new_output_note1.value, new_output_note2.rho, new_output_note2.pk, new_output_note2.value);
+        
+        bool ret = zsl_verify_transfer(new_proof, anchor, output_note1.spend_nf(output_sk), output_note2.spend_nf(output_sk1), new_output_note1.send_nf(), new_output_note2.send_nf(), new_output_note1.cm(), new_output_note2.cm());
+    }
     return ret;
 }
 

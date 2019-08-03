@@ -10,15 +10,17 @@ void zsl_prove_shielding(
         const std::string& pk,
         uint64_t value,
         std::string& output_proof
-        ) {
-    unsigned char rho_a[rho.size()/2];
-    hex_str_to_array(rho, rho_a);
-    unsigned char pk_a[pk.size()/2];
-    hex_str_to_array(pk, pk_a);
-    unsigned char proof[584];
+        )
+{
+    unsigned char rho_ptr[rho.size()/2];
+    unsigned char pk_ptr[pk.size()/2];
+    unsigned char proof_ptr[584];
+    hex_str_to_array(rho, rho_ptr);
+    hex_str_to_array(pk, pk_ptr);
 
-    zsl_prove_shielding(rho_a, pk_a, value, proof);
-    output_proof = array_to_hex_str(proof, 584);
+    zsl_prove_shielding(rho_ptr, pk_ptr, value, proof_ptr);
+
+    output_proof = array_to_hex_str(proof_ptr, 584);
 }
 
 bool zsl_verify_shielding(
@@ -26,16 +28,18 @@ bool zsl_verify_shielding(
         const std::string& send_nf,
         const std::string& cm,
         uint64_t value
-        ) {
+        )
+{
     
-    unsigned char proof_a[proof.size()/2];
-    hex_str_to_array(proof, proof_a);
-    unsigned char send_nf_a[send_nf.size()/2];
-    hex_str_to_array(send_nf, send_nf_a);
-    unsigned char cm_a[cm.size()/2];
-    hex_str_to_array(cm, cm_a);
+    unsigned char proof_ptr[proof.size()/2];
+    unsigned char send_nf_ptr[send_nf.size()/2];
+    unsigned char cm_ptr[cm.size()/2];
 
-    return zsl_verify_shielding(proof_a, send_nf_a, cm_a, value);
+    hex_str_to_array(proof, proof_ptr);
+    hex_str_to_array(send_nf, send_nf_ptr);
+    hex_str_to_array(cm, cm_ptr);
+
+    return zsl_verify_shielding(proof_ptr, send_nf_ptr, cm_ptr, value);
 }
 
 void zsl_prove_unshielding(
@@ -45,10 +49,12 @@ void zsl_prove_unshielding(
         uint64_t tree_position,
         std::vector<std::string>& auth_path,
         std::string& output_proof
-        ) {
+        )
+{
     unsigned char rho_a[rho.size()/2];
-    hex_str_to_array(rho, rho_a);
     unsigned char sk_a[sk.size()/2];
+
+    hex_str_to_array(rho, rho_a);
     hex_str_to_array(sk, sk_a);
     
     unsigned char auth_path_a[29][32];
@@ -62,6 +68,7 @@ void zsl_prove_unshielding(
 
     unsigned char proof[584];
     zsl_prove_unshielding(rho_a, sk_a, value, tree_position, auth_path_a, proof);
+
     output_proof = array_to_hex_str(proof, 584);
 }
 
@@ -70,16 +77,18 @@ bool zsl_verify_unshielding(
         const std::string& spend_nf,
         const std::string& root,
         uint64_t value
-        ) {
+        )
+{
     
-    unsigned char proof_a[proof.size()/2];
-    hex_str_to_array(proof, proof_a);
-    unsigned char spend_nf_a[spend_nf.size()/2];
-    hex_str_to_array(spend_nf, spend_nf_a);
-    unsigned char root_a[root.size()/2];
-    hex_str_to_array(root, root_a);
+    unsigned char proof_ptr[proof.size()/2];
+    unsigned char spend_nf_ptr[spend_nf.size()/2];
+    unsigned char root_ptr[root.size()/2];
 
-    return zsl_verify_unshielding(proof_a, spend_nf_a, root_a, value);
+    hex_str_to_array(proof, proof_ptr);
+    hex_str_to_array(spend_nf, spend_nf_ptr);
+    hex_str_to_array(root, root_ptr);
+
+    return zsl_verify_unshielding(proof_ptr, spend_nf_ptr, root_ptr, value);
 }
 
 void zsl_prove_transfer(
@@ -128,8 +137,6 @@ void zsl_prove_transfer(
         for(int j = 0; j < 32; j++) {
             auth_path_ptr_1[i][j] = item[j];
         }
-        print_char_array(auth_path_ptr_1[i], 32);
-        //std::cout << auth_path_1[i] << std::endl;
     }
 
     unsigned char auth_path_ptr_2[29][32];
@@ -139,11 +146,9 @@ void zsl_prove_transfer(
         for(int j = 0; j < 32; j++) {
             auth_path_ptr_2[i][j] = item[j];
         }
-        print_char_array(auth_path_ptr_2[i], 32);
-        //std::cout << auth_path_2[i] << std::endl;
     }
     
-    std::cout << "input_rho_ptr_1:";
+    /*std::cout << "input_rho_ptr_1:";
     print_char_array(input_rho_ptr_1, 32);
     std::cout << "input_pk_ptr_1:";
     print_char_array(input_pk_ptr_1, 32);
@@ -164,11 +169,12 @@ void zsl_prove_transfer(
     std::cout << "output_value_1:" << output_value_1 << std::endl;
     std::cout << "output_value_2:" << output_value_2 << std::endl;
     std::cout << "input_tree_position_1:" << input_tree_position_1 << std::endl;
-    std::cout << "input_tree_position_2:" << input_tree_position_2 << std::endl;
-    zsl_prove_transfer(
-            proof, input_rho_ptr_1, input_pk_ptr_1, input_value_1, input_tree_position_1, auth_path_ptr_1, 
-            input_rho_ptr_2, input_pk_ptr_2, input_value_2, input_tree_position_2, auth_path_ptr_2
-            ,output_rho_ptr_1, output_pk_ptr_1, output_value_1,
+    std::cout << "input_tree_position_2:" << input_tree_position_2 << std::endl;*/
+
+    zsl_prove_transfer(proof,
+            input_rho_ptr_1, input_pk_ptr_1, input_value_1, input_tree_position_1, auth_path_ptr_1,
+            input_rho_ptr_2, input_pk_ptr_2, input_value_2, input_tree_position_2, auth_path_ptr_2,
+            output_rho_ptr_1, output_pk_ptr_1, output_value_1,
             output_rho_ptr_2, output_pk_ptr_2, output_value_2);
 
     output_proof = array_to_hex_str(proof, 584);
@@ -203,15 +209,6 @@ bool zsl_verify_transfer(
     hex_str_to_array(cm_ptr_1, cm_1);
     hex_str_to_array(cm_ptr_2, cm_2);
 
-    return zsl_verify_transfer(
-        proof,
-        anchor,
-        spend_nf_1,
-        spend_nf_2,
-        send_nf_1,
-        send_nf_2,
-        cm_1,
-        cm_2
-    );
+    return zsl_verify_transfer(proof, anchor, spend_nf_1, spend_nf_2, send_nf_1, send_nf_2, cm_1, cm_2);
 }
 

@@ -11,7 +11,7 @@ std::string to_string(T value) {
     return os.str();
 }*/
 
-static std::string BinToHexString(const char *value, int len);
+static std::string bin_to_hex_str(const char *value, int len);
 void print_char_array(unsigned char *array, int len);
 
 void sha256(unsigned char *str, int len, unsigned char *buf);
@@ -26,7 +26,9 @@ template<class T>
 T get_randomness();
 void get_randomness(std::string &output, int len);
 void get_randomness(unsigned char *output, int len);
+std::string get_randomness();
 
 void get_keypair(unsigned char *priv, unsigned char *pub);
 void get_keypair(std::string& priv, std::string& pub);
+
 #endif

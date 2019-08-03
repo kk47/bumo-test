@@ -29,7 +29,7 @@ public:
     std::string combine(const std::string& left, const std::string& right);
     //uint32_t get_leaf_index(std::string& cm);
     //std::string get_commitment_at_leaf_index(uint32_t index);
-    void add_commitment(std::string& cm);
+    void add_commitment(const std::string& cm);
     bool commitment_exists(const std::string& cm);
     void get_witness(const std::string& cm, uint64_t& index, std::vector<std::string>& uncles);
    

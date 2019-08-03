@@ -79,7 +79,7 @@ std::string sha256_compress(const std::string& a, const std::string& b) {
     return array_to_hex_str(char_o, 32);
 }
 
-static std::string BinToHexString(const char *value, int len) {
+static std::string bin_to_hex_str(const char *value, int len) {
     std::string result;
     result.resize(len * 2);
     for (size_t i = 0; i < len; i++) {
@@ -113,12 +113,19 @@ void get_randomness(std::string &output, int len) {
     if(urandom) {
         urandom.read(buf, len);
         if(urandom) {
-            output = BinToHexString(buf, len);
+            output = bin_to_hex_str(buf, len);
         }
         urandom.close();
     }
     return;
 }
+
+std::string get_randomness() {
+    std::string rand_str;
+    get_randomness(rand_str, 32);
+    return rand_str;
+}
+
 void get_randomness(unsigned char *output, int len) {
     std::string hex_str;
     get_randomness(hex_str, len);

@@ -41,14 +41,15 @@ std::string MerkleTree::get_commitment_at_leaf_index(uint32_t index) {
     return "";
 }*/
 
-void MerkleTree::add_commitment(std::string& cm) {
+void MerkleTree::add_commitment(const std::string& cm) {
     if (num_commitments >= max_num_elements) return;
     //if (map_commitment_indices.find(cm) != map_commitment_indices.end()) return;
     if (commitment_exists(cm)) return;
     
     uint32_t map_index = ++ num_commitments;
     //map_commitment_indices[cm] = map_index;
-    map_commitments[map_index] = cm;
+    //map_commitments[map_index] = cm;
+    map_commitments.insert(std::make_pair(map_index, cm));
 }
 
 bool MerkleTree::commitment_exists(const std::string& cm) {

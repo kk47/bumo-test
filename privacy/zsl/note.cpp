@@ -55,6 +55,22 @@ std::string Note::computeCommitment(const std::string& rho, const std::string& p
     return array_to_hex_str(cm, 32);
 }
 
+void Note::set_rho(const std::string& new_rho) {
+    rho = new_rho;
+}
+
+void Note::set_pk(const std::string& new_pk) {
+    rho = new_pk;
+}
+
+void Note::set_sk(const std::string& new_sk) {
+    rho = new_sk;
+}
+
+void Note::set_value(uint64_t new_value) {
+    rho = new_value;
+}
+
 void Note::computeSendNullifier(unsigned char *rho, unsigned char *send_nf) {
     unsigned char data[33];
     data[0] = 0x00;

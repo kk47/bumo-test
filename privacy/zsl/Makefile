@@ -1,18 +1,35 @@
-CXXFLAGS = -Wno-unused-parameter -std=c++11 -fPIC -Wno-unused-variable
-CXXFLAGS += -L./zsl/snark 
-
+CC = g++ 
+CXXFLAGS = -O -Wno-unused-parameter -std=c++11 -fPIC -Wno-unused-variable
+INCLUDEFLAGS = 
+LDLIBS = -L./zsl
 LDLIBS += -lgmpxx -lgmp -lboost_system -fopenmp -lcrypto -lzsl
-SUBDIR = ./zsl/snark
+SRC_FILES := $(wildcard utils/*.cpp)
+SRC_FILES += $(wildcard *.cpp)
+OBJS = $(patsubst %.cpp, %.o,$(SRC_FILES))
+TARGETS = zsltest 
 
-all:
-	#cd $(SUBDIR) && make
-	g++ $(CXXFLAGS) -c utils/util.cpp -o utils/util.o
-	g++ $(CXXFLAGS) -c utils/sha256.cpp -o utils/sha256.o
-	g++ $(CXXFLAGS) -c note.cpp -o note.o
-	g++ $(CXXFLAGS) -c merkle_tree.cpp -o merkle_tree.o
-	g++ $(CXXFLAGS) -c main.cpp -o main.o
 
-	g++ utils/util.o utils/sha256.o note.o merkle_tree.o main.o -o zsltest $(CXXFLAGS) $(LDLIBS)
+.PHONY: all
+all: zsl $(TARGETS)
+
+.PHONY: zsl
+zsl:
+	make -C $@
+	
+zsltest: $(OBJS)
+	$(CC) -o $@ $^ $(LDLIBS) $(CXXFLAGS)
+
+%.o: %.c
+	$(CC) -o $@ -c $< $(CXXFLAGS) $(LDLIBS) $(INCLUDEFLAGS)
+
+%.d:%.c
+	@set -e; rm -f $@; $(CC) -MM $< $(INCLUDEFLAGS) > $@.$$$$; \
+	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; rm -f $@.$$$$
+
+-include $(OBJS:.o=.d)
+
+.PHONY: clean 
 clean:
-	rm -f utils/*.o *.o ./a.out ./zsltest
-	#rm -f zsltest ./zsl/snark/libsnark.a
+	cd zsl && make clean
+	rm -f $(TARGETS) *.o *.d *.d.* utils/*.d utils/*.o
+

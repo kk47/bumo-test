@@ -2,8 +2,9 @@
 #include <iostream>
 #include <vector>
 
-#include "zsl/snark/zsl.h"
+#include "note.hpp"
 #include "utils/util.h"
+#include "zsl/zsl.h"
 
 void zsl_prove_shielding(
         const std::string& rho,
@@ -109,7 +110,8 @@ void zsl_prove_transfer(
 	const std::string& output_rho_2,
 	const std::string& output_pk_2,
 	uint64_t output_value_2
-    ) {
+    )
+{
 
     unsigned char proof[584];
     unsigned char input_rho_ptr_1[32];
@@ -180,6 +182,21 @@ void zsl_prove_transfer(
     output_proof = array_to_hex_str(proof, 584);
 }
 
+void zsl_prove_transfer(std::string& proof,
+            Note& input_note1, Note& input_note2,
+            uint64_t index1, const std::vector<std::string>& auth_path1,
+            uint64_t index2, const std::vector<std::string>& auth_path2,
+            Note& output_note1, Note& output_note2
+    )
+{
+    zsl_prove_transfer(proof,
+            input_note1.rho, input_note1.pk, input_note1.value, index1, auth_path1,
+            input_note2.rho, input_note2.pk, input_note2.value, index2, auth_path2,
+            output_note1.rho, output_note1.pk, output_note1.value,
+            output_note2.rho, output_note2.pk, output_note2.value);
+
+} 
+
 bool zsl_verify_transfer(
         const std::string& proof_ptr,
         const std::string& anchor_ptr,
@@ -189,7 +206,8 @@ bool zsl_verify_transfer(
         const std::string& send_nf_ptr_2,
         const std::string& cm_ptr_1,
         const std::string& cm_ptr_2
-    ) {
+    )
+{
 
     unsigned char proof[584];
     unsigned char anchor[32];
@@ -211,4 +229,3 @@ bool zsl_verify_transfer(
 
     return zsl_verify_transfer(proof, anchor, spend_nf_1, spend_nf_2, send_nf_1, send_nf_2, cm_1, cm_2);
 }
-

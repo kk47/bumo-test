@@ -190,8 +190,8 @@ void zsl_prove_transfer(std::string& proof,
     )
 {
     zsl_prove_transfer(proof,
-            input_note1.rho, input_note1.pk, input_note1.value, index1, auth_path1,
-            input_note2.rho, input_note2.pk, input_note2.value, index2, auth_path2,
+            input_note1.rho, input_note1.sk, input_note1.value, index1, auth_path1,
+            input_note2.rho, input_note2.sk, input_note2.value, index2, auth_path2,
             output_note1.rho, output_note1.pk, output_note1.value,
             output_note2.rho, output_note2.pk, output_note2.value);
 

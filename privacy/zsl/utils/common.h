@@ -9,14 +9,20 @@
 #include <assert.h>
 #include <string.h>
 
+/*#if defined(HAVE_ENDIAN_H)
+#include <endian.h>
+#else
 #include "endian.h"
-//#include "byteswap.h"
+#endif
+#include "byteswap.h"
+#endif*/
 
 #if defined(NDEBUG)
 # error "Zcash cannot be compiled without assertions."
 #endif
 
-/*#if HAVE_DECL_HTOBE32 == 0
+/*
+#if HAVE_DECL_HTOBE32 == 0
 inline uint32_t htobe32(uint32_t host_32bits)
 {
     return bswap_32(host_32bits);
@@ -36,7 +42,8 @@ inline uint64_t htobe64(uint64_t host_64bits)
 {
     return bswap_64(host_64bits);
 }
-#endif*/
+#endif
+*/
 
 uint32_t static inline ReadBE32(const unsigned char* ptr)
 {

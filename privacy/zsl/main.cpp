@@ -132,10 +132,10 @@ bool test_shield_transfer()
     std::time_t start = std::time(0);
     zsl_prove_transfer(proof_t, input_note1.rho, sk1, input_note1.value, index1, auth_path1, input_note2.rho, sk2, input_note2.value, index2, auth_path2, output_note1.rho, output_note1.pk, output_note1.value, output_note2.rho, output_note2.pk, output_note2.value);
     std::time_t end = std::time(0);
-    std::cout << "Prove transfer take " << end - start << std::endl;
+    std::cout << "Prove transfer take " << end - start << "seconds" << std::endl;
     
     bool ret = zsl_verify_transfer(proof_t, anchor, input_note1.spend_nf(sk1), input_note2.spend_nf(sk2), output_note1.send_nf(), output_note2.send_nf(), output_note1.cm(), output_note2.cm());
-    std::cout << "Verify transfer take " << std::time(0) - end << std::endl;
+    std::cout << "Verify transfer take " << std::time(0) - end << "seconds" << std::endl;
     if (!ret) {
         return false;
     }
@@ -178,10 +178,10 @@ bool test_shield_transfer()
     std::time_t start1 = std::time(0);
     zsl_prove_transfer(new_proof, output_note1.rho, output_sk1, output_note1.value, index1, auth_path1, output_note2.rho, output_sk2, output_note2.value, index2, auth_path2, new_output_note1.rho, new_output_note1.pk, new_output_note1.value, new_output_note2.rho, new_output_note2.pk, new_output_note2.value);
     std::time_t end1 = std::time(0);
-    std::cout << "Prove transfer take " << end1 - start1 << std::endl;
+    std::cout << "Prove transfer take " << end1 - start1 << "seconds" << std::endl;
     
     ret = zsl_verify_transfer(new_proof, anchor, output_note1.spend_nf(output_sk1), output_note2.spend_nf(output_sk2), new_output_note1.send_nf(), new_output_note2.send_nf(), new_output_note1.cm(), new_output_note2.cm());
-    std::cout << "Verify transfer take " << std::time(0) - end1 << std::endl;
+    std::cout << "Verify transfer take " << std::time(0) - end1 << "seconds" << std::endl;
 
     return ret;
 }

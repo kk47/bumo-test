@@ -1,0 +1,1065 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ARG_CHECK	src/secp256k1.c	31;"	d	file:
+Allocation	src/asm/field_10x26_arm.s	/^	Allocation:$/;"	l
+AssertFailException	src/java/org/bitcoin/NativeSecp256k1Util.java	/^      public AssertFailException(String message) {$/;"	m	class:NativeSecp256k1Util.AssertFailException
+AssertFailException	src/java/org/bitcoin/NativeSecp256k1Util.java	/^    public static class AssertFailException extends Exception {$/;"	c	class:NativeSecp256k1Util
+BE32	src/hash_impl.h	272;"	d
+BE32	src/hash_impl.h	31;"	d
+BE32	src/hash_impl.h	33;"	d
+BE32	src/modules/rangeproof/borromean_impl.h	24;"	d
+BE32	src/modules/rangeproof/borromean_impl.h	26;"	d
+CHECK	src/util.h	46;"	d
+CHECK	src/util.h	52;"	d
+CMAKE_BINARY_DIR	Makefile	/^CMAKE_BINARY_DIR = \/root\/kk\/beam$/;"	m
+CMAKE_COMMAND	Makefile	/^CMAKE_COMMAND = \/usr\/bin\/cmake3$/;"	m
+CMAKE_SOURCE_DIR	Makefile	/^CMAKE_SOURCE_DIR = \/root\/kk\/beam$/;"	m
+CURVE_B	src/group_impl.h	/^const int CURVE_B = 2;$/;"	v
+CURVE_B	src/group_impl.h	/^const int CURVE_B = 4;$/;"	v
+CURVE_B	src/group_impl.h	/^const int CURVE_B = 7;$/;"	v
+Ch	src/hash_impl.h	16;"	d
+Ch	src/hash_impl.h	279;"	d
+ECMULT_CONST_TABLE_GET_GE	src/ecmult_const_impl.h	18;"	d
+ECMULT_TABLE_GET_GE	src/ecmult_impl.h	134;"	d
+ECMULT_TABLE_GET_GE_STORAGE	src/ecmult_impl.h	145;"	d
+ECMULT_TABLE_SIZE	src/ecmult_impl.h	45;"	d
+EQUALS	Makefile	/^EQUALS = =$/;"	m
+EXHAUSTIVE_TEST_LAMBDA	src/tests_exhaustive.c	21;"	d	file:
+EXHAUSTIVE_TEST_ORDER	src/tests_exhaustive.c	20;"	d	file:
+EXPECT	src/util.h	40;"	d
+EXPECT	src/util.h	42;"	d
+I64FORMAT	src/util.h	124;"	d
+I64FORMAT	src/util.h	127;"	d
+I64uFORMAT	src/util.h	125;"	d
+I64uFORMAT	src/util.h	128;"	d
+Java_org_bitcoin_NativeSecp256k1_secp256k1_1context_1randomize	src/java/org_bitcoin_NativeSecp256k1.c	/^SECP256K1_API jint JNICALL Java_org_bitcoin_NativeSecp256k1_secp256k1_1context_1randomize$/;"	f
+Java_org_bitcoin_NativeSecp256k1_secp256k1_1ctx_1clone	src/java/org_bitcoin_NativeSecp256k1.c	/^SECP256K1_API jlong JNICALL Java_org_bitcoin_NativeSecp256k1_secp256k1_1ctx_1clone$/;"	f
+Java_org_bitcoin_NativeSecp256k1_secp256k1_1destroy_1context	src/java/org_bitcoin_NativeSecp256k1.c	/^SECP256K1_API void JNICALL Java_org_bitcoin_NativeSecp256k1_secp256k1_1destroy_1context$/;"	f
+Java_org_bitcoin_NativeSecp256k1_secp256k1_1ec_1pubkey_1create	src/java/org_bitcoin_NativeSecp256k1.c	/^SECP256K1_API jobjectArray JNICALL Java_org_bitcoin_NativeSecp256k1_secp256k1_1ec_1pubkey_1create$/;"	f
+Java_org_bitcoin_NativeSecp256k1_secp256k1_1ec_1seckey_1verify	src/java/org_bitcoin_NativeSecp256k1.c	/^SECP256K1_API jint JNICALL Java_org_bitcoin_NativeSecp256k1_secp256k1_1ec_1seckey_1verify$/;"	f
+Java_org_bitcoin_NativeSecp256k1_secp256k1_1ecdh	src/java/org_bitcoin_NativeSecp256k1.c	/^SECP256K1_API jobjectArray JNICALL Java_org_bitcoin_NativeSecp256k1_secp256k1_1ecdh$/;"	f
+Java_org_bitcoin_NativeSecp256k1_secp256k1_1ecdsa_1pubkey_1combine	src/java/org_bitcoin_NativeSecp256k1.c	/^SECP256K1_API jlong JNICALL Java_org_bitcoin_NativeSecp256k1_secp256k1_1ecdsa_1pubkey_1combine$/;"	f
+Java_org_bitcoin_NativeSecp256k1_secp256k1_1ecdsa_1sign	src/java/org_bitcoin_NativeSecp256k1.c	/^SECP256K1_API jobjectArray JNICALL Java_org_bitcoin_NativeSecp256k1_secp256k1_1ecdsa_1sign$/;"	f
+Java_org_bitcoin_NativeSecp256k1_secp256k1_1ecdsa_1verify	src/java/org_bitcoin_NativeSecp256k1.c	/^SECP256K1_API jint JNICALL Java_org_bitcoin_NativeSecp256k1_secp256k1_1ecdsa_1verify$/;"	f
+Java_org_bitcoin_NativeSecp256k1_secp256k1_1privkey_1tweak_1add	src/java/org_bitcoin_NativeSecp256k1.c	/^SECP256K1_API jobjectArray JNICALL Java_org_bitcoin_NativeSecp256k1_secp256k1_1privkey_1tweak_1add$/;"	f
+Java_org_bitcoin_NativeSecp256k1_secp256k1_1privkey_1tweak_1mul	src/java/org_bitcoin_NativeSecp256k1.c	/^SECP256K1_API jobjectArray JNICALL Java_org_bitcoin_NativeSecp256k1_secp256k1_1privkey_1tweak_1mul$/;"	f
+Java_org_bitcoin_NativeSecp256k1_secp256k1_1pubkey_1tweak_1add	src/java/org_bitcoin_NativeSecp256k1.c	/^SECP256K1_API jobjectArray JNICALL Java_org_bitcoin_NativeSecp256k1_secp256k1_1pubkey_1tweak_1add$/;"	f
+Java_org_bitcoin_NativeSecp256k1_secp256k1_1pubkey_1tweak_1mul	src/java/org_bitcoin_NativeSecp256k1.c	/^SECP256K1_API jobjectArray JNICALL Java_org_bitcoin_NativeSecp256k1_secp256k1_1pubkey_1tweak_1mul$/;"	f
+Java_org_bitcoin_Secp256k1Context_secp256k1_1init_1context	src/java/org_bitcoin_Secp256k1Context.c	/^SECP256K1_API jlong JNICALL Java_org_bitcoin_Secp256k1Context_secp256k1_1init_1context$/;"	f
+MAX_KEYS	src/modules/whitelist/main_impl.h	13;"	d
+MAX_N_GENS	src/modules/rangeproof/tests_impl.h	545;"	d
+Maj	src/hash_impl.h	17;"	d
+Maj	src/hash_impl.h	278;"	d
+NUM_LIMBS	src/num_gmp.h	12;"	d
+NativeSecp256k1	src/java/org/bitcoin/NativeSecp256k1.java	/^public class NativeSecp256k1 {$/;"	c
+NativeSecp256k1Test	src/java/org/bitcoin/NativeSecp256k1Test.java	/^public class NativeSecp256k1Test {$/;"	c
+NativeSecp256k1Util	src/java/org/bitcoin/NativeSecp256k1Util.java	/^public class NativeSecp256k1Util{$/;"	c
+Note	src/asm/field_10x26_arm.s	/^	Note: do not read from a[] after here, it may overlap with r[]$/;"	d
+Note	src/asm/field_10x26_arm.s	/^	Note: do not write to r[] here, it may overlap with a[]$/;"	d
+RM	Makefile	/^RM = \/usr\/bin\/cmake3 -E remove -f$/;"	m
+Round	src/hash_impl.h	23;"	d
+Round	src/hash_impl.h	273;"	d
+SECP256K1_API	include/secp256k1.h	119;"	d
+SECP256K1_API	include/secp256k1.h	121;"	d
+SECP256K1_API	include/secp256k1.h	124;"	d
+SECP256K1_API	include/secp256k1.h	126;"	d
+SECP256K1_ARG_NONNULL	include/secp256k1.h	139;"	d
+SECP256K1_ARG_NONNULL	include/secp256k1.h	141;"	d
+SECP256K1_CONTEXT_NONE	include/secp256k1.h	156;"	d
+SECP256K1_CONTEXT_SIGN	include/secp256k1.h	155;"	d
+SECP256K1_CONTEXT_VERIFY	include/secp256k1.h	154;"	d
+SECP256K1_EC_COMPRESSED	include/secp256k1.h	159;"	d
+SECP256K1_EC_PARSE_TEST_NINVALID	src/tests.c	2954;"	d	file:
+SECP256K1_EC_PARSE_TEST_NVALID	src/tests.c	2836;"	d	file:
+SECP256K1_EC_PARSE_TEST_NXVALID	src/tests.c	2923;"	d	file:
+SECP256K1_EC_UNCOMPRESSED	include/secp256k1.h	160;"	d
+SECP256K1_FE_CONST	src/field_10x26.h	36;"	d
+SECP256K1_FE_CONST	src/field_10x26.h	38;"	d
+SECP256K1_FE_CONST	src/field_5x52.h	31;"	d
+SECP256K1_FE_CONST	src/field_5x52.h	33;"	d
+SECP256K1_FE_CONST_INNER	src/field_10x26.h	22;"	d
+SECP256K1_FE_CONST_INNER	src/field_5x52.h	22;"	d
+SECP256K1_FE_STORAGE_CONST	src/field_10x26.h	45;"	d
+SECP256K1_FE_STORAGE_CONST	src/field_5x52.h	40;"	d
+SECP256K1_FE_STORAGE_CONST_GET	src/field_10x26.h	46;"	d
+SECP256K1_FLAGS_BIT_COMPRESSION	include/secp256k1.h	151;"	d
+SECP256K1_FLAGS_BIT_CONTEXT_SIGN	include/secp256k1.h	150;"	d
+SECP256K1_FLAGS_BIT_CONTEXT_VERIFY	include/secp256k1.h	149;"	d
+SECP256K1_FLAGS_TYPE_COMPRESSION	include/secp256k1.h	147;"	d
+SECP256K1_FLAGS_TYPE_CONTEXT	include/secp256k1.h	146;"	d
+SECP256K1_FLAGS_TYPE_MASK	include/secp256k1.h	145;"	d
+SECP256K1_GEJ_CONST	src/group.h	31;"	d
+SECP256K1_GEJ_CONST_INFINITY	src/group.h	32;"	d
+SECP256K1_GE_CONST	src/group.h	20;"	d
+SECP256K1_GE_CONST_INFINITY	src/group.h	21;"	d
+SECP256K1_GE_STORAGE_CONST	src/group.h	39;"	d
+SECP256K1_GE_STORAGE_CONST_GET	src/group.h	41;"	d
+SECP256K1_GNUC_EXT	src/util.h	133;"	d
+SECP256K1_GNUC_EXT	src/util.h	135;"	d
+SECP256K1_GNUC_PREREQ	include/secp256k1.h	100;"	d
+SECP256K1_GNUC_PREREQ	include/secp256k1.h	97;"	d
+SECP256K1_INLINE	include/secp256k1.h	106;"	d
+SECP256K1_INLINE	include/secp256k1.h	108;"	d
+SECP256K1_INLINE	include/secp256k1.h	110;"	d
+SECP256K1_INLINE	include/secp256k1.h	113;"	d
+SECP256K1_MODULE_GENERATOR_MAIN	src/modules/generator/main_impl.h	8;"	d
+SECP256K1_MODULE_GENERATOR_TESTS	src/modules/generator/tests_impl.h	8;"	d
+SECP256K1_MODULE_RANGEPROOF_MAIN	src/modules/rangeproof/main_impl.h	8;"	d
+SECP256K1_MODULE_RANGEPROOF_TESTS	src/modules/rangeproof/tests_impl.h	8;"	d
+SECP256K1_MODULE_SURJECTIONPROOF_TESTS	src/modules/surjection/tests_impl.h	8;"	d
+SECP256K1_MODULE_SURJECTION_MAIN	src/modules/surjection/main_impl.h	7;"	d
+SECP256K1_MODULE_WHITELIST_MAIN	src/modules/whitelist/main_impl.h	8;"	d
+SECP256K1_MODULE_WHITELIST_TESTS	src/modules/whitelist/tests_impl.h	8;"	d
+SECP256K1_N_0	src/scalar_4x64_impl.h	13;"	d
+SECP256K1_N_0	src/scalar_8x32_impl.h	11;"	d
+SECP256K1_N_1	src/scalar_4x64_impl.h	14;"	d
+SECP256K1_N_1	src/scalar_8x32_impl.h	12;"	d
+SECP256K1_N_2	src/scalar_4x64_impl.h	15;"	d
+SECP256K1_N_2	src/scalar_8x32_impl.h	13;"	d
+SECP256K1_N_3	src/scalar_4x64_impl.h	16;"	d
+SECP256K1_N_3	src/scalar_8x32_impl.h	14;"	d
+SECP256K1_N_4	src/scalar_8x32_impl.h	15;"	d
+SECP256K1_N_5	src/scalar_8x32_impl.h	16;"	d
+SECP256K1_N_6	src/scalar_8x32_impl.h	17;"	d
+SECP256K1_N_7	src/scalar_8x32_impl.h	18;"	d
+SECP256K1_N_C_0	src/scalar_4x64_impl.h	19;"	d
+SECP256K1_N_C_0	src/scalar_8x32_impl.h	21;"	d
+SECP256K1_N_C_1	src/scalar_4x64_impl.h	20;"	d
+SECP256K1_N_C_1	src/scalar_8x32_impl.h	22;"	d
+SECP256K1_N_C_2	src/scalar_4x64_impl.h	21;"	d
+SECP256K1_N_C_2	src/scalar_8x32_impl.h	23;"	d
+SECP256K1_N_C_3	src/scalar_8x32_impl.h	24;"	d
+SECP256K1_N_C_4	src/scalar_8x32_impl.h	25;"	d
+SECP256K1_N_H_0	src/scalar_4x64_impl.h	24;"	d
+SECP256K1_N_H_0	src/scalar_8x32_impl.h	28;"	d
+SECP256K1_N_H_1	src/scalar_4x64_impl.h	25;"	d
+SECP256K1_N_H_1	src/scalar_8x32_impl.h	29;"	d
+SECP256K1_N_H_2	src/scalar_4x64_impl.h	26;"	d
+SECP256K1_N_H_2	src/scalar_8x32_impl.h	30;"	d
+SECP256K1_N_H_3	src/scalar_4x64_impl.h	27;"	d
+SECP256K1_N_H_3	src/scalar_8x32_impl.h	31;"	d
+SECP256K1_N_H_4	src/scalar_8x32_impl.h	32;"	d
+SECP256K1_N_H_5	src/scalar_8x32_impl.h	33;"	d
+SECP256K1_N_H_6	src/scalar_8x32_impl.h	34;"	d
+SECP256K1_N_H_7	src/scalar_8x32_impl.h	35;"	d
+SECP256K1_RESTRICT	src/util.h	108;"	d
+SECP256K1_RESTRICT	src/util.h	112;"	d
+SECP256K1_RESTRICT	src/util.h	114;"	d
+SECP256K1_RESTRICT	src/util.h	116;"	d
+SECP256K1_RESTRICT	src/util.h	119;"	d
+SECP256K1_SCALAR_CONST	src/scalar_4x64.h	17;"	d
+SECP256K1_SCALAR_CONST	src/scalar_8x32.h	17;"	d
+SECP256K1_SURJECTIONPROOF_MAX_N_INPUTS	include/secp256k1_surjectionproof.h	12;"	d
+SECP256K1_SURJECTIONPROOF_SERIALIZATION_BYTES	include/secp256k1_surjectionproof.h	17;"	d
+SECP256K1_SURJECTIONPROOF_SERIALIZATION_BYTES_MAX	include/secp256k1_surjectionproof.h	21;"	d
+SECP256K1_WARN_UNUSED_RESULT	include/secp256k1.h	134;"	d
+SECP256K1_WARN_UNUSED_RESULT	include/secp256k1.h	136;"	d
+SECP256K1_WHITELIST_MAX_N_KEYS	include/secp256k1_whitelist.h	16;"	d
+SHELL	Makefile	/^SHELL = \/bin\/sh$/;"	m
+SUFFIXES	Makefile	/^SUFFIXES =$/;"	m
+Secp256k1Context	src/java/org/bitcoin/Secp256k1Context.java	/^public class Secp256k1Context {$/;"	c
+Sigma0	src/hash_impl.h	18;"	d
+Sigma0	src/hash_impl.h	277;"	d
+Sigma1	src/hash_impl.h	19;"	d
+Sigma1	src/hash_impl.h	276;"	d
+TEST_FAILURE	src/util.h	28;"	d
+TEST_FAILURE	src/util.h	33;"	d
+USE_ASM_X86_64	src/basic-config.h	12;"	d
+USE_BASIC_CONFIG	src/gen_context.c	7;"	d	file:
+USE_ECMULT_STATIC_PRECOMPUTATION	src/tests_exhaustive.c	16;"	d	file:
+USE_ENDOMORPHISM	src/basic-config.h	13;"	d
+USE_FIELD_10X26	src/basic-config.h	14;"	d
+USE_FIELD_10X26	src/basic-config.h	28;"	d
+USE_FIELD_5X52	src/basic-config.h	15;"	d
+USE_FIELD_INV_BUILTIN	src/basic-config.h	16;"	d
+USE_FIELD_INV_BUILTIN	src/basic-config.h	26;"	d
+USE_FIELD_INV_NUM	src/basic-config.h	17;"	d
+USE_NUM_GMP	src/basic-config.h	18;"	d
+USE_NUM_NONE	src/basic-config.h	19;"	d
+USE_NUM_NONE	src/basic-config.h	25;"	d
+USE_SCALAR_4X64	src/basic-config.h	20;"	d
+USE_SCALAR_8X32	src/basic-config.h	21;"	d
+USE_SCALAR_8X32	src/basic-config.h	29;"	d
+USE_SCALAR_INV_BUILTIN	src/basic-config.h	22;"	d
+USE_SCALAR_INV_BUILTIN	src/basic-config.h	27;"	d
+USE_SCALAR_INV_NUM	src/basic-config.h	23;"	d
+VERIFY_BITS	src/field_10x26_impl.h	435;"	d
+VERIFY_BITS	src/field_10x26_impl.h	437;"	d
+VERIFY_BITS	src/field_5x52_int128_impl.h	13;"	d
+VERIFY_BITS	src/field_5x52_int128_impl.h	15;"	d
+VERIFY_CHECK	src/util.h	61;"	d
+VERIFY_CHECK	src/util.h	64;"	d
+VERIFY_CHECK	src/util.h	67;"	d
+VERIFY_SETUP	src/util.h	62;"	d
+VERIFY_SETUP	src/util.h	65;"	d
+VERIFY_SETUP	src/util.h	68;"	d
+VG_CHECK	src/tests.c	35;"	d	file:
+VG_CHECK	src/tests.c	38;"	d	file:
+VG_UNDEF	src/tests.c	34;"	d	file:
+VG_UNDEF	src/tests.c	37;"	d	file:
+WINDOW_A	src/ecmult_impl.h	21;"	d
+WINDOW_A	src/ecmult_impl.h	24;"	d
+WINDOW_A	src/ecmult_impl.h	27;"	d
+WINDOW_A	src/ecmult_impl.h	32;"	d
+WINDOW_G	src/ecmult_impl.h	22;"	d
+WINDOW_G	src/ecmult_impl.h	25;"	d
+WINDOW_G	src/ecmult_impl.h	28;"	d
+WINDOW_G	src/ecmult_impl.h	37;"	d
+WINDOW_G	src/ecmult_impl.h	40;"	d
+WNAF_SIZE	src/ecmult_const_impl.h	15;"	d
+_Included_org_bitcoin_NativeSecp256k1	src/java/org_bitcoin_NativeSecp256k1.h	7;"	d
+_Included_org_bitcoin_Secp256k1Context	src/java/org_bitcoin_Secp256k1Context.h	7;"	d
+_SECP256K1_	include/secp256k1.h	2;"	d
+_SECP256K1_BASIC_CONFIG_	src/basic-config.h	8;"	d
+_SECP256K1_BENCH_H_	src/bench.h	8;"	d
+_SECP256K1_BORROMEAN_H_	src/modules/rangeproof/borromean.h	9;"	d
+_SECP256K1_BORROMEAN_IMPL_H_	src/modules/rangeproof/borromean_impl.h	9;"	d
+_SECP256K1_CONTRIB_BER_PRIVATEKEY_H_	contrib/lax_der_privatekey_parsing.h	29;"	d
+_SECP256K1_CONTRIB_LAX_DER_PARSING_H_	contrib/lax_der_parsing.h	52;"	d
+_SECP256K1_ECDH_	include/secp256k1_ecdh.h	2;"	d
+_SECP256K1_ECDSA_	src/ecdsa.h	8;"	d
+_SECP256K1_ECDSA_IMPL_H_	src/ecdsa_impl.h	9;"	d
+_SECP256K1_ECKEY_	src/eckey.h	8;"	d
+_SECP256K1_ECKEY_IMPL_H_	src/eckey_impl.h	8;"	d
+_SECP256K1_ECMULT_	src/ecmult.h	8;"	d
+_SECP256K1_ECMULT_CONST_	src/ecmult_const.h	8;"	d
+_SECP256K1_ECMULT_CONST_IMPL_	src/ecmult_const_impl.h	8;"	d
+_SECP256K1_ECMULT_GEN_	src/ecmult_gen.h	8;"	d
+_SECP256K1_ECMULT_GEN_IMPL_H_	src/ecmult_gen_impl.h	8;"	d
+_SECP256K1_ECMULT_IMPL_H_	src/ecmult_impl.h	8;"	d
+_SECP256K1_FIELD_	src/field.h	8;"	d
+_SECP256K1_FIELD_IMPL_H_	src/field_impl.h	8;"	d
+_SECP256K1_FIELD_INNER5X52_IMPL_H_	src/field_5x52_asm_impl.h	15;"	d
+_SECP256K1_FIELD_INNER5X52_IMPL_H_	src/field_5x52_int128_impl.h	8;"	d
+_SECP256K1_FIELD_REPR_	src/field_10x26.h	8;"	d
+_SECP256K1_FIELD_REPR_	src/field_5x52.h	8;"	d
+_SECP256K1_FIELD_REPR_IMPL_H_	src/field_10x26_impl.h	8;"	d
+_SECP256K1_FIELD_REPR_IMPL_H_	src/field_5x52_impl.h	8;"	d
+_SECP256K1_GENERATOR_	include/secp256k1_generator.h	2;"	d
+_SECP256K1_GROUP_	src/group.h	8;"	d
+_SECP256K1_GROUP_IMPL_H_	src/group_impl.h	8;"	d
+_SECP256K1_HASH_	src/hash.h	8;"	d
+_SECP256K1_HASH_IMPL_H_	src/hash_impl.h	8;"	d
+_SECP256K1_MODULE_ECDH_MAIN_	src/modules/ecdh/main_impl.h	8;"	d
+_SECP256K1_MODULE_ECDH_TESTS_	src/modules/ecdh/tests_impl.h	8;"	d
+_SECP256K1_MODULE_RECOVERY_MAIN_	src/modules/recovery/main_impl.h	8;"	d
+_SECP256K1_MODULE_RECOVERY_TESTS_	src/modules/recovery/tests_impl.h	8;"	d
+_SECP256K1_NUM_	src/num.h	8;"	d
+_SECP256K1_NUM_IMPL_H_	src/num_impl.h	8;"	d
+_SECP256K1_NUM_REPR_	src/num_gmp.h	8;"	d
+_SECP256K1_NUM_REPR_IMPL_H_	src/num_gmp_impl.h	8;"	d
+_SECP256K1_PEDERSEN_H_	src/modules/rangeproof/pedersen.h	8;"	d
+_SECP256K1_PEDERSEN_IMPL_H_	src/modules/rangeproof/pedersen_impl.h	8;"	d
+_SECP256K1_RANGEPROOF_	include/secp256k1_rangeproof.h	2;"	d
+_SECP256K1_RANGEPROOF_H_	src/modules/rangeproof/rangeproof.h	8;"	d
+_SECP256K1_RANGEPROOF_IMPL_H_	src/modules/rangeproof/rangeproof_impl.h	8;"	d
+_SECP256K1_RECOVERY_	include/secp256k1_recovery.h	2;"	d
+_SECP256K1_SCALAR_	src/scalar.h	8;"	d
+_SECP256K1_SCALAR_IMPL_H_	src/scalar_impl.h	8;"	d
+_SECP256K1_SCALAR_REPR_	src/scalar_4x64.h	8;"	d
+_SECP256K1_SCALAR_REPR_	src/scalar_8x32.h	8;"	d
+_SECP256K1_SCALAR_REPR_	src/scalar_low.h	8;"	d
+_SECP256K1_SCALAR_REPR_IMPL_H_	src/scalar_4x64_impl.h	8;"	d
+_SECP256K1_SCALAR_REPR_IMPL_H_	src/scalar_8x32_impl.h	8;"	d
+_SECP256K1_SCALAR_REPR_IMPL_H_	src/scalar_low_impl.h	8;"	d
+_SECP256K1_SURJECTIONPROOF_	include/secp256k1_surjectionproof.h	2;"	d
+_SECP256K1_SURJECTION_H_	src/modules/surjection/surjection.h	8;"	d
+_SECP256K1_SURJECTION_IMPL_H_	src/modules/surjection/surjection_impl.h	8;"	d
+_SECP256K1_TESTRAND_H_	src/testrand.h	8;"	d
+_SECP256K1_TESTRAND_IMPL_H_	src/testrand_impl.h	8;"	d
+_SECP256K1_UTIL_H_	src/util.h	8;"	d
+_SECP256K1_WHITELIST_	include/secp256k1_whitelist.h	8;"	d
+_SECP256K1_WHITELIST_IMPL_H_	src/modules/whitelist/whitelist_impl.h	8;"	d
+assertEquals	src/java/org/bitcoin/NativeSecp256k1Util.java	/^    public static void assertEquals( String val, String val2, String message ) throws AssertFailException{$/;"	m	class:NativeSecp256k1Util
+assertEquals	src/java/org/bitcoin/NativeSecp256k1Util.java	/^    public static void assertEquals( boolean val, boolean val2, String message ) throws AssertFailException{$/;"	m	class:NativeSecp256k1Util
+assertEquals	src/java/org/bitcoin/NativeSecp256k1Util.java	/^    public static void assertEquals( int val, int val2, String message ) throws AssertFailException{$/;"	m	class:NativeSecp256k1Util
+assign_big_endian	src/tests.c	/^static void assign_big_endian(unsigned char *ptr, size_t ptrlen, uint32_t val) {$/;"	f	file:
+bench_context_sign	src/bench_internal.c	/^void bench_context_sign(void* arg) {$/;"	f
+bench_context_verify	src/bench_internal.c	/^void bench_context_verify(void* arg) {$/;"	f
+bench_ecdh	src/bench_ecdh.c	/^static void bench_ecdh(void* arg) {$/;"	f	file:
+bench_ecdh_setup	src/bench_ecdh.c	/^static void bench_ecdh_setup(void* arg) {$/;"	f	file:
+bench_ecdh_t	src/bench_ecdh.c	/^} bench_ecdh_t;$/;"	t	typeref:struct:__anon9	file:
+bench_ecmult_wnaf	src/bench_internal.c	/^void bench_ecmult_wnaf(void* arg) {$/;"	f
+bench_field_inverse	src/bench_internal.c	/^void bench_field_inverse(void* arg) {$/;"	f
+bench_field_inverse_var	src/bench_internal.c	/^void bench_field_inverse_var(void* arg) {$/;"	f
+bench_field_mul	src/bench_internal.c	/^void bench_field_mul(void* arg) {$/;"	f
+bench_field_normalize	src/bench_internal.c	/^void bench_field_normalize(void* arg) {$/;"	f
+bench_field_normalize_weak	src/bench_internal.c	/^void bench_field_normalize_weak(void* arg) {$/;"	f
+bench_field_sqr	src/bench_internal.c	/^void bench_field_sqr(void* arg) {$/;"	f
+bench_field_sqrt	src/bench_internal.c	/^void bench_field_sqrt(void* arg) {$/;"	f
+bench_generator_generate	src/bench_generator.c	/^static void bench_generator_generate(void* arg) {$/;"	f	file:
+bench_generator_generate_blinded	src/bench_generator.c	/^static void bench_generator_generate_blinded(void* arg) {$/;"	f	file:
+bench_generator_setup	src/bench_generator.c	/^static void bench_generator_setup(void* arg) {$/;"	f	file:
+bench_generator_t	src/bench_generator.c	/^} bench_generator_t;$/;"	t	typeref:struct:__anon10	file:
+bench_group_add_affine	src/bench_internal.c	/^void bench_group_add_affine(void* arg) {$/;"	f
+bench_group_add_affine_var	src/bench_internal.c	/^void bench_group_add_affine_var(void* arg) {$/;"	f
+bench_group_add_var	src/bench_internal.c	/^void bench_group_add_var(void* arg) {$/;"	f
+bench_group_double_var	src/bench_internal.c	/^void bench_group_double_var(void* arg) {$/;"	f
+bench_group_jacobi_var	src/bench_internal.c	/^void bench_group_jacobi_var(void* arg) {$/;"	f
+bench_hmac_sha256	src/bench_internal.c	/^void bench_hmac_sha256(void* arg) {$/;"	f
+bench_inv_t	src/bench_internal.c	/^} bench_inv_t;$/;"	t	typeref:struct:__anon11	file:
+bench_num_jacobi	src/bench_internal.c	/^void bench_num_jacobi(void* arg) {$/;"	f
+bench_rangeproof	src/bench_rangeproof.c	/^static void bench_rangeproof(void* arg) {$/;"	f	file:
+bench_rangeproof_setup	src/bench_rangeproof.c	/^static void bench_rangeproof_setup(void* arg) {$/;"	f	file:
+bench_rangeproof_t	src/bench_rangeproof.c	/^} bench_rangeproof_t;$/;"	t	typeref:struct:__anon12	file:
+bench_recover	src/bench_recover.c	/^void bench_recover(void* arg) {$/;"	f
+bench_recover_setup	src/bench_recover.c	/^void bench_recover_setup(void* arg) {$/;"	f
+bench_recover_t	src/bench_recover.c	/^} bench_recover_t;$/;"	t	typeref:struct:__anon13	file:
+bench_rfc6979_hmac_sha256	src/bench_internal.c	/^void bench_rfc6979_hmac_sha256(void* arg) {$/;"	f
+bench_scalar_add	src/bench_internal.c	/^void bench_scalar_add(void* arg) {$/;"	f
+bench_scalar_inverse	src/bench_internal.c	/^void bench_scalar_inverse(void* arg) {$/;"	f
+bench_scalar_inverse_var	src/bench_internal.c	/^void bench_scalar_inverse_var(void* arg) {$/;"	f
+bench_scalar_mul	src/bench_internal.c	/^void bench_scalar_mul(void* arg) {$/;"	f
+bench_scalar_negate	src/bench_internal.c	/^void bench_scalar_negate(void* arg) {$/;"	f
+bench_scalar_split	src/bench_internal.c	/^void bench_scalar_split(void* arg) {$/;"	f
+bench_scalar_sqr	src/bench_internal.c	/^void bench_scalar_sqr(void* arg) {$/;"	f
+bench_setup	src/bench_internal.c	/^void bench_setup(void* arg) {$/;"	f
+bench_sha256	src/bench_internal.c	/^void bench_sha256(void* arg) {$/;"	f
+bench_sign	src/bench_sign.c	/^static void bench_sign(void* arg) {$/;"	f	file:
+bench_sign_setup	src/bench_sign.c	/^static void bench_sign_setup(void* arg) {$/;"	f	file:
+bench_sign_t	src/bench_sign.c	/^} bench_sign_t;$/;"	t	typeref:struct:__anon16	file:
+bench_wnaf_const	src/bench_internal.c	/^void bench_wnaf_const(void* arg) {$/;"	f
+benchmark_schnorr_init	src/bench_schnorr_verify.c	/^static void benchmark_schnorr_init(void* arg) {$/;"	f	file:
+benchmark_schnorr_sig_t	src/bench_schnorr_verify.c	/^} benchmark_schnorr_sig_t;$/;"	t	typeref:struct:__anon14	file:
+benchmark_schnorr_verify	src/bench_schnorr_verify.c	/^static void benchmark_schnorr_verify(void* arg) {$/;"	f	file:
+benchmark_schnorr_verify_t	src/bench_schnorr_verify.c	/^} benchmark_schnorr_verify_t;$/;"	t	typeref:struct:__anon15	file:
+benchmark_verify	src/bench_verify.c	/^static void benchmark_verify(void* arg) {$/;"	f	file:
+benchmark_verify_openssl	src/bench_verify.c	/^static void benchmark_verify_openssl(void* arg) {$/;"	f	file:
+benchmark_verify_t	src/bench_verify.c	/^} benchmark_verify_t;$/;"	t	typeref:struct:__anon17	file:
+blind	src/bench_generator.c	/^    unsigned char blind[32];$/;"	m	struct:__anon10	file:
+blind	src/bench_rangeproof.c	/^    unsigned char blind[32];$/;"	m	struct:__anon12	file:
+blind	src/ecmult_gen.h	/^    secp256k1_scalar blind;$/;"	m	struct:__anon19
+buf	src/hash.h	/^    uint32_t buf[16]; \/* In big endian *\/$/;"	m	struct:__anon27
+bytes	src/hash.h	/^    size_t bytes;$/;"	m	struct:__anon27
+check_fe_equal	src/tests.c	/^int check_fe_equal(const secp256k1_fe *a, const secp256k1_fe *b) {$/;"	f
+check_fe_inverse	src/tests.c	/^int check_fe_inverse(const secp256k1_fe *a, const secp256k1_fe *ai) {$/;"	f
+checked_malloc	src/util.h	/^static SECP256K1_INLINE void *checked_malloc(const secp256k1_callback* cb, size_t size) {$/;"	f
+cleanup	src/java/org/bitcoin/NativeSecp256k1.java	/^    public static synchronized void cleanup() {$/;"	m	class:NativeSecp256k1
+cloneContext	src/java/org/bitcoin/NativeSecp256k1.java	/^    public static long cloneContext() {$/;"	m	class:NativeSecp256k1
+commit	src/bench_rangeproof.c	/^    secp256k1_pedersen_commitment commit;$/;"	m	struct:__anon12	file:
+computePubkey	src/java/org/bitcoin/NativeSecp256k1.java	/^    public static byte[] computePubkey(byte[] seckey) throws AssertFailException{$/;"	m	class:NativeSecp256k1
+context	src/java/org/bitcoin/Secp256k1Context.java	/^  private static final long context; \/\/ref to pointer to context obj$/;"	f	class:Secp256k1Context	file:
+count	src/tests.c	/^static int count = 64;$/;"	v	file:
+counting_illegal_callback_fn	src/tests.c	/^static void counting_illegal_callback_fn(const char* str, void* data) {$/;"	f	file:
+createECDHSecret	src/java/org/bitcoin/NativeSecp256k1.java	/^    public static byte[] createECDHSecret(byte[] seckey, byte[] pubkey) throws AssertFailException{$/;"	m	class:NativeSecp256k1
+ctx	src/bench_ecdh.c	/^    secp256k1_context *ctx;$/;"	m	struct:__anon9	file:
+ctx	src/bench_generator.c	/^    secp256k1_context* ctx;$/;"	m	struct:__anon10	file:
+ctx	src/bench_rangeproof.c	/^    secp256k1_context* ctx;$/;"	m	struct:__anon12	file:
+ctx	src/bench_recover.c	/^    secp256k1_context *ctx;$/;"	m	struct:__anon13	file:
+ctx	src/bench_schnorr_verify.c	/^    secp256k1_context *ctx;$/;"	m	struct:__anon15	file:
+ctx	src/bench_sign.c	/^    secp256k1_context* ctx;$/;"	m	struct:__anon16	file:
+ctx	src/bench_verify.c	/^    secp256k1_context *ctx;$/;"	m	struct:__anon17	file:
+ctx	src/tests.c	/^static secp256k1_context *ctx = NULL;$/;"	v	file:
+d	src/scalar_4x64.h	/^    uint64_t d[4];$/;"	m	struct:__anon32
+d	src/scalar_8x32.h	/^    uint32_t d[8];$/;"	m	struct:__anon33
+damage_array	src/tests.c	/^static void damage_array(unsigned char *sig, size_t *len) {$/;"	f	file:
+data	include/secp256k1.h	/^    unsigned char data[64];$/;"	m	struct:__anon1
+data	include/secp256k1.h	/^    unsigned char data[64];$/;"	m	struct:__anon2
+data	include/secp256k1_generator.h	/^    unsigned char data[33];$/;"	m	struct:__anon3
+data	include/secp256k1_rangeproof.h	/^    unsigned char data[33];$/;"	m	struct:__anon4
+data	include/secp256k1_recovery.h	/^    unsigned char data[65];$/;"	m	struct:__anon5
+data	include/secp256k1_surjectionproof.h	/^    unsigned char data[32 * (1 + SECP256K1_SURJECTIONPROOF_MAX_N_INPUTS)];$/;"	m	struct:__anon6
+data	include/secp256k1_surjectionproof.h	/^    unsigned char data[32];$/;"	m	struct:__anon7
+data	include/secp256k1_whitelist.h	/^    unsigned char data[32 * (1 + SECP256K1_WHITELIST_MAX_N_KEYS)];$/;"	m	struct:__anon8
+data	src/bench_internal.c	/^    unsigned char data[64];$/;"	m	struct:__anon11	file:
+data	src/num_gmp.h	/^    mp_limb_t data[2*NUM_LIMBS];$/;"	m	struct:__anon31
+data	src/util.h	/^    const void* data;$/;"	m	struct:__anon34
+default_error_callback	src/gen_context.c	/^static const secp256k1_callback default_error_callback = {$/;"	v	file:
+default_error_callback	src/secp256k1.c	/^static const secp256k1_callback default_error_callback = {$/;"	v	file:
+default_error_callback_fn	src/gen_context.c	/^static void default_error_callback_fn(const char* str, void* data) {$/;"	f	file:
+default_error_callback_fn	src/secp256k1.c	/^static void default_error_callback_fn(const char* str, void* data) {$/;"	f	file:
+default_illegal_callback	src/secp256k1.c	/^static const secp256k1_callback default_illegal_callback = {$/;"	v	file:
+default_illegal_callback_fn	src/secp256k1.c	/^static void default_illegal_callback_fn(const char* str, void* data) {$/;"	f	file:
+ec_group	src/bench_verify.c	/^    EC_GROUP* ec_group;$/;"	m	struct:__anon17	file:
+ec_privkey_export_der	contrib/lax_der_privatekey_parsing.c	/^int ec_privkey_export_der(const secp256k1_context *ctx, unsigned char *privkey, size_t *privkeylen, const unsigned char *key32, int compressed) {$/;"	f
+ec_privkey_import_der	contrib/lax_der_privatekey_parsing.c	/^int ec_privkey_import_der(const secp256k1_context* ctx, unsigned char *out32, const unsigned char *privkey, size_t privkeylen) {$/;"	f
+ec_pubkey_parse_pointtest	src/tests.c	/^void ec_pubkey_parse_pointtest(const unsigned char *input, int xvalid, int yvalid) {$/;"	f
+ecdsa_signature_parse_der_lax	contrib/lax_der_parsing.c	/^int ecdsa_signature_parse_der_lax(const secp256k1_context* ctx, secp256k1_ecdsa_signature* sig, const unsigned char *input, size_t inputlen) {$/;"	f
+ecmult_const_chain_multiply	src/tests.c	/^void ecmult_const_chain_multiply(void) {$/;"	f
+ecmult_const_commutativity	src/tests.c	/^void ecmult_const_commutativity(void) {$/;"	f
+ecmult_const_mult_zero_one	src/tests.c	/^void ecmult_const_mult_zero_one(void) {$/;"	f
+ecmult_const_random_mult	src/tests.c	/^void ecmult_const_random_mult(void) {$/;"	f
+ecmult_ctx	src/secp256k1.c	/^    secp256k1_ecmult_context ecmult_ctx;$/;"	m	struct:secp256k1_context_struct	file:
+ecmult_gen_ctx	src/secp256k1.c	/^    secp256k1_ecmult_gen_context ecmult_gen_ctx;$/;"	m	struct:secp256k1_context_struct	file:
+enabled	src/java/org/bitcoin/Secp256k1Context.java	/^  private static final boolean enabled; \/\/true if the library is loaded$/;"	f	class:Secp256k1Context	file:
+error_callback	src/secp256k1.c	/^    secp256k1_callback error_callback;$/;"	m	struct:secp256k1_context_struct	file:
+extract	src/scalar_4x64_impl.h	264;"	d
+extract	src/scalar_4x64_impl.h	897;"	d
+extract	src/scalar_8x32_impl.h	345;"	d
+extract	src/scalar_8x32_impl.h	655;"	d
+extract_fast	src/scalar_4x64_impl.h	272;"	d
+extract_fast	src/scalar_4x64_impl.h	898;"	d
+extract_fast	src/scalar_8x32_impl.h	353;"	d
+extract_fast	src/scalar_8x32_impl.h	656;"	d
+fe_memcmp	src/tests.c	/^int fe_memcmp(const secp256k1_fe *a, const secp256k1_fe *b) {$/;"	f
+fe_x	src/bench_internal.c	/^    secp256k1_fe fe_x, fe_y;$/;"	m	struct:__anon11	file:
+fe_y	src/bench_internal.c	/^    secp256k1_fe fe_x, fe_y;$/;"	m	struct:__anon11	file:
+fn	src/util.h	/^    void (*fn)(const char *text, void* data);$/;"	m	struct:__anon34
+ge_equals_ge	src/tests.c	/^void ge_equals_ge(const secp256k1_ge *a, const secp256k1_ge *b) {$/;"	f
+ge_equals_ge	src/tests_exhaustive.c	/^void ge_equals_ge(const secp256k1_ge *a, const secp256k1_ge *b) {$/;"	f
+ge_equals_gej	src/tests.c	/^void ge_equals_gej(const secp256k1_ge *a, const secp256k1_gej *b) {$/;"	f
+ge_equals_gej	src/tests_exhaustive.c	/^void ge_equals_gej(const secp256k1_ge *a, const secp256k1_gej *b) {$/;"	f
+ge_x	src/bench_internal.c	/^    secp256k1_ge ge_x, ge_y;$/;"	m	struct:__anon11	file:
+ge_y	src/bench_internal.c	/^    secp256k1_ge ge_x, ge_y;$/;"	m	struct:__anon11	file:
+gej_x	src/bench_internal.c	/^    secp256k1_gej gej_x, gej_y;$/;"	m	struct:__anon11	file:
+gej_xyz_equals_gej	src/tests.c	/^int gej_xyz_equals_gej(const secp256k1_gej *a, const secp256k1_gej *b) {$/;"	f
+gej_y	src/bench_internal.c	/^    secp256k1_gej gej_x, gej_y;$/;"	m	struct:__anon11	file:
+getContext	src/java/org/bitcoin/Secp256k1Context.java	/^  public static long getContext() {$/;"	m	class:Secp256k1Context
+get_openssl_key	src/tests.c	/^EC_KEY *get_openssl_key(const unsigned char *key32) {$/;"	f
+gettimedouble	src/bench.h	/^static double gettimedouble(void) {$/;"	f
+have_flag	src/bench_internal.c	/^int have_flag(int argc, char** argv, char *flag) {$/;"	f
+illegal_callback	src/secp256k1.c	/^    secp256k1_callback illegal_callback;$/;"	m	struct:secp256k1_context_struct	file:
+infinity	src/group.h	/^    int infinity; \/* whether this represents the point at infinity *\/$/;"	m	struct:__anon24
+infinity	src/group.h	/^    int infinity; \/* whether this represents the point at infinity *\/$/;"	m	struct:__anon25
+initial	src/ecmult_gen.h	/^    secp256k1_gej initial;$/;"	m	struct:__anon19
+initialized	include/secp256k1_surjectionproof.h	/^    int initialized;$/;"	m	struct:__anon6
+inner	src/hash.h	/^    secp256k1_sha256_t inner, outer;$/;"	m	struct:__anon28
+isEnabled	src/java/org/bitcoin/Secp256k1Context.java	/^  public static boolean isEnabled() {$/;"	m	class:Secp256k1Context
+is_empty_signature	src/tests.c	/^int is_empty_signature(const secp256k1_ecdsa_signature *sig) {$/;"	f
+k	src/hash.h	/^    unsigned char k[32];$/;"	m	struct:__anon29
+key	src/bench_generator.c	/^    unsigned char key[32];$/;"	m	struct:__anon10	file:
+key	src/bench_schnorr_verify.c	/^    unsigned char key[32];$/;"	m	struct:__anon14	file:
+key	src/bench_sign.c	/^    unsigned char key[32];$/;"	m	struct:__anon16	file:
+key	src/bench_verify.c	/^    unsigned char key[32];$/;"	m	struct:__anon17	file:
+len	src/bench_rangeproof.c	/^    size_t len;$/;"	m	struct:__anon12	file:
+limbs	src/num_gmp.h	/^    int limbs;$/;"	m	struct:__anon31
+magnitude	src/field_10x26.h	/^    int magnitude;$/;"	m	struct:__anon20
+magnitude	src/field_5x52.h	/^    int magnitude;$/;"	m	struct:__anon22
+main	src/bench_ecdh.c	/^int main(void) {$/;"	f
+main	src/bench_generator.c	/^int main(void) {$/;"	f
+main	src/bench_internal.c	/^int main(int argc, char **argv) {$/;"	f
+main	src/bench_rangeproof.c	/^int main(void) {$/;"	f
+main	src/bench_recover.c	/^int main(void) {$/;"	f
+main	src/bench_schnorr_verify.c	/^int main(void) {$/;"	f
+main	src/bench_sign.c	/^int main(void) {$/;"	f
+main	src/bench_verify.c	/^int main(void) {$/;"	f
+main	src/gen_context.c	/^int main(int argc, char **argv) {$/;"	f
+main	src/java/org/bitcoin/NativeSecp256k1Test.java	/^    public static void main(String[] args) throws AssertFailException{$/;"	m	class:NativeSecp256k1Test
+main	src/tests.c	/^int main(int argc, char **argv) {$/;"	f
+main	src/tests_exhaustive.c	/^int main(void) {$/;"	f
+min_bits	src/bench_rangeproof.c	/^    int min_bits;$/;"	m	struct:__anon12	file:
+msg	src/bench_recover.c	/^    unsigned char msg[32];$/;"	m	struct:__anon13	file:
+msg	src/bench_schnorr_verify.c	/^    unsigned char msg[32];$/;"	m	struct:__anon15	file:
+msg	src/bench_sign.c	/^    unsigned char msg[32];$/;"	m	struct:__anon16	file:
+msg	src/bench_verify.c	/^    unsigned char msg[32];$/;"	m	struct:__anon17	file:
+muladd	src/scalar_4x64_impl.h	196;"	d
+muladd	src/scalar_4x64_impl.h	894;"	d
+muladd	src/scalar_8x32_impl.h	277;"	d
+muladd	src/scalar_8x32_impl.h	652;"	d
+muladd2	src/scalar_4x64_impl.h	225;"	d
+muladd2	src/scalar_4x64_impl.h	896;"	d
+muladd2	src/scalar_8x32_impl.h	306;"	d
+muladd2	src/scalar_8x32_impl.h	654;"	d
+muladd_fast	src/scalar_4x64_impl.h	211;"	d
+muladd_fast	src/scalar_4x64_impl.h	895;"	d
+muladd_fast	src/scalar_8x32_impl.h	292;"	d
+muladd_fast	src/scalar_8x32_impl.h	653;"	d
+n	src/field_10x26.h	/^    uint32_t n[10];$/;"	m	struct:__anon20
+n	src/field_10x26.h	/^    uint32_t n[8];$/;"	m	struct:__anon21
+n	src/field_5x52.h	/^    uint64_t n[4];$/;"	m	struct:__anon23
+n	src/field_5x52.h	/^    uint64_t n[5];$/;"	m	struct:__anon22
+n_inputs	include/secp256k1_surjectionproof.h	/^    size_t n_inputs;$/;"	m	struct:__anon6
+n_keys	include/secp256k1_whitelist.h	/^    size_t n_keys;$/;"	m	struct:__anon8
+nativeECDSABuffer	src/java/org/bitcoin/NativeSecp256k1.java	/^    private static ThreadLocal<ByteBuffer> nativeECDSABuffer = new ThreadLocal<ByteBuffer>();$/;"	f	class:NativeSecp256k1	file:
+neg	src/num_gmp.h	/^    int neg;$/;"	m	struct:__anon31
+nonce_function_rfc6979	src/secp256k1.c	/^static int nonce_function_rfc6979(unsigned char *nonce32, const unsigned char *msg32, const unsigned char *key32, const unsigned char *algo16, void *data, unsigned int counter) {$/;"	f	file:
+nonce_function_test_fail	src/tests.c	/^static int nonce_function_test_fail(unsigned char *nonce32, const unsigned char *msg32, const unsigned char *key32, const unsigned char *algo16, void *data, unsigned int counter) {$/;"	f	file:
+nonce_function_test_retry	src/tests.c	/^static int nonce_function_test_retry(unsigned char *nonce32, const unsigned char *msg32, const unsigned char *key32, const unsigned char *algo16, void *data, unsigned int counter) {$/;"	f	file:
+normalized	src/field_10x26.h	/^    int normalized;$/;"	m	struct:__anon20
+normalized	src/field_5x52.h	/^    int normalized;$/;"	m	struct:__anon22
+numsigs	src/bench_schnorr_verify.c	/^    int numsigs;$/;"	m	struct:__anon15	file:
+org.bitcoin	src/java/org/bitcoin/NativeSecp256k1.java	/^package org.bitcoin;$/;"	p
+org.bitcoin	src/java/org/bitcoin/NativeSecp256k1Test.java	/^package org.bitcoin;$/;"	p
+org.bitcoin	src/java/org/bitcoin/NativeSecp256k1Util.java	/^package org.bitcoin;$/;"	p
+org.bitcoin	src/java/org/bitcoin/Secp256k1Context.java	/^package org.bitcoin;$/;"	p
+outer	src/hash.h	/^    secp256k1_sha256_t inner, outer;$/;"	m	struct:__anon28
+point	src/bench_ecdh.c	/^    secp256k1_pubkey point;$/;"	m	struct:__anon9	file:
+pre_g	src/ecmult.h	/^    secp256k1_ge_storage (*pre_g)[];    \/* odd multiples of the generator *\/$/;"	m	struct:__anon18
+pre_g_128	src/ecmult.h	/^    secp256k1_ge_storage (*pre_g_128)[]; \/* odd multiples of 2^128*generator *\/$/;"	m	struct:__anon18
+prec	src/ecmult_gen.h	/^    secp256k1_ge_storage (*prec)[64][16]; \/* prec[j][i] = 16^j * i * G + U_i *\/$/;"	m	struct:__anon19
+precomputed_nonce_function	src/tests.c	/^static int precomputed_nonce_function(unsigned char *nonce32, const unsigned char *msg32, const unsigned char *key32, const unsigned char *algo16, void *data, unsigned int counter) {$/;"	f	file:
+print_number	src/bench.h	/^void print_number(double x) {$/;"	f
+privKeyTweakAdd	src/java/org/bitcoin/NativeSecp256k1.java	/^    public static byte[] privKeyTweakAdd(byte[] privkey, byte[] tweak) throws AssertFailException{$/;"	m	class:NativeSecp256k1
+privKeyTweakMul	src/java/org/bitcoin/NativeSecp256k1.java	/^    public static byte[] privKeyTweakMul(byte[] privkey, byte[] tweak) throws AssertFailException{$/;"	m	class:NativeSecp256k1
+proof	src/bench_rangeproof.c	/^    unsigned char proof[5134];$/;"	m	struct:__anon12	file:
+pubKeyTweakAdd	src/java/org/bitcoin/NativeSecp256k1.java	/^    public static byte[] pubKeyTweakAdd(byte[] pubkey, byte[] tweak) throws AssertFailException{$/;"	m	class:NativeSecp256k1
+pubKeyTweakMul	src/java/org/bitcoin/NativeSecp256k1.java	/^    public static byte[] pubKeyTweakMul(byte[] pubkey, byte[] tweak) throws AssertFailException{$/;"	m	class:NativeSecp256k1
+pubkey	src/bench_schnorr_verify.c	/^    unsigned char pubkey[33];$/;"	m	struct:__anon14	file:
+pubkey	src/bench_verify.c	/^    unsigned char pubkey[33];$/;"	m	struct:__anon17	file:
+pubkeylen	src/bench_schnorr_verify.c	/^    size_t pubkeylen;$/;"	m	struct:__anon14	file:
+pubkeylen	src/bench_verify.c	/^    size_t pubkeylen;$/;"	m	struct:__anon17	file:
+r	src/java/org/bitcoin/NativeSecp256k1.java	/^    private static final Lock r = rwl.readLock();$/;"	f	class:NativeSecp256k1	file:
+r_from_k	src/tests_exhaustive.c	/^void r_from_k(secp256k1_scalar *r, const secp256k1_ge *group, int k) {$/;"	f
+random_ber_signature	src/tests.c	/^static void random_ber_signature(unsigned char *sig, size_t *len, int* certainly_der, int* certainly_not_der) {$/;"	f	file:
+random_fe	src/tests.c	/^void random_fe(secp256k1_fe *x) {$/;"	f
+random_fe	src/tests_exhaustive.c	/^void random_fe(secp256k1_fe *x) {$/;"	f
+random_fe_non_square	src/tests.c	/^void random_fe_non_square(secp256k1_fe *ns) {$/;"	f
+random_fe_non_zero	src/tests.c	/^void random_fe_non_zero(secp256k1_fe *nz) {$/;"	f
+random_fe_test	src/tests.c	/^void random_fe_test(secp256k1_fe *x) {$/;"	f
+random_field_element_magnitude	src/tests.c	/^void random_field_element_magnitude(secp256k1_fe *fe) {$/;"	f
+random_field_element_test	src/tests.c	/^void random_field_element_test(secp256k1_fe *fe) {$/;"	f
+random_group_element_jacobian_test	src/tests.c	/^void random_group_element_jacobian_test(secp256k1_gej *gej, const secp256k1_ge *ge) {$/;"	f
+random_group_element_test	src/tests.c	/^void random_group_element_test(secp256k1_ge *ge) {$/;"	f
+random_num_negate	src/tests.c	/^void random_num_negate(secp256k1_num *num) {$/;"	f
+random_num_order	src/tests.c	/^void random_num_order(secp256k1_num *num) {$/;"	f
+random_num_order_test	src/tests.c	/^void random_num_order_test(secp256k1_num *num) {$/;"	f
+random_scalar_order	src/tests.c	/^void random_scalar_order(secp256k1_scalar *num) {$/;"	f
+random_scalar_order_test	src/tests.c	/^void random_scalar_order_test(secp256k1_scalar *num) {$/;"	f
+random_sign	src/tests.c	/^void random_sign(secp256k1_scalar *sigr, secp256k1_scalar *sigs, const secp256k1_scalar *key, const secp256k1_scalar *msg, int *recid) {$/;"	f
+randomize	src/java/org/bitcoin/NativeSecp256k1.java	/^    public static synchronized boolean randomize(byte[] seed) throws AssertFailException{$/;"	m	class:NativeSecp256k1
+recovery_test_nonce_function	src/modules/recovery/tests_impl.h	/^static int recovery_test_nonce_function(unsigned char *nonce32, const unsigned char *msg32, const unsigned char *key32, const unsigned char *algo16, void *data, unsigned int counter) {$/;"	f
+retry	src/hash.h	/^    int retry;$/;"	m	struct:__anon29
+run_benchmark	src/bench.h	/^void run_benchmark(char *name, void (*benchmark)(void*), void (*setup)(void*), void (*teardown)(void*), void* data, int count, int iter) {$/;"	f
+run_context_tests	src/tests.c	/^void run_context_tests(void) {$/;"	f
+run_ec_combine	src/tests.c	/^void run_ec_combine(void) {$/;"	f
+run_ec_pubkey_parse_test	src/tests.c	/^void run_ec_pubkey_parse_test(void) {$/;"	f
+run_ecdh_tests	src/modules/ecdh/tests_impl.h	/^void run_ecdh_tests(void) {$/;"	f
+run_ecdsa_der_parse	src/tests.c	/^void run_ecdsa_der_parse(void) {$/;"	f
+run_ecdsa_edge_cases	src/tests.c	/^void run_ecdsa_edge_cases(void) {$/;"	f
+run_ecdsa_end_to_end	src/tests.c	/^void run_ecdsa_end_to_end(void) {$/;"	f
+run_ecdsa_openssl	src/tests.c	/^void run_ecdsa_openssl(void) {$/;"	f
+run_ecdsa_sign_verify	src/tests.c	/^void run_ecdsa_sign_verify(void) {$/;"	f
+run_eckey_edge_case_test	src/tests.c	/^void run_eckey_edge_case_test(void) {$/;"	f
+run_ecmult_chain	src/tests.c	/^void run_ecmult_chain(void) {$/;"	f
+run_ecmult_const_tests	src/tests.c	/^void run_ecmult_const_tests(void) {$/;"	f
+run_ecmult_constants	src/tests.c	/^void run_ecmult_constants(void) {$/;"	f
+run_ecmult_gen_blind	src/tests.c	/^void run_ecmult_gen_blind(void) {$/;"	f
+run_endomorphism_tests	src/tests.c	/^void run_endomorphism_tests(void) {$/;"	f
+run_field_convert	src/tests.c	/^void run_field_convert(void) {$/;"	f
+run_field_inv	src/tests.c	/^void run_field_inv(void) {$/;"	f
+run_field_inv_all_var	src/tests.c	/^void run_field_inv_all_var(void) {$/;"	f
+run_field_inv_var	src/tests.c	/^void run_field_inv_var(void) {$/;"	f
+run_field_misc	src/tests.c	/^void run_field_misc(void) {$/;"	f
+run_ge	src/tests.c	/^void run_ge(void) {$/;"	f
+run_generator_tests	src/modules/generator/tests_impl.h	/^void run_generator_tests(void) {$/;"	f
+run_group_decompress	src/tests.c	/^void run_group_decompress(void) {$/;"	f
+run_hmac_sha256_tests	src/tests.c	/^void run_hmac_sha256_tests(void) {$/;"	f
+run_num_smalltests	src/tests.c	/^void run_num_smalltests(void) {$/;"	f
+run_point_times_order	src/tests.c	/^void run_point_times_order(void) {$/;"	f
+run_rand_bits	src/tests.c	/^void run_rand_bits(void) {$/;"	f
+run_rand_int	src/tests.c	/^void run_rand_int(void) {$/;"	f
+run_random_pubkeys	src/tests.c	/^void run_random_pubkeys(void) {$/;"	f
+run_rangeproof_tests	src/modules/rangeproof/tests_impl.h	/^void run_rangeproof_tests(void) {$/;"	f
+run_recovery_tests	src/modules/recovery/tests_impl.h	/^void run_recovery_tests(void) {$/;"	f
+run_rfc6979_hmac_sha256_tests	src/tests.c	/^void run_rfc6979_hmac_sha256_tests(void) {$/;"	f
+run_scalar_tests	src/tests.c	/^void run_scalar_tests(void) {$/;"	f
+run_sha256_tests	src/tests.c	/^void run_sha256_tests(void) {$/;"	f
+run_sqr	src/tests.c	/^void run_sqr(void) {$/;"	f
+run_sqrt	src/tests.c	/^void run_sqrt(void) {$/;"	f
+run_surjection_tests	src/modules/surjection/tests_impl.h	/^void run_surjection_tests(void) {$/;"	f
+run_util_tests	src/tests.c	/^void run_util_tests(void) {$/;"	f
+run_whitelist_tests	src/modules/whitelist/tests_impl.h	/^void run_whitelist_tests(void) {$/;"	f
+run_wnaf	src/tests.c	/^void run_wnaf(void) {$/;"	f
+rwl	src/java/org/bitcoin/NativeSecp256k1.java	/^    private static final ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();$/;"	f	class:NativeSecp256k1	file:
+s	src/hash.h	/^    uint32_t s[8];$/;"	m	struct:__anon27
+scalar	src/bench_ecdh.c	/^    unsigned char scalar[32];$/;"	m	struct:__anon9	file:
+scalar_test	src/tests.c	/^void scalar_test(void) {$/;"	f
+scalar_x	src/bench_internal.c	/^    secp256k1_scalar scalar_x, scalar_y;$/;"	m	struct:__anon11	file:
+scalar_y	src/bench_internal.c	/^    secp256k1_scalar scalar_x, scalar_y;$/;"	m	struct:__anon11	file:
+secKeyVerify	src/java/org/bitcoin/NativeSecp256k1.java	/^    public static boolean secKeyVerify(byte[] seckey) {$/;"	m	class:NativeSecp256k1
+secp256k1_borromean_hash	src/modules/rangeproof/borromean_impl.h	/^SECP256K1_INLINE static void secp256k1_borromean_hash(unsigned char *hash, const unsigned char *m, size_t mlen, const unsigned char *e, size_t elen,$/;"	f
+secp256k1_borromean_sign	src/modules/rangeproof/borromean_impl.h	/^int secp256k1_borromean_sign(const secp256k1_ecmult_context* ecmult_ctx, const secp256k1_ecmult_gen_context *ecmult_gen_ctx,$/;"	f
+secp256k1_borromean_verify	src/modules/rangeproof/borromean_impl.h	/^int secp256k1_borromean_verify(const secp256k1_ecmult_context* ecmult_ctx, secp256k1_scalar *evalues, const unsigned char *e0,$/;"	f
+secp256k1_callback	src/util.h	/^} secp256k1_callback;$/;"	t	typeref:struct:__anon34
+secp256k1_callback_call	src/util.h	/^static SECP256K1_INLINE void secp256k1_callback_call(const secp256k1_callback * const cb, const char * const text) {$/;"	f
+secp256k1_clz64_var	src/util.h	/^SECP256K1_INLINE static int secp256k1_clz64_var(uint64_t x) {$/;"	f
+secp256k1_context	include/secp256k1.h	/^typedef struct secp256k1_context_struct secp256k1_context;$/;"	t	typeref:struct:secp256k1_context_struct
+secp256k1_context_clone	src/secp256k1.c	/^secp256k1_context* secp256k1_context_clone(const secp256k1_context* ctx) {$/;"	f
+secp256k1_context_create	src/secp256k1.c	/^secp256k1_context* secp256k1_context_create(unsigned int flags) {$/;"	f
+secp256k1_context_destroy	src/secp256k1.c	/^void secp256k1_context_destroy(secp256k1_context* ctx) {$/;"	f
+secp256k1_context_randomize	src/java/org/bitcoin/NativeSecp256k1.java	/^    private static native int secp256k1_context_randomize(ByteBuffer byteBuff, long context);$/;"	m	class:NativeSecp256k1	file:
+secp256k1_context_randomize	src/secp256k1.c	/^int secp256k1_context_randomize(secp256k1_context* ctx, const unsigned char *seed32) {$/;"	f
+secp256k1_context_set_error_callback	src/secp256k1.c	/^void secp256k1_context_set_error_callback(secp256k1_context* ctx, void (*fun)(const char* message, void* data), const void* data) {$/;"	f
+secp256k1_context_set_illegal_callback	src/secp256k1.c	/^void secp256k1_context_set_illegal_callback(secp256k1_context* ctx, void (*fun)(const char* message, void* data), const void* data) {$/;"	f
+secp256k1_context_struct	src/secp256k1.c	/^struct secp256k1_context_struct {$/;"	s	file:
+secp256k1_count_bits_set	src/modules/surjection/main_impl.h	/^static size_t secp256k1_count_bits_set(const unsigned char* data, size_t count) {$/;"	f
+secp256k1_ctx_clone	src/java/org/bitcoin/NativeSecp256k1.java	/^    private static native long secp256k1_ctx_clone(long context);$/;"	m	class:NativeSecp256k1	file:
+secp256k1_der_parse_integer	src/ecdsa_impl.h	/^static int secp256k1_der_parse_integer(secp256k1_scalar *r, const unsigned char **sig, const unsigned char *sigend) {$/;"	f
+secp256k1_der_read_len	src/ecdsa_impl.h	/^static int secp256k1_der_read_len(const unsigned char **sigp, const unsigned char *sigend) {$/;"	f
+secp256k1_destroy_context	src/java/org/bitcoin/NativeSecp256k1.java	/^    private static native void secp256k1_destroy_context(long context);$/;"	m	class:NativeSecp256k1	file:
+secp256k1_ec_privkey_negate	src/secp256k1.c	/^int secp256k1_ec_privkey_negate(const secp256k1_context* ctx, unsigned char *seckey) {$/;"	f
+secp256k1_ec_privkey_tweak_add	src/secp256k1.c	/^int secp256k1_ec_privkey_tweak_add(const secp256k1_context* ctx, unsigned char *seckey, const unsigned char *tweak) {$/;"	f
+secp256k1_ec_privkey_tweak_mul	src/secp256k1.c	/^int secp256k1_ec_privkey_tweak_mul(const secp256k1_context* ctx, unsigned char *seckey, const unsigned char *tweak) {$/;"	f
+secp256k1_ec_pubkey_combine	src/secp256k1.c	/^int secp256k1_ec_pubkey_combine(const secp256k1_context* ctx, secp256k1_pubkey *pubnonce, const secp256k1_pubkey * const *pubnonces, size_t n) {$/;"	f
+secp256k1_ec_pubkey_create	src/java/org/bitcoin/NativeSecp256k1.java	/^    private static native byte[][] secp256k1_ec_pubkey_create(ByteBuffer byteBuff, long context);$/;"	m	class:NativeSecp256k1	file:
+secp256k1_ec_pubkey_create	src/secp256k1.c	/^int secp256k1_ec_pubkey_create(const secp256k1_context* ctx, secp256k1_pubkey *pubkey, const unsigned char *seckey) {$/;"	f
+secp256k1_ec_pubkey_negate	src/secp256k1.c	/^int secp256k1_ec_pubkey_negate(const secp256k1_context* ctx, secp256k1_pubkey *pubkey) {$/;"	f
+secp256k1_ec_pubkey_parse	src/java/org/bitcoin/NativeSecp256k1.java	/^    private static native byte[][] secp256k1_ec_pubkey_parse(ByteBuffer byteBuff, long context, int inputLen);$/;"	m	class:NativeSecp256k1	file:
+secp256k1_ec_pubkey_parse	src/secp256k1.c	/^int secp256k1_ec_pubkey_parse(const secp256k1_context* ctx, secp256k1_pubkey* pubkey, const unsigned char *input, size_t inputlen) {$/;"	f
+secp256k1_ec_pubkey_serialize	src/secp256k1.c	/^int secp256k1_ec_pubkey_serialize(const secp256k1_context* ctx, unsigned char *output, size_t *outputlen, const secp256k1_pubkey* pubkey, unsigned int flags) {$/;"	f
+secp256k1_ec_pubkey_tweak_add	src/secp256k1.c	/^int secp256k1_ec_pubkey_tweak_add(const secp256k1_context* ctx, secp256k1_pubkey *pubkey, const unsigned char *tweak) {$/;"	f
+secp256k1_ec_pubkey_tweak_mul	src/secp256k1.c	/^int secp256k1_ec_pubkey_tweak_mul(const secp256k1_context* ctx, secp256k1_pubkey *pubkey, const unsigned char *tweak) {$/;"	f
+secp256k1_ec_seckey_verify	src/java/org/bitcoin/NativeSecp256k1.java	/^    private static native int secp256k1_ec_seckey_verify(ByteBuffer byteBuff, long context);$/;"	m	class:NativeSecp256k1	file:
+secp256k1_ec_seckey_verify	src/secp256k1.c	/^int secp256k1_ec_seckey_verify(const secp256k1_context* ctx, const unsigned char *seckey) {$/;"	f
+secp256k1_ecdh	src/java/org/bitcoin/NativeSecp256k1.java	/^    private static native byte[][] secp256k1_ecdh(ByteBuffer byteBuff, long context, int inputLen);$/;"	m	class:NativeSecp256k1	file:
+secp256k1_ecdh	src/modules/ecdh/main_impl.h	/^int secp256k1_ecdh(const secp256k1_context* ctx, unsigned char *result, const secp256k1_pubkey *point, const unsigned char *scalar) {$/;"	f
+secp256k1_ecdsa_const_order_as_fe	src/ecdsa_impl.h	/^static const secp256k1_fe secp256k1_ecdsa_const_order_as_fe = SECP256K1_FE_CONST($/;"	v
+secp256k1_ecdsa_const_p_minus_order	src/ecdsa_impl.h	/^static const secp256k1_fe secp256k1_ecdsa_const_p_minus_order = SECP256K1_FE_CONST($/;"	v
+secp256k1_ecdsa_recover	src/modules/recovery/main_impl.h	/^int secp256k1_ecdsa_recover(const secp256k1_context* ctx, secp256k1_pubkey *pubkey, const secp256k1_ecdsa_recoverable_signature *signature, const unsigned char *msg32) {$/;"	f
+secp256k1_ecdsa_recoverable_signature	include/secp256k1_recovery.h	/^} secp256k1_ecdsa_recoverable_signature;$/;"	t	typeref:struct:__anon5
+secp256k1_ecdsa_recoverable_signature_convert	src/modules/recovery/main_impl.h	/^int secp256k1_ecdsa_recoverable_signature_convert(const secp256k1_context* ctx, secp256k1_ecdsa_signature* sig, const secp256k1_ecdsa_recoverable_signature* sigin) {$/;"	f
+secp256k1_ecdsa_recoverable_signature_load	src/modules/recovery/main_impl.h	/^static void secp256k1_ecdsa_recoverable_signature_load(const secp256k1_context* ctx, secp256k1_scalar* r, secp256k1_scalar* s, int* recid, const secp256k1_ecdsa_recoverable_signature* sig) {$/;"	f
+secp256k1_ecdsa_recoverable_signature_parse_compact	src/modules/recovery/main_impl.h	/^int secp256k1_ecdsa_recoverable_signature_parse_compact(const secp256k1_context* ctx, secp256k1_ecdsa_recoverable_signature* sig, const unsigned char *input64, int recid) {$/;"	f
+secp256k1_ecdsa_recoverable_signature_save	src/modules/recovery/main_impl.h	/^static void secp256k1_ecdsa_recoverable_signature_save(secp256k1_ecdsa_recoverable_signature* sig, const secp256k1_scalar* r, const secp256k1_scalar* s, int recid) {$/;"	f
+secp256k1_ecdsa_recoverable_signature_serialize_compact	src/modules/recovery/main_impl.h	/^int secp256k1_ecdsa_recoverable_signature_serialize_compact(const secp256k1_context* ctx, unsigned char *output64, int *recid, const secp256k1_ecdsa_recoverable_signature* sig) {$/;"	f
+secp256k1_ecdsa_sig_parse	src/ecdsa_impl.h	/^static int secp256k1_ecdsa_sig_parse(secp256k1_scalar *rr, secp256k1_scalar *rs, const unsigned char *sig, size_t size) {$/;"	f
+secp256k1_ecdsa_sig_recover	src/modules/recovery/main_impl.h	/^static int secp256k1_ecdsa_sig_recover(const secp256k1_ecmult_context *ctx, const secp256k1_scalar *sigr, const secp256k1_scalar* sigs, secp256k1_ge *pubkey, const secp256k1_scalar *message, int recid) {$/;"	f
+secp256k1_ecdsa_sig_serialize	src/ecdsa_impl.h	/^static int secp256k1_ecdsa_sig_serialize(unsigned char *sig, size_t *size, const secp256k1_scalar* ar, const secp256k1_scalar* as) {$/;"	f
+secp256k1_ecdsa_sig_sign	src/ecdsa_impl.h	/^static int secp256k1_ecdsa_sig_sign(const secp256k1_ecmult_gen_context *ctx, secp256k1_scalar *sigr, secp256k1_scalar *sigs, const secp256k1_scalar *seckey, const secp256k1_scalar *message, const secp256k1_scalar *nonce, int *recid) {$/;"	f
+secp256k1_ecdsa_sig_verify	src/ecdsa_impl.h	/^static int secp256k1_ecdsa_sig_verify(const secp256k1_ecmult_context *ctx, const secp256k1_scalar *sigr, const secp256k1_scalar *sigs, const secp256k1_ge *pubkey, const secp256k1_scalar *message) {$/;"	f
+secp256k1_ecdsa_sign	src/java/org/bitcoin/NativeSecp256k1.java	/^    private static native byte[][] secp256k1_ecdsa_sign(ByteBuffer byteBuff, long context);$/;"	m	class:NativeSecp256k1	file:
+secp256k1_ecdsa_sign	src/secp256k1.c	/^int secp256k1_ecdsa_sign(const secp256k1_context* ctx, secp256k1_ecdsa_signature *signature, const unsigned char *msg32, const unsigned char *seckey, secp256k1_nonce_function noncefp, const void* noncedata) {$/;"	f
+secp256k1_ecdsa_sign_recoverable	src/modules/recovery/main_impl.h	/^int secp256k1_ecdsa_sign_recoverable(const secp256k1_context* ctx, secp256k1_ecdsa_recoverable_signature *signature, const unsigned char *msg32, const unsigned char *seckey, secp256k1_nonce_function noncefp, const void* noncedata) {$/;"	f
+secp256k1_ecdsa_signature	include/secp256k1.h	/^} secp256k1_ecdsa_signature;$/;"	t	typeref:struct:__anon2
+secp256k1_ecdsa_signature_load	src/secp256k1.c	/^static void secp256k1_ecdsa_signature_load(const secp256k1_context* ctx, secp256k1_scalar* r, secp256k1_scalar* s, const secp256k1_ecdsa_signature* sig) {$/;"	f	file:
+secp256k1_ecdsa_signature_normalize	src/secp256k1.c	/^int secp256k1_ecdsa_signature_normalize(const secp256k1_context* ctx, secp256k1_ecdsa_signature *sigout, const secp256k1_ecdsa_signature *sigin) {$/;"	f
+secp256k1_ecdsa_signature_parse_compact	src/secp256k1.c	/^int secp256k1_ecdsa_signature_parse_compact(const secp256k1_context* ctx, secp256k1_ecdsa_signature* sig, const unsigned char *input64) {$/;"	f
+secp256k1_ecdsa_signature_parse_der	src/secp256k1.c	/^int secp256k1_ecdsa_signature_parse_der(const secp256k1_context* ctx, secp256k1_ecdsa_signature* sig, const unsigned char *input, size_t inputlen) {$/;"	f
+secp256k1_ecdsa_signature_save	src/secp256k1.c	/^static void secp256k1_ecdsa_signature_save(secp256k1_ecdsa_signature* sig, const secp256k1_scalar* r, const secp256k1_scalar* s) {$/;"	f	file:
+secp256k1_ecdsa_signature_serialize_compact	src/secp256k1.c	/^int secp256k1_ecdsa_signature_serialize_compact(const secp256k1_context* ctx, unsigned char *output64, const secp256k1_ecdsa_signature* sig) {$/;"	f
+secp256k1_ecdsa_signature_serialize_der	src/secp256k1.c	/^int secp256k1_ecdsa_signature_serialize_der(const secp256k1_context* ctx, unsigned char *output, size_t *outputlen, const secp256k1_ecdsa_signature* sig) {$/;"	f
+secp256k1_ecdsa_verify	src/java/org/bitcoin/NativeSecp256k1.java	/^    private static native int secp256k1_ecdsa_verify(ByteBuffer byteBuff, long context, int sigLen, int pubLen);$/;"	m	class:NativeSecp256k1	file:
+secp256k1_ecdsa_verify	src/secp256k1.c	/^int secp256k1_ecdsa_verify(const secp256k1_context* ctx, const secp256k1_ecdsa_signature *sig, const unsigned char *msg32, const secp256k1_pubkey *pubkey) {$/;"	f
+secp256k1_eckey_privkey_tweak_add	src/eckey_impl.h	/^static int secp256k1_eckey_privkey_tweak_add(secp256k1_scalar *key, const secp256k1_scalar *tweak) {$/;"	f
+secp256k1_eckey_privkey_tweak_mul	src/eckey_impl.h	/^static int secp256k1_eckey_privkey_tweak_mul(secp256k1_scalar *key, const secp256k1_scalar *tweak) {$/;"	f
+secp256k1_eckey_pubkey_parse	src/eckey_impl.h	/^static int secp256k1_eckey_pubkey_parse(secp256k1_ge *elem, const unsigned char *pub, size_t size) {$/;"	f
+secp256k1_eckey_pubkey_serialize	src/eckey_impl.h	/^static int secp256k1_eckey_pubkey_serialize(secp256k1_ge *elem, unsigned char *pub, size_t *size, int compressed) {$/;"	f
+secp256k1_eckey_pubkey_tweak_add	src/eckey_impl.h	/^static int secp256k1_eckey_pubkey_tweak_add(const secp256k1_ecmult_context *ctx, secp256k1_ge *key, const secp256k1_scalar *tweak) {$/;"	f
+secp256k1_eckey_pubkey_tweak_mul	src/eckey_impl.h	/^static int secp256k1_eckey_pubkey_tweak_mul(const secp256k1_ecmult_context *ctx, secp256k1_ge *key, const secp256k1_scalar *tweak) {$/;"	f
+secp256k1_ecmult	src/ecmult_impl.h	/^static void secp256k1_ecmult(const secp256k1_ecmult_context *ctx, secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_scalar *na, const secp256k1_scalar *ng) {$/;"	f
+secp256k1_ecmult_const	src/ecmult_const_impl.h	/^static void secp256k1_ecmult_const(secp256k1_gej *r, const secp256k1_ge *a, const secp256k1_scalar *scalar, int size) {$/;"	f
+secp256k1_ecmult_context	src/ecmult.h	/^} secp256k1_ecmult_context;$/;"	t	typeref:struct:__anon18
+secp256k1_ecmult_context_build	src/ecmult_impl.h	/^static void secp256k1_ecmult_context_build(secp256k1_ecmult_context *ctx, const secp256k1_callback *cb) {$/;"	f
+secp256k1_ecmult_context_clear	src/ecmult_impl.h	/^static void secp256k1_ecmult_context_clear(secp256k1_ecmult_context *ctx) {$/;"	f
+secp256k1_ecmult_context_clone	src/ecmult_impl.h	/^static void secp256k1_ecmult_context_clone(secp256k1_ecmult_context *dst,$/;"	f
+secp256k1_ecmult_context_init	src/ecmult_impl.h	/^static void secp256k1_ecmult_context_init(secp256k1_ecmult_context *ctx) {$/;"	f
+secp256k1_ecmult_context_is_built	src/ecmult_impl.h	/^static int secp256k1_ecmult_context_is_built(const secp256k1_ecmult_context *ctx) {$/;"	f
+secp256k1_ecmult_gen	src/ecmult_gen_impl.h	/^static void secp256k1_ecmult_gen(const secp256k1_ecmult_gen_context *ctx, secp256k1_gej *r, const secp256k1_scalar *gn) {$/;"	f
+secp256k1_ecmult_gen_blind	src/ecmult_gen_impl.h	/^static void secp256k1_ecmult_gen_blind(secp256k1_ecmult_gen_context *ctx, const unsigned char *seed32) {$/;"	f
+secp256k1_ecmult_gen_context	src/ecmult_gen.h	/^} secp256k1_ecmult_gen_context;$/;"	t	typeref:struct:__anon19
+secp256k1_ecmult_gen_context_build	src/ecmult_gen_impl.h	/^static void secp256k1_ecmult_gen_context_build(secp256k1_ecmult_gen_context *ctx, const secp256k1_callback* cb) {$/;"	f
+secp256k1_ecmult_gen_context_clear	src/ecmult_gen_impl.h	/^static void secp256k1_ecmult_gen_context_clear(secp256k1_ecmult_gen_context *ctx) {$/;"	f
+secp256k1_ecmult_gen_context_clone	src/ecmult_gen_impl.h	/^static void secp256k1_ecmult_gen_context_clone(secp256k1_ecmult_gen_context *dst,$/;"	f
+secp256k1_ecmult_gen_context_init	src/ecmult_gen_impl.h	/^static void secp256k1_ecmult_gen_context_init(secp256k1_ecmult_gen_context *ctx) {$/;"	f
+secp256k1_ecmult_gen_context_is_built	src/ecmult_gen_impl.h	/^static int secp256k1_ecmult_gen_context_is_built(const secp256k1_ecmult_gen_context* ctx) {$/;"	f
+secp256k1_ecmult_odd_multiples_table	src/ecmult_impl.h	/^static void secp256k1_ecmult_odd_multiples_table(int n, secp256k1_gej *prej, secp256k1_fe *zr, const secp256k1_gej *a) {$/;"	f
+secp256k1_ecmult_odd_multiples_table_globalz_windowa	src/ecmult_impl.h	/^static void secp256k1_ecmult_odd_multiples_table_globalz_windowa(secp256k1_ge *pre, secp256k1_fe *globalz, const secp256k1_gej *a) {$/;"	f
+secp256k1_ecmult_odd_multiples_table_storage_var	src/ecmult_impl.h	/^static void secp256k1_ecmult_odd_multiples_table_storage_var(int n, secp256k1_ge_storage *pre, const secp256k1_gej *a, const secp256k1_callback *cb) {$/;"	f
+secp256k1_ecmult_wnaf	src/ecmult_impl.h	/^static int secp256k1_ecmult_wnaf(int *wnaf, int len, const secp256k1_scalar *a, int w) {$/;"	f
+secp256k1_fe	src/field_10x26.h	/^} secp256k1_fe;$/;"	t	typeref:struct:__anon20
+secp256k1_fe	src/field_5x52.h	/^} secp256k1_fe;$/;"	t	typeref:struct:__anon22
+secp256k1_fe_add	src/field_10x26_impl.h	/^SECP256K1_INLINE static void secp256k1_fe_add(secp256k1_fe *r, const secp256k1_fe *a) {$/;"	f
+secp256k1_fe_add	src/field_5x52_impl.h	/^SECP256K1_INLINE static void secp256k1_fe_add(secp256k1_fe *r, const secp256k1_fe *a) {$/;"	f
+secp256k1_fe_clear	src/field_10x26_impl.h	/^SECP256K1_INLINE static void secp256k1_fe_clear(secp256k1_fe *a) {$/;"	f
+secp256k1_fe_clear	src/field_5x52_impl.h	/^SECP256K1_INLINE static void secp256k1_fe_clear(secp256k1_fe *a) {$/;"	f
+secp256k1_fe_cmov	src/field_10x26_impl.h	/^static SECP256K1_INLINE void secp256k1_fe_cmov(secp256k1_fe *r, const secp256k1_fe *a, int flag) {$/;"	f
+secp256k1_fe_cmov	src/field_5x52_impl.h	/^static SECP256K1_INLINE void secp256k1_fe_cmov(secp256k1_fe *r, const secp256k1_fe *a, int flag) {$/;"	f
+secp256k1_fe_cmp_var	src/field_10x26_impl.h	/^static int secp256k1_fe_cmp_var(const secp256k1_fe *a, const secp256k1_fe *b) {$/;"	f
+secp256k1_fe_cmp_var	src/field_5x52_impl.h	/^static int secp256k1_fe_cmp_var(const secp256k1_fe *a, const secp256k1_fe *b) {$/;"	f
+secp256k1_fe_equal	src/field_impl.h	/^SECP256K1_INLINE static int secp256k1_fe_equal(const secp256k1_fe *a, const secp256k1_fe *b) {$/;"	f
+secp256k1_fe_equal_var	src/field_impl.h	/^SECP256K1_INLINE static int secp256k1_fe_equal_var(const secp256k1_fe *a, const secp256k1_fe *b) {$/;"	f
+secp256k1_fe_from_storage	src/field_10x26_impl.h	/^static SECP256K1_INLINE void secp256k1_fe_from_storage(secp256k1_fe *r, const secp256k1_fe_storage *a) {$/;"	f
+secp256k1_fe_from_storage	src/field_5x52_impl.h	/^static SECP256K1_INLINE void secp256k1_fe_from_storage(secp256k1_fe *r, const secp256k1_fe_storage *a) {$/;"	f
+secp256k1_fe_get_b32	src/field_10x26_impl.h	/^static void secp256k1_fe_get_b32(unsigned char *r, const secp256k1_fe *a) {$/;"	f
+secp256k1_fe_get_b32	src/field_5x52_impl.h	/^static void secp256k1_fe_get_b32(unsigned char *r, const secp256k1_fe *a) {$/;"	f
+secp256k1_fe_inv	src/field_impl.h	/^static void secp256k1_fe_inv(secp256k1_fe *r, const secp256k1_fe *a) {$/;"	f
+secp256k1_fe_inv_all_var	src/field_impl.h	/^static void secp256k1_fe_inv_all_var(secp256k1_fe *r, const secp256k1_fe *a, size_t len) {$/;"	f
+secp256k1_fe_inv_var	src/field_impl.h	/^static void secp256k1_fe_inv_var(secp256k1_fe *r, const secp256k1_fe *a) {$/;"	f
+secp256k1_fe_is_odd	src/field_10x26_impl.h	/^SECP256K1_INLINE static int secp256k1_fe_is_odd(const secp256k1_fe *a) {$/;"	f
+secp256k1_fe_is_odd	src/field_5x52_impl.h	/^SECP256K1_INLINE static int secp256k1_fe_is_odd(const secp256k1_fe *a) {$/;"	f
+secp256k1_fe_is_quad_var	src/field_impl.h	/^static int secp256k1_fe_is_quad_var(const secp256k1_fe *a) {$/;"	f
+secp256k1_fe_is_zero	src/field_10x26_impl.h	/^SECP256K1_INLINE static int secp256k1_fe_is_zero(const secp256k1_fe *a) {$/;"	f
+secp256k1_fe_is_zero	src/field_5x52_impl.h	/^SECP256K1_INLINE static int secp256k1_fe_is_zero(const secp256k1_fe *a) {$/;"	f
+secp256k1_fe_mul	src/field_10x26_impl.h	/^static void secp256k1_fe_mul(secp256k1_fe *r, const secp256k1_fe *a, const secp256k1_fe * SECP256K1_RESTRICT b) {$/;"	f
+secp256k1_fe_mul	src/field_5x52_impl.h	/^static void secp256k1_fe_mul(secp256k1_fe *r, const secp256k1_fe *a, const secp256k1_fe * SECP256K1_RESTRICT b) {$/;"	f
+secp256k1_fe_mul_inner	src/asm/field_10x26_arm.s	/^secp256k1_fe_mul_inner:$/;"	l
+secp256k1_fe_mul_inner	src/field_10x26_impl.h	/^SECP256K1_INLINE static void secp256k1_fe_mul_inner(uint32_t *r, const uint32_t *a, const uint32_t * SECP256K1_RESTRICT b) {$/;"	f
+secp256k1_fe_mul_inner	src/field_5x52_asm_impl.h	/^SECP256K1_INLINE static void secp256k1_fe_mul_inner(uint64_t *r, const uint64_t *a, const uint64_t * SECP256K1_RESTRICT b) {$/;"	f
+secp256k1_fe_mul_inner	src/field_5x52_int128_impl.h	/^SECP256K1_INLINE static void secp256k1_fe_mul_inner(uint64_t *r, const uint64_t *a, const uint64_t * SECP256K1_RESTRICT b) {$/;"	f
+secp256k1_fe_mul_int	src/field_10x26_impl.h	/^SECP256K1_INLINE static void secp256k1_fe_mul_int(secp256k1_fe *r, int a) {$/;"	f
+secp256k1_fe_mul_int	src/field_5x52_impl.h	/^SECP256K1_INLINE static void secp256k1_fe_mul_int(secp256k1_fe *r, int a) {$/;"	f
+secp256k1_fe_negate	src/field_10x26_impl.h	/^SECP256K1_INLINE static void secp256k1_fe_negate(secp256k1_fe *r, const secp256k1_fe *a, int m) {$/;"	f
+secp256k1_fe_negate	src/field_5x52_impl.h	/^SECP256K1_INLINE static void secp256k1_fe_negate(secp256k1_fe *r, const secp256k1_fe *a, int m) {$/;"	f
+secp256k1_fe_normalize	src/field_10x26_impl.h	/^static void secp256k1_fe_normalize(secp256k1_fe *r) {$/;"	f
+secp256k1_fe_normalize	src/field_5x52_impl.h	/^static void secp256k1_fe_normalize(secp256k1_fe *r) {$/;"	f
+secp256k1_fe_normalize_var	src/field_10x26_impl.h	/^static void secp256k1_fe_normalize_var(secp256k1_fe *r) {$/;"	f
+secp256k1_fe_normalize_var	src/field_5x52_impl.h	/^static void secp256k1_fe_normalize_var(secp256k1_fe *r) {$/;"	f
+secp256k1_fe_normalize_weak	src/field_10x26_impl.h	/^static void secp256k1_fe_normalize_weak(secp256k1_fe *r) {$/;"	f
+secp256k1_fe_normalize_weak	src/field_5x52_impl.h	/^static void secp256k1_fe_normalize_weak(secp256k1_fe *r) {$/;"	f
+secp256k1_fe_normalizes_to_zero	src/field_10x26_impl.h	/^static int secp256k1_fe_normalizes_to_zero(secp256k1_fe *r) {$/;"	f
+secp256k1_fe_normalizes_to_zero	src/field_5x52_impl.h	/^static int secp256k1_fe_normalizes_to_zero(secp256k1_fe *r) {$/;"	f
+secp256k1_fe_normalizes_to_zero_var	src/field_10x26_impl.h	/^static int secp256k1_fe_normalizes_to_zero_var(secp256k1_fe *r) {$/;"	f
+secp256k1_fe_normalizes_to_zero_var	src/field_5x52_impl.h	/^static int secp256k1_fe_normalizes_to_zero_var(secp256k1_fe *r) {$/;"	f
+secp256k1_fe_set_b32	src/field_10x26_impl.h	/^static int secp256k1_fe_set_b32(secp256k1_fe *r, const unsigned char *a) {$/;"	f
+secp256k1_fe_set_b32	src/field_5x52_impl.h	/^static int secp256k1_fe_set_b32(secp256k1_fe *r, const unsigned char *a) {$/;"	f
+secp256k1_fe_set_int	src/field_10x26_impl.h	/^SECP256K1_INLINE static void secp256k1_fe_set_int(secp256k1_fe *r, int a) {$/;"	f
+secp256k1_fe_set_int	src/field_5x52_impl.h	/^SECP256K1_INLINE static void secp256k1_fe_set_int(secp256k1_fe *r, int a) {$/;"	f
+secp256k1_fe_sqr	src/field_10x26_impl.h	/^static void secp256k1_fe_sqr(secp256k1_fe *r, const secp256k1_fe *a) {$/;"	f
+secp256k1_fe_sqr	src/field_5x52_impl.h	/^static void secp256k1_fe_sqr(secp256k1_fe *r, const secp256k1_fe *a) {$/;"	f
+secp256k1_fe_sqr_inner	src/asm/field_10x26_arm.s	/^secp256k1_fe_sqr_inner:$/;"	l
+secp256k1_fe_sqr_inner	src/field_10x26_impl.h	/^SECP256K1_INLINE static void secp256k1_fe_sqr_inner(uint32_t *r, const uint32_t *a) {$/;"	f
+secp256k1_fe_sqr_inner	src/field_5x52_asm_impl.h	/^SECP256K1_INLINE static void secp256k1_fe_sqr_inner(uint64_t *r, const uint64_t *a) {$/;"	f
+secp256k1_fe_sqr_inner	src/field_5x52_int128_impl.h	/^SECP256K1_INLINE static void secp256k1_fe_sqr_inner(uint64_t *r, const uint64_t *a) {$/;"	f
+secp256k1_fe_sqrt	src/field_impl.h	/^static int secp256k1_fe_sqrt(secp256k1_fe *r, const secp256k1_fe *a) {$/;"	f
+secp256k1_fe_storage	src/field_10x26.h	/^} secp256k1_fe_storage;$/;"	t	typeref:struct:__anon21
+secp256k1_fe_storage	src/field_5x52.h	/^} secp256k1_fe_storage;$/;"	t	typeref:struct:__anon23
+secp256k1_fe_storage_cmov	src/field_10x26_impl.h	/^static SECP256K1_INLINE void secp256k1_fe_storage_cmov(secp256k1_fe_storage *r, const secp256k1_fe_storage *a, int flag) {$/;"	f
+secp256k1_fe_storage_cmov	src/field_5x52_impl.h	/^static SECP256K1_INLINE void secp256k1_fe_storage_cmov(secp256k1_fe_storage *r, const secp256k1_fe_storage *a, int flag) {$/;"	f
+secp256k1_fe_to_storage	src/field_10x26_impl.h	/^static void secp256k1_fe_to_storage(secp256k1_fe_storage *r, const secp256k1_fe *a) {$/;"	f
+secp256k1_fe_to_storage	src/field_5x52_impl.h	/^static void secp256k1_fe_to_storage(secp256k1_fe_storage *r, const secp256k1_fe *a) {$/;"	f
+secp256k1_fe_verify	src/field_10x26_impl.h	/^static void secp256k1_fe_verify(const secp256k1_fe *a) {$/;"	f
+secp256k1_fe_verify	src/field_5x52_impl.h	/^static void secp256k1_fe_verify(const secp256k1_fe *a) {$/;"	f
+secp256k1_fixed_asset_tag	include/secp256k1_surjectionproof.h	/^} secp256k1_fixed_asset_tag;$/;"	t	typeref:struct:__anon7
+secp256k1_ge	src/group.h	/^} secp256k1_ge;$/;"	t	typeref:struct:__anon24
+secp256k1_ge_clear	src/group_impl.h	/^static void secp256k1_ge_clear(secp256k1_ge *r) {$/;"	f
+secp256k1_ge_const_g	src/group_impl.h	/^const secp256k1_ge secp256k1_ge_const_g = SECP256K1_GE_CONST($/;"	v
+secp256k1_ge_const_g	src/group_impl.h	/^static const secp256k1_ge secp256k1_ge_const_g = SECP256K1_GE_CONST($/;"	v
+secp256k1_ge_from_storage	src/group_impl.h	/^static void secp256k1_ge_from_storage(secp256k1_ge *r, const secp256k1_ge_storage *a) {$/;"	f
+secp256k1_ge_globalz_set_table_gej	src/group_impl.h	/^static void secp256k1_ge_globalz_set_table_gej(size_t len, secp256k1_ge *r, secp256k1_fe *globalz, const secp256k1_gej *a, const secp256k1_fe *zr) {$/;"	f
+secp256k1_ge_is_infinity	src/group_impl.h	/^static int secp256k1_ge_is_infinity(const secp256k1_ge *a) {$/;"	f
+secp256k1_ge_is_valid_var	src/group_impl.h	/^static int secp256k1_ge_is_valid_var(const secp256k1_ge *a) {$/;"	f
+secp256k1_ge_mul_lambda	src/group_impl.h	/^static void secp256k1_ge_mul_lambda(secp256k1_ge *r, const secp256k1_ge *a) {$/;"	f
+secp256k1_ge_neg	src/group_impl.h	/^static void secp256k1_ge_neg(secp256k1_ge *r, const secp256k1_ge *a) {$/;"	f
+secp256k1_ge_set_all_gej_var	src/group_impl.h	/^static void secp256k1_ge_set_all_gej_var(secp256k1_ge *r, const secp256k1_gej *a, size_t len, const secp256k1_callback *cb) {$/;"	f
+secp256k1_ge_set_gej	src/group_impl.h	/^static void secp256k1_ge_set_gej(secp256k1_ge *r, secp256k1_gej *a) {$/;"	f
+secp256k1_ge_set_gej_var	src/group_impl.h	/^static void secp256k1_ge_set_gej_var(secp256k1_ge *r, secp256k1_gej *a) {$/;"	f
+secp256k1_ge_set_gej_zinv	src/group_impl.h	/^static void secp256k1_ge_set_gej_zinv(secp256k1_ge *r, const secp256k1_gej *a, const secp256k1_fe *zi) {$/;"	f
+secp256k1_ge_set_table_gej_var	src/group_impl.h	/^static void secp256k1_ge_set_table_gej_var(secp256k1_ge *r, const secp256k1_gej *a, const secp256k1_fe *zr, size_t len) {$/;"	f
+secp256k1_ge_set_xo_var	src/group_impl.h	/^static int secp256k1_ge_set_xo_var(secp256k1_ge *r, const secp256k1_fe *x, int odd) {$/;"	f
+secp256k1_ge_set_xquad	src/group_impl.h	/^static int secp256k1_ge_set_xquad(secp256k1_ge *r, const secp256k1_fe *x) {$/;"	f
+secp256k1_ge_set_xy	src/group_impl.h	/^static void secp256k1_ge_set_xy(secp256k1_ge *r, const secp256k1_fe *x, const secp256k1_fe *y) {$/;"	f
+secp256k1_ge_storage	src/group.h	/^} secp256k1_ge_storage;$/;"	t	typeref:struct:__anon26
+secp256k1_ge_storage_cmov	src/group_impl.h	/^static SECP256K1_INLINE void secp256k1_ge_storage_cmov(secp256k1_ge_storage *r, const secp256k1_ge_storage *a, int flag) {$/;"	f
+secp256k1_ge_to_storage	src/group_impl.h	/^static void secp256k1_ge_to_storage(secp256k1_ge_storage *r, const secp256k1_ge *a) {$/;"	f
+secp256k1_gej	src/group.h	/^} secp256k1_gej;$/;"	t	typeref:struct:__anon25
+secp256k1_gej_add_ge	src/group_impl.h	/^static void secp256k1_gej_add_ge(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_ge *b) {$/;"	f
+secp256k1_gej_add_ge_var	src/group_impl.h	/^static void secp256k1_gej_add_ge_var(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_ge *b, secp256k1_fe *rzr) {$/;"	f
+secp256k1_gej_add_var	src/group_impl.h	/^static void secp256k1_gej_add_var(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_gej *b, secp256k1_fe *rzr) {$/;"	f
+secp256k1_gej_add_zinv_var	src/group_impl.h	/^static void secp256k1_gej_add_zinv_var(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_ge *b, const secp256k1_fe *bzinv) {$/;"	f
+secp256k1_gej_clear	src/group_impl.h	/^static void secp256k1_gej_clear(secp256k1_gej *r) {$/;"	f
+secp256k1_gej_double_nonzero	src/group_impl.h	/^static SECP256K1_INLINE void secp256k1_gej_double_nonzero(secp256k1_gej *r, const secp256k1_gej *a, secp256k1_fe *rzr) {$/;"	f
+secp256k1_gej_double_var	src/group_impl.h	/^static void secp256k1_gej_double_var(secp256k1_gej *r, const secp256k1_gej *a, secp256k1_fe *rzr) {$/;"	f
+secp256k1_gej_eq_x_var	src/group_impl.h	/^static int secp256k1_gej_eq_x_var(const secp256k1_fe *x, const secp256k1_gej *a) {$/;"	f
+secp256k1_gej_has_quad_y_var	src/group_impl.h	/^static int secp256k1_gej_has_quad_y_var(const secp256k1_gej *a) {$/;"	f
+secp256k1_gej_is_infinity	src/group_impl.h	/^static int secp256k1_gej_is_infinity(const secp256k1_gej *a) {$/;"	f
+secp256k1_gej_is_valid_var	src/group_impl.h	/^static int secp256k1_gej_is_valid_var(const secp256k1_gej *a) {$/;"	f
+secp256k1_gej_neg	src/group_impl.h	/^static void secp256k1_gej_neg(secp256k1_gej *r, const secp256k1_gej *a) {$/;"	f
+secp256k1_gej_rescale	src/group_impl.h	/^static void secp256k1_gej_rescale(secp256k1_gej *r, const secp256k1_fe *s) {$/;"	f
+secp256k1_gej_set_ge	src/group_impl.h	/^static void secp256k1_gej_set_ge(secp256k1_gej *r, const secp256k1_ge *a) {$/;"	f
+secp256k1_gej_set_infinity	src/group_impl.h	/^static void secp256k1_gej_set_infinity(secp256k1_gej *r) {$/;"	f
+secp256k1_generator	include/secp256k1_generator.h	/^} secp256k1_generator;$/;"	t	typeref:struct:__anon3
+secp256k1_generator_generate	src/modules/generator/main_impl.h	/^int secp256k1_generator_generate(const secp256k1_context* ctx, secp256k1_generator* gen, const unsigned char *key32) {$/;"	f
+secp256k1_generator_generate_blinded	src/modules/generator/main_impl.h	/^int secp256k1_generator_generate_blinded(const secp256k1_context* ctx, secp256k1_generator* gen, const unsigned char *key32, const unsigned char *blind32) {$/;"	f
+secp256k1_generator_generate_internal	src/modules/generator/main_impl.h	/^static int secp256k1_generator_generate_internal(const secp256k1_context* ctx, secp256k1_generator* gen, const unsigned char *key32, const unsigned char *blind32) {$/;"	f
+secp256k1_generator_h	src/modules/rangeproof/main_impl.h	/^const secp256k1_generator *secp256k1_generator_h = &secp256k1_generator_h_internal;$/;"	v
+secp256k1_generator_h_internal	src/modules/rangeproof/main_impl.h	/^static const secp256k1_generator secp256k1_generator_h_internal = {{$/;"	v
+secp256k1_generator_load	src/modules/generator/main_impl.h	/^static void secp256k1_generator_load(secp256k1_ge* ge, const secp256k1_generator* gen) {$/;"	f
+secp256k1_generator_parse	src/modules/generator/main_impl.h	/^int secp256k1_generator_parse(const secp256k1_context* ctx, secp256k1_generator* gen, const unsigned char *input) {$/;"	f
+secp256k1_generator_save	src/modules/generator/main_impl.h	/^static void secp256k1_generator_save(secp256k1_generator* commit, secp256k1_ge* ge) {$/;"	f
+secp256k1_generator_serialize	src/modules/generator/main_impl.h	/^int secp256k1_generator_serialize(const secp256k1_context* ctx, unsigned char *output, const secp256k1_generator* gen) {$/;"	f
+secp256k1_hmac_sha256_finalize	src/hash_impl.h	/^static void secp256k1_hmac_sha256_finalize(secp256k1_hmac_sha256_t *hash, unsigned char *out32) {$/;"	f
+secp256k1_hmac_sha256_initialize	src/hash_impl.h	/^static void secp256k1_hmac_sha256_initialize(secp256k1_hmac_sha256_t *hash, const unsigned char *key, size_t keylen) {$/;"	f
+secp256k1_hmac_sha256_t	src/hash.h	/^} secp256k1_hmac_sha256_t;$/;"	t	typeref:struct:__anon28
+secp256k1_hmac_sha256_write	src/hash_impl.h	/^static void secp256k1_hmac_sha256_write(secp256k1_hmac_sha256_t *hash, const unsigned char *data, size_t size) {$/;"	f
+secp256k1_init_context	src/java/org/bitcoin/Secp256k1Context.java	/^  private static native long secp256k1_init_context();$/;"	m	class:Secp256k1Context	file:
+secp256k1_nonce_function	include/secp256k1.h	/^typedef int (*secp256k1_nonce_function)($/;"	t
+secp256k1_nonce_function_default	src/secp256k1.c	/^const secp256k1_nonce_function secp256k1_nonce_function_default = nonce_function_rfc6979;$/;"	v
+secp256k1_nonce_function_rfc6979	src/secp256k1.c	/^const secp256k1_nonce_function secp256k1_nonce_function_rfc6979 = nonce_function_rfc6979;$/;"	v
+secp256k1_nonce_function_smallint	src/tests_exhaustive.c	/^int secp256k1_nonce_function_smallint(unsigned char *nonce32, const unsigned char *msg32,$/;"	f
+secp256k1_num	src/num_gmp.h	/^} secp256k1_num;$/;"	t	typeref:struct:__anon31
+secp256k1_num_add	src/num_gmp_impl.h	/^static void secp256k1_num_add(secp256k1_num *r, const secp256k1_num *a, const secp256k1_num *b) {$/;"	f
+secp256k1_num_add_abs	src/num_gmp_impl.h	/^static void secp256k1_num_add_abs(secp256k1_num *r, const secp256k1_num *a, const secp256k1_num *b) {$/;"	f
+secp256k1_num_cmp	src/num_gmp_impl.h	/^static int secp256k1_num_cmp(const secp256k1_num *a, const secp256k1_num *b) {$/;"	f
+secp256k1_num_copy	src/num_gmp_impl.h	/^static void secp256k1_num_copy(secp256k1_num *r, const secp256k1_num *a) {$/;"	f
+secp256k1_num_eq	src/num_gmp_impl.h	/^static int secp256k1_num_eq(const secp256k1_num *a, const secp256k1_num *b) {$/;"	f
+secp256k1_num_get_bin	src/num_gmp_impl.h	/^static void secp256k1_num_get_bin(unsigned char *r, unsigned int rlen, const secp256k1_num *a) {$/;"	f
+secp256k1_num_is_neg	src/num_gmp_impl.h	/^static int secp256k1_num_is_neg(const secp256k1_num *a) {$/;"	f
+secp256k1_num_is_one	src/num_gmp_impl.h	/^static int secp256k1_num_is_one(const secp256k1_num *a) {$/;"	f
+secp256k1_num_is_zero	src/num_gmp_impl.h	/^static int secp256k1_num_is_zero(const secp256k1_num *a) {$/;"	f
+secp256k1_num_jacobi	src/num_gmp_impl.h	/^static int secp256k1_num_jacobi(const secp256k1_num *a, const secp256k1_num *b) {$/;"	f
+secp256k1_num_mod	src/num_gmp_impl.h	/^static void secp256k1_num_mod(secp256k1_num *r, const secp256k1_num *m) {$/;"	f
+secp256k1_num_mod_inverse	src/num_gmp_impl.h	/^static void secp256k1_num_mod_inverse(secp256k1_num *r, const secp256k1_num *a, const secp256k1_num *m) {$/;"	f
+secp256k1_num_mul	src/num_gmp_impl.h	/^static void secp256k1_num_mul(secp256k1_num *r, const secp256k1_num *a, const secp256k1_num *b) {$/;"	f
+secp256k1_num_negate	src/num_gmp_impl.h	/^static void secp256k1_num_negate(secp256k1_num *r) {$/;"	f
+secp256k1_num_sanity	src/num_gmp_impl.h	/^static void secp256k1_num_sanity(const secp256k1_num *a) {$/;"	f
+secp256k1_num_sanity	src/num_gmp_impl.h	22;"	d
+secp256k1_num_set_bin	src/num_gmp_impl.h	/^static void secp256k1_num_set_bin(secp256k1_num *r, const unsigned char *a, unsigned int alen) {$/;"	f
+secp256k1_num_shift	src/num_gmp_impl.h	/^static void secp256k1_num_shift(secp256k1_num *r, int bits) {$/;"	f
+secp256k1_num_sub	src/num_gmp_impl.h	/^static void secp256k1_num_sub(secp256k1_num *r, const secp256k1_num *a, const secp256k1_num *b) {$/;"	f
+secp256k1_num_sub_abs	src/num_gmp_impl.h	/^static void secp256k1_num_sub_abs(secp256k1_num *r, const secp256k1_num *a, const secp256k1_num *b) {$/;"	f
+secp256k1_num_subadd	src/num_gmp_impl.h	/^static void secp256k1_num_subadd(secp256k1_num *r, const secp256k1_num *a, const secp256k1_num *b, int bneg) {$/;"	f
+secp256k1_pedersen_blind_generator_blind_sum	src/modules/rangeproof/main_impl.h	/^int secp256k1_pedersen_blind_generator_blind_sum(const secp256k1_context* ctx, const uint64_t *value, const unsigned char* const* generator_blind, unsigned char* const* blinding_factor, size_t n_total, size_t n_inputs) {$/;"	f
+secp256k1_pedersen_blind_sum	src/modules/rangeproof/main_impl.h	/^int secp256k1_pedersen_blind_sum(const secp256k1_context* ctx, unsigned char *blind_out, const unsigned char * const *blinds, size_t n, size_t npositive) {$/;"	f
+secp256k1_pedersen_commit	src/modules/rangeproof/main_impl.h	/^int secp256k1_pedersen_commit(const secp256k1_context* ctx, secp256k1_pedersen_commitment *commit, const unsigned char *blind, uint64_t value, const secp256k1_generator* gen) {$/;"	f
+secp256k1_pedersen_commitment	include/secp256k1_rangeproof.h	/^} secp256k1_pedersen_commitment;$/;"	t	typeref:struct:__anon4
+secp256k1_pedersen_commitment_load	src/modules/rangeproof/main_impl.h	/^static void secp256k1_pedersen_commitment_load(secp256k1_ge* ge, const secp256k1_pedersen_commitment* commit) {$/;"	f
+secp256k1_pedersen_commitment_parse	src/modules/rangeproof/main_impl.h	/^int secp256k1_pedersen_commitment_parse(const secp256k1_context* ctx, secp256k1_pedersen_commitment* commit, const unsigned char *input) {$/;"	f
+secp256k1_pedersen_commitment_save	src/modules/rangeproof/main_impl.h	/^static void secp256k1_pedersen_commitment_save(secp256k1_pedersen_commitment* commit, secp256k1_ge* ge) {$/;"	f
+secp256k1_pedersen_commitment_serialize	src/modules/rangeproof/main_impl.h	/^int secp256k1_pedersen_commitment_serialize(const secp256k1_context* ctx, unsigned char *output, const secp256k1_pedersen_commitment* commit) {$/;"	f
+secp256k1_pedersen_ecmult	src/modules/rangeproof/pedersen_impl.h	/^SECP256K1_INLINE static void secp256k1_pedersen_ecmult(const secp256k1_ecmult_gen_context *ecmult_gen_ctx, secp256k1_gej *rj, const secp256k1_scalar *sec, uint64_t value, const secp256k1_ge* genp) {$/;"	f
+secp256k1_pedersen_ecmult_small	src/modules/rangeproof/pedersen_impl.h	/^static void secp256k1_pedersen_ecmult_small(secp256k1_gej *r, uint64_t gn, const secp256k1_ge* genp) {$/;"	f
+secp256k1_pedersen_scalar_set_u64	src/modules/rangeproof/pedersen_impl.h	/^static void secp256k1_pedersen_scalar_set_u64(secp256k1_scalar *sec, uint64_t value) {$/;"	f
+secp256k1_pedersen_verify_tally	src/modules/rangeproof/main_impl.h	/^int secp256k1_pedersen_verify_tally(const secp256k1_context* ctx, const secp256k1_pedersen_commitment * const* commits, size_t pcnt, const secp256k1_pedersen_commitment * const* ncommits, size_t ncnt) {$/;"	f
+secp256k1_privkey_tweak_add	src/java/org/bitcoin/NativeSecp256k1.java	/^    private static native byte[][] secp256k1_privkey_tweak_add(ByteBuffer byteBuff, long context);$/;"	m	class:NativeSecp256k1	file:
+secp256k1_privkey_tweak_mul	src/java/org/bitcoin/NativeSecp256k1.java	/^    private static native byte[][] secp256k1_privkey_tweak_mul(ByteBuffer byteBuff, long context);$/;"	m	class:NativeSecp256k1	file:
+secp256k1_pubkey	include/secp256k1.h	/^} secp256k1_pubkey;$/;"	t	typeref:struct:__anon1
+secp256k1_pubkey_load	src/secp256k1.c	/^static int secp256k1_pubkey_load(const secp256k1_context* ctx, secp256k1_ge* ge, const secp256k1_pubkey* pubkey) {$/;"	f	file:
+secp256k1_pubkey_save	src/secp256k1.c	/^static void secp256k1_pubkey_save(secp256k1_pubkey* pubkey, secp256k1_ge* ge) {$/;"	f	file:
+secp256k1_pubkey_tweak_add	src/java/org/bitcoin/NativeSecp256k1.java	/^    private static native byte[][] secp256k1_pubkey_tweak_add(ByteBuffer byteBuff, long context, int pubLen);$/;"	m	class:NativeSecp256k1	file:
+secp256k1_pubkey_tweak_mul	src/java/org/bitcoin/NativeSecp256k1.java	/^    private static native byte[][] secp256k1_pubkey_tweak_mul(ByteBuffer byteBuff, long context, int pubLen);$/;"	m	class:NativeSecp256k1	file:
+secp256k1_rand256	src/testrand_impl.h	/^static void secp256k1_rand256(unsigned char *b32) {$/;"	f
+secp256k1_rand256_test	src/testrand_impl.h	/^static void secp256k1_rand256_test(unsigned char *b32) {$/;"	f
+secp256k1_rand32	src/testrand_impl.h	/^SECP256K1_INLINE static uint32_t secp256k1_rand32(void) {$/;"	f
+secp256k1_rand_bits	src/testrand_impl.h	/^static uint32_t secp256k1_rand_bits(int bits) {$/;"	f
+secp256k1_rand_bytes_test	src/testrand_impl.h	/^static void secp256k1_rand_bytes_test(unsigned char *bytes, size_t len) {$/;"	f
+secp256k1_rand_int	src/testrand_impl.h	/^static uint32_t secp256k1_rand_int(uint32_t range) {$/;"	f
+secp256k1_rand_seed	src/testrand_impl.h	/^SECP256K1_INLINE static void secp256k1_rand_seed(const unsigned char *seed16) {$/;"	f
+secp256k1_rands64	src/testrand_impl.h	/^SECP256K1_INLINE static int64_t secp256k1_rands64(uint64_t min, uint64_t max) {$/;"	f
+secp256k1_range_proveparams	src/modules/rangeproof/rangeproof_impl.h	/^SECP256K1_INLINE static int secp256k1_range_proveparams(uint64_t *v, size_t *rings, size_t *rsizes, size_t *npub, size_t *secidx, uint64_t *min_value,$/;"	f
+secp256k1_rangeproof_ch32xor	src/modules/rangeproof/rangeproof_impl.h	/^SECP256K1_INLINE static void secp256k1_rangeproof_ch32xor(unsigned char *x, const unsigned char *y) {$/;"	f
+secp256k1_rangeproof_genrand	src/modules/rangeproof/rangeproof_impl.h	/^SECP256K1_INLINE static int secp256k1_rangeproof_genrand(secp256k1_scalar *sec, secp256k1_scalar *s, unsigned char *message,$/;"	f
+secp256k1_rangeproof_getheader_impl	src/modules/rangeproof/rangeproof_impl.h	/^SECP256K1_INLINE static int secp256k1_rangeproof_getheader_impl(size_t *offset, int *exp, int *mantissa, uint64_t *scale,$/;"	f
+secp256k1_rangeproof_info	src/modules/rangeproof/main_impl.h	/^int secp256k1_rangeproof_info(const secp256k1_context* ctx, int *exp, int *mantissa,$/;"	f
+secp256k1_rangeproof_pub_expand	src/modules/rangeproof/rangeproof_impl.h	/^SECP256K1_INLINE static void secp256k1_rangeproof_pub_expand(secp256k1_gej *pubs,$/;"	f
+secp256k1_rangeproof_recover_k	src/modules/rangeproof/rangeproof_impl.h	/^SECP256K1_INLINE static void secp256k1_rangeproof_recover_k(secp256k1_scalar *k, const secp256k1_scalar *x, const secp256k1_scalar *e,$/;"	f
+secp256k1_rangeproof_recover_x	src/modules/rangeproof/rangeproof_impl.h	/^SECP256K1_INLINE static void secp256k1_rangeproof_recover_x(secp256k1_scalar *x, const secp256k1_scalar *k, const secp256k1_scalar *e,$/;"	f
+secp256k1_rangeproof_rewind	src/modules/rangeproof/main_impl.h	/^int secp256k1_rangeproof_rewind(const secp256k1_context* ctx,$/;"	f
+secp256k1_rangeproof_rewind_inner	src/modules/rangeproof/rangeproof_impl.h	/^SECP256K1_INLINE static int secp256k1_rangeproof_rewind_inner(secp256k1_scalar *blind, uint64_t *v,$/;"	f
+secp256k1_rangeproof_serialize_point	src/modules/rangeproof/rangeproof_impl.h	/^SECP256K1_INLINE static void secp256k1_rangeproof_serialize_point(unsigned char* data, const secp256k1_ge *point) {$/;"	f
+secp256k1_rangeproof_sign	src/modules/rangeproof/main_impl.h	/^int secp256k1_rangeproof_sign(const secp256k1_context* ctx, unsigned char *proof, size_t *plen, uint64_t min_value,$/;"	f
+secp256k1_rangeproof_sign_impl	src/modules/rangeproof/rangeproof_impl.h	/^SECP256K1_INLINE static int secp256k1_rangeproof_sign_impl(const secp256k1_ecmult_context* ecmult_ctx,$/;"	f
+secp256k1_rangeproof_verify	src/modules/rangeproof/main_impl.h	/^int secp256k1_rangeproof_verify(const secp256k1_context* ctx, uint64_t *min_value, uint64_t *max_value,$/;"	f
+secp256k1_rangeproof_verify_impl	src/modules/rangeproof/rangeproof_impl.h	/^SECP256K1_INLINE static int secp256k1_rangeproof_verify_impl(const secp256k1_ecmult_context* ecmult_ctx,$/;"	f
+secp256k1_rfc6979_hmac_sha256_finalize	src/hash_impl.h	/^static void secp256k1_rfc6979_hmac_sha256_finalize(secp256k1_rfc6979_hmac_sha256_t *rng) {$/;"	f
+secp256k1_rfc6979_hmac_sha256_generate	src/hash_impl.h	/^static void secp256k1_rfc6979_hmac_sha256_generate(secp256k1_rfc6979_hmac_sha256_t *rng, unsigned char *out, size_t outlen) {$/;"	f
+secp256k1_rfc6979_hmac_sha256_initialize	src/hash_impl.h	/^static void secp256k1_rfc6979_hmac_sha256_initialize(secp256k1_rfc6979_hmac_sha256_t *rng, const unsigned char *key, size_t keylen) {$/;"	f
+secp256k1_rfc6979_hmac_sha256_t	src/hash.h	/^} secp256k1_rfc6979_hmac_sha256_t;$/;"	t	typeref:struct:__anon29
+secp256k1_scalar	src/scalar_4x64.h	/^} secp256k1_scalar;$/;"	t	typeref:struct:__anon32
+secp256k1_scalar	src/scalar_8x32.h	/^} secp256k1_scalar;$/;"	t	typeref:struct:__anon33
+secp256k1_scalar	src/scalar_low.h	/^typedef uint32_t secp256k1_scalar;$/;"	t
+secp256k1_scalar_add	src/scalar_4x64_impl.h	/^static int secp256k1_scalar_add(secp256k1_scalar *r, const secp256k1_scalar *a, const secp256k1_scalar *b) {$/;"	f
+secp256k1_scalar_add	src/scalar_8x32_impl.h	/^static int secp256k1_scalar_add(secp256k1_scalar *r, const secp256k1_scalar *a, const secp256k1_scalar *b) {$/;"	f
+secp256k1_scalar_add	src/scalar_low_impl.h	/^static int secp256k1_scalar_add(secp256k1_scalar *r, const secp256k1_scalar *a, const secp256k1_scalar *b) {$/;"	f
+secp256k1_scalar_cadd_bit	src/scalar_4x64_impl.h	/^static void secp256k1_scalar_cadd_bit(secp256k1_scalar *r, unsigned int bit, int flag) {$/;"	f
+secp256k1_scalar_cadd_bit	src/scalar_8x32_impl.h	/^static void secp256k1_scalar_cadd_bit(secp256k1_scalar *r, unsigned int bit, int flag) {$/;"	f
+secp256k1_scalar_cadd_bit	src/scalar_low_impl.h	/^static void secp256k1_scalar_cadd_bit(secp256k1_scalar *r, unsigned int bit, int flag) {$/;"	f
+secp256k1_scalar_check_overflow	src/scalar_4x64_impl.h	/^SECP256K1_INLINE static int secp256k1_scalar_check_overflow(const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_check_overflow	src/scalar_8x32_impl.h	/^SECP256K1_INLINE static int secp256k1_scalar_check_overflow(const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_check_overflow	src/scalar_low_impl.h	/^SECP256K1_INLINE static int secp256k1_scalar_check_overflow(const secp256k1_scalar *a) { return *a >= EXHAUSTIVE_TEST_ORDER; }$/;"	f
+secp256k1_scalar_clear	src/scalar_4x64_impl.h	/^SECP256K1_INLINE static void secp256k1_scalar_clear(secp256k1_scalar *r) {$/;"	f
+secp256k1_scalar_clear	src/scalar_8x32_impl.h	/^SECP256K1_INLINE static void secp256k1_scalar_clear(secp256k1_scalar *r) {$/;"	f
+secp256k1_scalar_clear	src/scalar_low_impl.h	/^SECP256K1_INLINE static void secp256k1_scalar_clear(secp256k1_scalar *r) { *r = 0; }$/;"	f
+secp256k1_scalar_cond_negate	src/scalar_4x64_impl.h	/^static int secp256k1_scalar_cond_negate(secp256k1_scalar *r, int flag) {$/;"	f
+secp256k1_scalar_cond_negate	src/scalar_8x32_impl.h	/^static int secp256k1_scalar_cond_negate(secp256k1_scalar *r, int flag) {$/;"	f
+secp256k1_scalar_cond_negate	src/scalar_low_impl.h	/^static int secp256k1_scalar_cond_negate(secp256k1_scalar *r, int flag) {$/;"	f
+secp256k1_scalar_eq	src/scalar_4x64_impl.h	/^SECP256K1_INLINE static int secp256k1_scalar_eq(const secp256k1_scalar *a, const secp256k1_scalar *b) {$/;"	f
+secp256k1_scalar_eq	src/scalar_8x32_impl.h	/^SECP256K1_INLINE static int secp256k1_scalar_eq(const secp256k1_scalar *a, const secp256k1_scalar *b) {$/;"	f
+secp256k1_scalar_eq	src/scalar_low_impl.h	/^SECP256K1_INLINE static int secp256k1_scalar_eq(const secp256k1_scalar *a, const secp256k1_scalar *b) {$/;"	f
+secp256k1_scalar_get_b32	src/scalar_4x64_impl.h	/^static void secp256k1_scalar_get_b32(unsigned char *bin, const secp256k1_scalar* a) {$/;"	f
+secp256k1_scalar_get_b32	src/scalar_8x32_impl.h	/^static void secp256k1_scalar_get_b32(unsigned char *bin, const secp256k1_scalar* a) {$/;"	f
+secp256k1_scalar_get_b32	src/scalar_low_impl.h	/^static void secp256k1_scalar_get_b32(unsigned char *bin, const secp256k1_scalar* a) {$/;"	f
+secp256k1_scalar_get_bits	src/scalar_4x64_impl.h	/^SECP256K1_INLINE static unsigned int secp256k1_scalar_get_bits(const secp256k1_scalar *a, unsigned int offset, unsigned int count) {$/;"	f
+secp256k1_scalar_get_bits	src/scalar_8x32_impl.h	/^SECP256K1_INLINE static unsigned int secp256k1_scalar_get_bits(const secp256k1_scalar *a, unsigned int offset, unsigned int count) {$/;"	f
+secp256k1_scalar_get_bits	src/scalar_low_impl.h	/^SECP256K1_INLINE static unsigned int secp256k1_scalar_get_bits(const secp256k1_scalar *a, unsigned int offset, unsigned int count) {$/;"	f
+secp256k1_scalar_get_bits_var	src/scalar_4x64_impl.h	/^SECP256K1_INLINE static unsigned int secp256k1_scalar_get_bits_var(const secp256k1_scalar *a, unsigned int offset, unsigned int count) {$/;"	f
+secp256k1_scalar_get_bits_var	src/scalar_8x32_impl.h	/^SECP256K1_INLINE static unsigned int secp256k1_scalar_get_bits_var(const secp256k1_scalar *a, unsigned int offset, unsigned int count) {$/;"	f
+secp256k1_scalar_get_bits_var	src/scalar_low_impl.h	/^SECP256K1_INLINE static unsigned int secp256k1_scalar_get_bits_var(const secp256k1_scalar *a, unsigned int offset, unsigned int count) {$/;"	f
+secp256k1_scalar_get_num	src/scalar_impl.h	/^static void secp256k1_scalar_get_num(secp256k1_num *r, const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_inverse	src/scalar_impl.h	/^static void secp256k1_scalar_inverse(secp256k1_scalar *r, const secp256k1_scalar *x) {$/;"	f
+secp256k1_scalar_inverse_var	src/scalar_impl.h	/^static void secp256k1_scalar_inverse_var(secp256k1_scalar *r, const secp256k1_scalar *x) {$/;"	f
+secp256k1_scalar_is_even	src/scalar_low_impl.h	/^SECP256K1_INLINE static int secp256k1_scalar_is_even(const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_is_high	src/scalar_4x64_impl.h	/^static int secp256k1_scalar_is_high(const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_is_high	src/scalar_8x32_impl.h	/^static int secp256k1_scalar_is_high(const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_is_high	src/scalar_low_impl.h	/^static int secp256k1_scalar_is_high(const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_is_one	src/scalar_4x64_impl.h	/^SECP256K1_INLINE static int secp256k1_scalar_is_one(const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_is_one	src/scalar_8x32_impl.h	/^SECP256K1_INLINE static int secp256k1_scalar_is_one(const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_is_one	src/scalar_low_impl.h	/^SECP256K1_INLINE static int secp256k1_scalar_is_one(const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_is_zero	src/scalar_4x64_impl.h	/^SECP256K1_INLINE static int secp256k1_scalar_is_zero(const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_is_zero	src/scalar_8x32_impl.h	/^SECP256K1_INLINE static int secp256k1_scalar_is_zero(const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_is_zero	src/scalar_low_impl.h	/^SECP256K1_INLINE static int secp256k1_scalar_is_zero(const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_mul	src/scalar_4x64_impl.h	/^static void secp256k1_scalar_mul(secp256k1_scalar *r, const secp256k1_scalar *a, const secp256k1_scalar *b) {$/;"	f
+secp256k1_scalar_mul	src/scalar_8x32_impl.h	/^static void secp256k1_scalar_mul(secp256k1_scalar *r, const secp256k1_scalar *a, const secp256k1_scalar *b) {$/;"	f
+secp256k1_scalar_mul	src/scalar_low_impl.h	/^static void secp256k1_scalar_mul(secp256k1_scalar *r, const secp256k1_scalar *a, const secp256k1_scalar *b) {$/;"	f
+secp256k1_scalar_mul_512	src/scalar_4x64_impl.h	/^static void secp256k1_scalar_mul_512(uint64_t l[8], const secp256k1_scalar *a, const secp256k1_scalar *b) {$/;"	f
+secp256k1_scalar_mul_512	src/scalar_8x32_impl.h	/^static void secp256k1_scalar_mul_512(uint32_t *l, const secp256k1_scalar *a, const secp256k1_scalar *b) {$/;"	f
+secp256k1_scalar_mul_shift_var	src/scalar_4x64_impl.h	/^SECP256K1_INLINE static void secp256k1_scalar_mul_shift_var(secp256k1_scalar *r, const secp256k1_scalar *a, const secp256k1_scalar *b, unsigned int shift) {$/;"	f
+secp256k1_scalar_mul_shift_var	src/scalar_8x32_impl.h	/^SECP256K1_INLINE static void secp256k1_scalar_mul_shift_var(secp256k1_scalar *r, const secp256k1_scalar *a, const secp256k1_scalar *b, unsigned int shift) {$/;"	f
+secp256k1_scalar_negate	src/scalar_4x64_impl.h	/^static void secp256k1_scalar_negate(secp256k1_scalar *r, const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_negate	src/scalar_8x32_impl.h	/^static void secp256k1_scalar_negate(secp256k1_scalar *r, const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_negate	src/scalar_low_impl.h	/^static void secp256k1_scalar_negate(secp256k1_scalar *r, const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_order_get_num	src/scalar_impl.h	/^static void secp256k1_scalar_order_get_num(secp256k1_num *r) {$/;"	f
+secp256k1_scalar_reduce	src/scalar_4x64_impl.h	/^SECP256K1_INLINE static int secp256k1_scalar_reduce(secp256k1_scalar *r, unsigned int overflow) {$/;"	f
+secp256k1_scalar_reduce	src/scalar_8x32_impl.h	/^SECP256K1_INLINE static int secp256k1_scalar_reduce(secp256k1_scalar *r, uint32_t overflow) {$/;"	f
+secp256k1_scalar_reduce_512	src/scalar_4x64_impl.h	/^static void secp256k1_scalar_reduce_512(secp256k1_scalar *r, const uint64_t *l) {$/;"	f
+secp256k1_scalar_reduce_512	src/scalar_8x32_impl.h	/^static void secp256k1_scalar_reduce_512(secp256k1_scalar *r, const uint32_t *l) {$/;"	f
+secp256k1_scalar_set_b32	src/scalar_4x64_impl.h	/^static void secp256k1_scalar_set_b32(secp256k1_scalar *r, const unsigned char *b32, int *overflow) {$/;"	f
+secp256k1_scalar_set_b32	src/scalar_8x32_impl.h	/^static void secp256k1_scalar_set_b32(secp256k1_scalar *r, const unsigned char *b32, int *overflow) {$/;"	f
+secp256k1_scalar_set_b32	src/scalar_low_impl.h	/^static void secp256k1_scalar_set_b32(secp256k1_scalar *r, const unsigned char *b32, int *overflow) {$/;"	f
+secp256k1_scalar_set_int	src/scalar_4x64_impl.h	/^SECP256K1_INLINE static void secp256k1_scalar_set_int(secp256k1_scalar *r, unsigned int v) {$/;"	f
+secp256k1_scalar_set_int	src/scalar_8x32_impl.h	/^SECP256K1_INLINE static void secp256k1_scalar_set_int(secp256k1_scalar *r, unsigned int v) {$/;"	f
+secp256k1_scalar_set_int	src/scalar_low_impl.h	/^SECP256K1_INLINE static void secp256k1_scalar_set_int(secp256k1_scalar *r, unsigned int v) { *r = v; }$/;"	f
+secp256k1_scalar_set_u64	src/scalar_4x64_impl.h	/^SECP256K1_INLINE static void secp256k1_scalar_set_u64(secp256k1_scalar *r, uint64_t v) {$/;"	f
+secp256k1_scalar_set_u64	src/scalar_8x32_impl.h	/^SECP256K1_INLINE static void secp256k1_scalar_set_u64(secp256k1_scalar *r, uint64_t v) {$/;"	f
+secp256k1_scalar_set_u64	src/scalar_low_impl.h	/^SECP256K1_INLINE static void secp256k1_scalar_set_u64(secp256k1_scalar *r, uint64_t v) { *r = v % EXHAUSTIVE_TEST_ORDER; }$/;"	f
+secp256k1_scalar_shr_int	src/scalar_4x64_impl.h	/^static int secp256k1_scalar_shr_int(secp256k1_scalar *r, int n) {$/;"	f
+secp256k1_scalar_shr_int	src/scalar_8x32_impl.h	/^static int secp256k1_scalar_shr_int(secp256k1_scalar *r, int n) {$/;"	f
+secp256k1_scalar_shr_int	src/scalar_low_impl.h	/^static int secp256k1_scalar_shr_int(secp256k1_scalar *r, int n) {$/;"	f
+secp256k1_scalar_split_128	src/scalar_4x64_impl.h	/^static void secp256k1_scalar_split_128(secp256k1_scalar *r1, secp256k1_scalar *r2, const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_split_128	src/scalar_8x32_impl.h	/^static void secp256k1_scalar_split_128(secp256k1_scalar *r1, secp256k1_scalar *r2, const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_split_128	src/scalar_low_impl.h	/^static void secp256k1_scalar_split_128(secp256k1_scalar *r1, secp256k1_scalar *r2, const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_split_lambda	src/scalar_impl.h	/^static void secp256k1_scalar_split_lambda(secp256k1_scalar *r1, secp256k1_scalar *r2, const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_sqr	src/scalar_4x64_impl.h	/^static void secp256k1_scalar_sqr(secp256k1_scalar *r, const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_sqr	src/scalar_8x32_impl.h	/^static void secp256k1_scalar_sqr(secp256k1_scalar *r, const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_sqr	src/scalar_low_impl.h	/^static void secp256k1_scalar_sqr(secp256k1_scalar *r, const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_sqr_512	src/scalar_4x64_impl.h	/^static void secp256k1_scalar_sqr_512(uint64_t l[8], const secp256k1_scalar *a) {$/;"	f
+secp256k1_scalar_sqr_512	src/scalar_8x32_impl.h	/^static void secp256k1_scalar_sqr_512(uint32_t *l, const secp256k1_scalar *a) {$/;"	f
+secp256k1_sha256_finalize	src/hash_impl.h	/^static void secp256k1_sha256_finalize(secp256k1_sha256_t *hash, unsigned char *out32) {$/;"	f
+secp256k1_sha256_initialize	src/hash_impl.h	/^static void secp256k1_sha256_initialize(secp256k1_sha256_t *hash) {$/;"	f
+secp256k1_sha256_t	src/hash.h	/^} secp256k1_sha256_t;$/;"	t	typeref:struct:__anon27
+secp256k1_sha256_transform	src/hash_impl.h	/^static void secp256k1_sha256_transform(uint32_t* s, const uint32_t* chunk) {$/;"	f
+secp256k1_sha256_write	src/hash_impl.h	/^static void secp256k1_sha256_write(secp256k1_sha256_t *hash, const unsigned char *data, size_t len) {$/;"	f
+secp256k1_sign_and_abs64	src/util.h	/^SECP256K1_INLINE static int secp256k1_sign_and_abs64(uint64_t *out, int64_t in) {$/;"	f
+secp256k1_surjection_compute_public_keys	src/modules/surjection/surjection_impl.h	/^SECP256K1_INLINE static int secp256k1_surjection_compute_public_keys(secp256k1_gej *pubkeys, size_t n_pubkeys, const secp256k1_ge *input_tags, size_t n_input_tags, const unsigned char *used_tags, const secp256k1_ge *output_tag, size_t input_index, size_t *ring_input_index) {$/;"	f
+secp256k1_surjection_genmessage	src/modules/surjection/surjection_impl.h	/^SECP256K1_INLINE static void secp256k1_surjection_genmessage(unsigned char *msg32, secp256k1_ge *ephemeral_input_tags, size_t n_input_tags, secp256k1_ge *ephemeral_output_tag) {$/;"	f
+secp256k1_surjection_genrand	src/modules/surjection/surjection_impl.h	/^SECP256K1_INLINE static int secp256k1_surjection_genrand(secp256k1_scalar *s, size_t ns, const secp256k1_scalar *blinding_key) {$/;"	f
+secp256k1_surjectionproof	include/secp256k1_surjectionproof.h	/^} secp256k1_surjectionproof;$/;"	t	typeref:struct:__anon6
+secp256k1_surjectionproof_csprng	src/modules/surjection/main_impl.h	/^} secp256k1_surjectionproof_csprng;$/;"	t	typeref:struct:__anon30
+secp256k1_surjectionproof_csprng_init	src/modules/surjection/main_impl.h	/^static void secp256k1_surjectionproof_csprng_init(secp256k1_surjectionproof_csprng *csprng, const unsigned char* state) {$/;"	f
+secp256k1_surjectionproof_csprng_next	src/modules/surjection/main_impl.h	/^static size_t secp256k1_surjectionproof_csprng_next(secp256k1_surjectionproof_csprng *csprng, size_t rand_max) {$/;"	f
+secp256k1_surjectionproof_generate	src/modules/surjection/main_impl.h	/^int secp256k1_surjectionproof_generate(const secp256k1_context* ctx, secp256k1_surjectionproof* proof, const secp256k1_generator* ephemeral_input_tags, size_t n_ephemeral_input_tags, const secp256k1_generator* ephemeral_output_tag, size_t input_index, const unsigned char *input_blinding_key, const unsigned char *output_blinding_key) {$/;"	f
+secp256k1_surjectionproof_initialize	src/modules/surjection/main_impl.h	/^int secp256k1_surjectionproof_initialize(const secp256k1_context* ctx, secp256k1_surjectionproof* proof, size_t *input_index, const secp256k1_fixed_asset_tag* fixed_input_tags, const size_t n_input_tags, const size_t n_input_tags_to_use, const secp256k1_fixed_asset_tag* fixed_output_tag, const size_t n_max_iterations, const unsigned char *random_seed32) {$/;"	f
+secp256k1_surjectionproof_n_total_inputs	src/modules/surjection/main_impl.h	/^size_t secp256k1_surjectionproof_n_total_inputs(const secp256k1_context* ctx, const secp256k1_surjectionproof* proof) {$/;"	f
+secp256k1_surjectionproof_n_used_inputs	src/modules/surjection/main_impl.h	/^size_t secp256k1_surjectionproof_n_used_inputs(const secp256k1_context* ctx, const secp256k1_surjectionproof* proof) {$/;"	f
+secp256k1_surjectionproof_parse	src/modules/surjection/main_impl.h	/^int secp256k1_surjectionproof_parse(const secp256k1_context* ctx, secp256k1_surjectionproof *proof, const unsigned char *input, size_t inputlen) {$/;"	f
+secp256k1_surjectionproof_serialize	src/modules/surjection/main_impl.h	/^int secp256k1_surjectionproof_serialize(const secp256k1_context* ctx, unsigned char *output, size_t *outputlen, const secp256k1_surjectionproof *proof) {$/;"	f
+secp256k1_surjectionproof_serialized_size	src/modules/surjection/main_impl.h	/^size_t secp256k1_surjectionproof_serialized_size(const secp256k1_context* ctx, const secp256k1_surjectionproof* proof) {$/;"	f
+secp256k1_surjectionproof_verify	src/modules/surjection/main_impl.h	/^int secp256k1_surjectionproof_verify(const secp256k1_context* ctx, const secp256k1_surjectionproof* proof, const secp256k1_generator* ephemeral_input_tags, size_t n_ephemeral_input_tags, const secp256k1_generator* ephemeral_output_tag) {$/;"	f
+secp256k1_test_rng	src/testrand_impl.h	/^static secp256k1_rfc6979_hmac_sha256_t secp256k1_test_rng;$/;"	v
+secp256k1_test_rng_integer	src/testrand_impl.h	/^static uint64_t secp256k1_test_rng_integer;$/;"	v
+secp256k1_test_rng_integer_bits_left	src/testrand_impl.h	/^static int secp256k1_test_rng_integer_bits_left = 0;$/;"	v
+secp256k1_test_rng_precomputed	src/testrand_impl.h	/^static uint32_t secp256k1_test_rng_precomputed[8];$/;"	v
+secp256k1_test_rng_precomputed_used	src/testrand_impl.h	/^static int secp256k1_test_rng_precomputed_used = 8;$/;"	v
+secp256k1_whitelist_compute_keys_and_message	src/modules/whitelist/whitelist_impl.h	/^static int secp256k1_whitelist_compute_keys_and_message(const secp256k1_context* ctx, unsigned char *msg32, secp256k1_gej *keys, const secp256k1_pubkey *online_pubkeys, const secp256k1_pubkey *offline_pubkeys, const int n_keys, const secp256k1_pubkey *sub_pubkey) {$/;"	f
+secp256k1_whitelist_compute_tweaked_privkey	src/modules/whitelist/whitelist_impl.h	/^static int secp256k1_whitelist_compute_tweaked_privkey(const secp256k1_context* ctx, secp256k1_scalar* skey, const unsigned char *online_key, const unsigned char *summed_key) {$/;"	f
+secp256k1_whitelist_hash_pubkey	src/modules/whitelist/whitelist_impl.h	/^static int secp256k1_whitelist_hash_pubkey(secp256k1_scalar* output, secp256k1_gej* pubkey) {$/;"	f
+secp256k1_whitelist_sign	src/modules/whitelist/main_impl.h	/^int secp256k1_whitelist_sign(const secp256k1_context* ctx, secp256k1_whitelist_signature *sig, const secp256k1_pubkey *online_pubkeys, const secp256k1_pubkey *offline_pubkeys, const size_t n_keys, const secp256k1_pubkey *sub_pubkey, const unsigned char *online_seckey, const unsigned char *summed_seckey, const size_t index, secp256k1_nonce_function noncefp, const void *noncedata) {$/;"	f
+secp256k1_whitelist_signature	include/secp256k1_whitelist.h	/^} secp256k1_whitelist_signature;$/;"	t	typeref:struct:__anon8
+secp256k1_whitelist_signature_n_keys	src/modules/whitelist/main_impl.h	/^size_t secp256k1_whitelist_signature_n_keys(const secp256k1_whitelist_signature *sig) {$/;"	f
+secp256k1_whitelist_signature_parse	src/modules/whitelist/main_impl.h	/^int secp256k1_whitelist_signature_parse(const secp256k1_context* ctx, secp256k1_whitelist_signature *sig, const unsigned char *input, size_t input_len) {$/;"	f
+secp256k1_whitelist_signature_serialize	src/modules/whitelist/main_impl.h	/^int secp256k1_whitelist_signature_serialize(const secp256k1_context* ctx, unsigned char *output, size_t *output_len, const secp256k1_whitelist_signature *sig) {$/;"	f
+secp256k1_whitelist_tweak_pubkey	src/modules/whitelist/whitelist_impl.h	/^static int secp256k1_whitelist_tweak_pubkey(const secp256k1_context* ctx, secp256k1_gej* pub_tweaked) {$/;"	f
+secp256k1_whitelist_verify	src/modules/whitelist/main_impl.h	/^int secp256k1_whitelist_verify(const secp256k1_context* ctx, const secp256k1_whitelist_signature *sig, const secp256k1_pubkey *online_pubkeys, const secp256k1_pubkey *offline_pubkeys, const size_t n_keys, const secp256k1_pubkey *sub_pubkey) {$/;"	f
+secp256k1_wnaf_const	src/ecmult_const_impl.h	/^static int secp256k1_wnaf_const(int *wnaf, secp256k1_scalar s, int w, int size, int maybe_negative) {$/;"	f
+shallue_van_de_woestijne	src/modules/generator/main_impl.h	/^static void shallue_van_de_woestijne(secp256k1_ge* ge, const secp256k1_fe* t) {$/;"	f
+sig	src/bench_recover.c	/^    unsigned char sig[64];$/;"	m	struct:__anon13	file:
+sig	src/bench_schnorr_verify.c	/^    unsigned char sig[64];$/;"	m	struct:__anon14	file:
+sig	src/bench_verify.c	/^    unsigned char sig[72];$/;"	m	struct:__anon17	file:
+siglen	src/bench_verify.c	/^    size_t siglen;$/;"	m	struct:__anon17	file:
+sigma0	src/hash_impl.h	20;"	d
+sigma0	src/hash_impl.h	275;"	d
+sigma1	src/hash_impl.h	21;"	d
+sigma1	src/hash_impl.h	274;"	d
+sign	src/java/org/bitcoin/NativeSecp256k1.java	/^    public static byte[] sign(byte[] data, byte[] sec) throws AssertFailException{$/;"	m	class:NativeSecp256k1
+sigs	src/bench_schnorr_verify.c	/^    benchmark_schnorr_sig_t sigs[64];$/;"	m	struct:__anon15	file:
+state	src/modules/surjection/main_impl.h	/^    unsigned char state[32];$/;"	m	struct:__anon30
+state_i	src/modules/surjection/main_impl.h	/^    size_t state_i;$/;"	m	struct:__anon30
+sumadd	src/scalar_4x64_impl.h	247;"	d
+sumadd	src/scalar_4x64_impl.h	892;"	d
+sumadd	src/scalar_8x32_impl.h	328;"	d
+sumadd	src/scalar_8x32_impl.h	650;"	d
+sumadd_fast	src/scalar_4x64_impl.h	256;"	d
+sumadd_fast	src/scalar_4x64_impl.h	893;"	d
+sumadd_fast	src/scalar_8x32_impl.h	337;"	d
+sumadd_fast	src/scalar_8x32_impl.h	651;"	d
+testCreateECDHSecret	src/java/org/bitcoin/NativeSecp256k1Test.java	/^    public static void testCreateECDHSecret() throws AssertFailException{$/;"	m	class:NativeSecp256k1Test
+testPrivKeyTweakAdd_1	src/java/org/bitcoin/NativeSecp256k1Test.java	/^    public static void testPrivKeyTweakAdd_1() throws AssertFailException {$/;"	m	class:NativeSecp256k1Test
+testPrivKeyTweakAdd_2	src/java/org/bitcoin/NativeSecp256k1Test.java	/^    public static void testPrivKeyTweakAdd_2() throws AssertFailException {$/;"	m	class:NativeSecp256k1Test
+testPrivKeyTweakMul_1	src/java/org/bitcoin/NativeSecp256k1Test.java	/^    public static void testPrivKeyTweakMul_1() throws AssertFailException {$/;"	m	class:NativeSecp256k1Test
+testPrivKeyTweakMul_2	src/java/org/bitcoin/NativeSecp256k1Test.java	/^    public static void testPrivKeyTweakMul_2() throws AssertFailException {$/;"	m	class:NativeSecp256k1Test
+testPubKeyCreateNeg	src/java/org/bitcoin/NativeSecp256k1Test.java	/^    public static void testPubKeyCreateNeg() throws AssertFailException{$/;"	m	class:NativeSecp256k1Test
+testPubKeyCreatePos	src/java/org/bitcoin/NativeSecp256k1Test.java	/^    public static void testPubKeyCreatePos() throws AssertFailException{$/;"	m	class:NativeSecp256k1Test
+testRandomize	src/java/org/bitcoin/NativeSecp256k1Test.java	/^    public static void testRandomize() throws AssertFailException {$/;"	m	class:NativeSecp256k1Test
+testSecKeyVerifyNeg	src/java/org/bitcoin/NativeSecp256k1Test.java	/^    public static void testSecKeyVerifyNeg() throws AssertFailException{$/;"	m	class:NativeSecp256k1Test
+testSecKeyVerifyPos	src/java/org/bitcoin/NativeSecp256k1Test.java	/^    public static void testSecKeyVerifyPos() throws AssertFailException{$/;"	m	class:NativeSecp256k1Test
+testSignNeg	src/java/org/bitcoin/NativeSecp256k1Test.java	/^    public static void testSignNeg() throws AssertFailException{$/;"	m	class:NativeSecp256k1Test
+testSignPos	src/java/org/bitcoin/NativeSecp256k1Test.java	/^    public static void testSignPos() throws AssertFailException{$/;"	m	class:NativeSecp256k1Test
+testVerifyNeg	src/java/org/bitcoin/NativeSecp256k1Test.java	/^    public static void testVerifyNeg() throws AssertFailException{$/;"	m	class:NativeSecp256k1Test
+testVerifyPos	src/java/org/bitcoin/NativeSecp256k1Test.java	/^    public static void testVerifyPos() throws AssertFailException{$/;"	m	class:NativeSecp256k1Test
+test_add_neg_y_diff_x	src/tests.c	/^void test_add_neg_y_diff_x(void) {$/;"	f
+test_api	src/modules/rangeproof/tests_impl.h	/^static void test_api(void) {$/;"	f
+test_bad_parse	src/modules/surjection/tests_impl.h	/^void test_bad_parse(void) {$/;"	f
+test_bad_scalar	src/modules/ecdh/tests_impl.h	/^void test_bad_scalar(void) {$/;"	f
+test_bad_serialize	src/modules/surjection/tests_impl.h	/^void test_bad_serialize(void) {$/;"	f
+test_borromean	src/modules/rangeproof/tests_impl.h	/^static void test_borromean(void) {$/;"	f
+test_constant_wnaf	src/tests.c	/^void test_constant_wnaf(const secp256k1_scalar *number, int w) {$/;"	f
+test_constant_wnaf_negate	src/tests.c	/^void test_constant_wnaf_negate(const secp256k1_scalar *number) {$/;"	f
+test_ec_combine	src/tests.c	/^void test_ec_combine(void) {$/;"	f
+test_ecdh_api	src/modules/ecdh/tests_impl.h	/^void test_ecdh_api(void) {$/;"	f
+test_ecdh_generator_basepoint	src/modules/ecdh/tests_impl.h	/^void test_ecdh_generator_basepoint(void) {$/;"	f
+test_ecdsa_der_parse	src/tests.c	/^int test_ecdsa_der_parse(const unsigned char *sig, size_t siglen, int certainly_der, int certainly_not_der) {$/;"	f
+test_ecdsa_edge_cases	src/tests.c	/^void test_ecdsa_edge_cases(void) {$/;"	f
+test_ecdsa_end_to_end	src/tests.c	/^void test_ecdsa_end_to_end(void) {$/;"	f
+test_ecdsa_openssl	src/tests.c	/^void test_ecdsa_openssl(void) {$/;"	f
+test_ecdsa_recovery_api	src/modules/recovery/tests_impl.h	/^void test_ecdsa_recovery_api(void) {$/;"	f
+test_ecdsa_recovery_edge_cases	src/modules/recovery/tests_impl.h	/^void test_ecdsa_recovery_edge_cases(void) {$/;"	f
+test_ecdsa_recovery_end_to_end	src/modules/recovery/tests_impl.h	/^void test_ecdsa_recovery_end_to_end(void) {$/;"	f
+test_ecdsa_sign_verify	src/tests.c	/^void test_ecdsa_sign_verify(void) {$/;"	f
+test_ecmult_constants	src/tests.c	/^void test_ecmult_constants(void) {$/;"	f
+test_ecmult_gen_blind	src/tests.c	/^void test_ecmult_gen_blind(void) {$/;"	f
+test_ecmult_gen_blind_reset	src/tests.c	/^void test_ecmult_gen_blind_reset(void) {$/;"	f
+test_exhaustive_addition	src/tests_exhaustive.c	/^void test_exhaustive_addition(const secp256k1_ge *group, const secp256k1_gej *groupj, int order) {$/;"	f
+test_exhaustive_ecmult	src/tests_exhaustive.c	/^void test_exhaustive_ecmult(const secp256k1_context *ctx, const secp256k1_ge *group, const secp256k1_gej *groupj, int order) {$/;"	f
+test_exhaustive_endomorphism	src/tests_exhaustive.c	/^void test_exhaustive_endomorphism(const secp256k1_ge *group, int order) {$/;"	f
+test_exhaustive_recovery_sign	src/tests_exhaustive.c	/^void test_exhaustive_recovery_sign(const secp256k1_context *ctx, const secp256k1_ge *group, int order) {$/;"	f
+test_exhaustive_recovery_verify	src/tests_exhaustive.c	/^void test_exhaustive_recovery_verify(const secp256k1_context *ctx, const secp256k1_ge *group, int order) {$/;"	f
+test_exhaustive_sign	src/tests_exhaustive.c	/^void test_exhaustive_sign(const secp256k1_context *ctx, const secp256k1_ge *group, int order) {$/;"	f
+test_exhaustive_verify	src/tests_exhaustive.c	/^void test_exhaustive_verify(const secp256k1_context *ctx, const secp256k1_ge *group, int order) {$/;"	f
+test_ge	src/tests.c	/^void test_ge(void) {$/;"	f
+test_gen_verify	src/modules/surjection/tests_impl.h	/^static void test_gen_verify(size_t n_inputs, size_t n_used) {$/;"	f
+test_generator_api	src/modules/generator/tests_impl.h	/^void test_generator_api(void) {$/;"	f
+test_generator_generate	src/modules/generator/tests_impl.h	/^void test_generator_generate(void) {$/;"	f
+test_group_decompress	src/tests.c	/^void test_group_decompress(const secp256k1_fe* x) {$/;"	f
+test_input_selection	src/modules/surjection/tests_impl.h	/^static void test_input_selection(size_t n_inputs) {$/;"	f
+test_input_selection_distribution	src/modules/surjection/tests_impl.h	/^static void test_input_selection_distribution(void) {$/;"	f
+test_input_selection_distribution_helper	src/modules/surjection/tests_impl.h	/^static void test_input_selection_distribution_helper(const secp256k1_fixed_asset_tag* fixed_input_tags, const size_t n_input_tags, const size_t n_input_tags_to_use, size_t *used_inputs) {$/;"	f
+test_multiple_generators	src/modules/rangeproof/tests_impl.h	/^void test_multiple_generators(void) {$/;"	f
+test_no_used_inputs_verify	src/modules/surjection/tests_impl.h	/^static void test_no_used_inputs_verify(void) {$/;"	f
+test_num_add_sub	src/tests.c	/^void test_num_add_sub(void) {$/;"	f
+test_num_jacobi	src/tests.c	/^void test_num_jacobi(void) {$/;"	f
+test_num_mod	src/tests.c	/^void test_num_mod(void) {$/;"	f
+test_num_negate	src/tests.c	/^void test_num_negate(void) {$/;"	f
+test_pedersen	src/modules/rangeproof/tests_impl.h	/^static void test_pedersen(void) {$/;"	f
+test_pedersen_api	src/modules/rangeproof/tests_impl.h	/^static void test_pedersen_api(const secp256k1_context *none, const secp256k1_context *sign, const secp256k1_context *vrfy, const int32_t *ecount) {$/;"	f
+test_point_times_order	src/tests.c	/^void test_point_times_order(const secp256k1_gej *point) {$/;"	f
+test_rand_bits	src/tests.c	/^void test_rand_bits(int rand32, int bits) {$/;"	f
+test_rand_int	src/tests.c	/^void test_rand_int(uint32_t range, uint32_t subrange) {$/;"	f
+test_random_pubkeys	src/tests.c	/^void test_random_pubkeys(void) {$/;"	f
+test_rangeproof	src/modules/rangeproof/tests_impl.h	/^static void test_rangeproof(void) {$/;"	f
+test_rangeproof_api	src/modules/rangeproof/tests_impl.h	/^static void test_rangeproof_api(const secp256k1_context *none, const secp256k1_context *sign, const secp256k1_context *vrfy, const secp256k1_context *both, const int32_t *ecount) {$/;"	f
+test_scalar_split	src/tests.c	/^void test_scalar_split(void) {$/;"	f
+test_shallue_van_de_woestijne	src/modules/generator/tests_impl.h	/^void test_shallue_van_de_woestijne(void) {$/;"	f
+test_sqrt	src/tests.c	/^void test_sqrt(const secp256k1_fe *a, const secp256k1_fe *k) {$/;"	f
+test_surjectionproof_api	src/modules/surjection/tests_impl.h	/^static void test_surjectionproof_api(void) {$/;"	f
+test_whitelist_bad_parse	src/modules/whitelist/tests_impl.h	/^void test_whitelist_bad_parse(void) {$/;"	f
+test_whitelist_bad_serialize	src/modules/whitelist/tests_impl.h	/^void test_whitelist_bad_serialize(void) {$/;"	f
+test_whitelist_end_to_end	src/modules/whitelist/tests_impl.h	/^void test_whitelist_end_to_end(const size_t n_keys) {$/;"	f
+test_wnaf	src/tests.c	/^void test_wnaf(const secp256k1_scalar *number, int w) {$/;"	f
+uint128_t	src/util.h	/^SECP256K1_GNUC_EXT typedef unsigned __int128 uint128_t;$/;"	t
+uncounting_illegal_callback_fn	src/tests.c	/^static void uncounting_illegal_callback_fn(const char* str, void* data) {$/;"	f	file:
+used_inputs	include/secp256k1_surjectionproof.h	/^    unsigned char used_inputs[SECP256K1_SURJECTIONPROOF_MAX_N_INPUTS \/ 8];$/;"	m	struct:__anon6
+v	src/bench_rangeproof.c	/^    uint64_t v;$/;"	m	struct:__anon12	file:
+v	src/hash.h	/^    unsigned char v[32];$/;"	m	struct:__anon29
+verify	src/java/org/bitcoin/NativeSecp256k1.java	/^    public static boolean verify(byte[] data, byte[] signature, byte[] pub) throws AssertFailException{$/;"	m	class:NativeSecp256k1
+w	src/java/org/bitcoin/NativeSecp256k1.java	/^    private static final Lock w = rwl.writeLock();$/;"	f	class:NativeSecp256k1	file:
+wnaf	src/bench_internal.c	/^    int wnaf[256];$/;"	m	struct:__anon11	file:
+x	src/group.h	/^    secp256k1_fe x; \/* actual X: x\/z^2 *\/$/;"	m	struct:__anon25
+x	src/group.h	/^    secp256k1_fe x;$/;"	m	struct:__anon24
+x	src/group.h	/^    secp256k1_fe_storage x;$/;"	m	struct:__anon26
+y	src/group.h	/^    secp256k1_fe y; \/* actual Y: y\/z^3 *\/$/;"	m	struct:__anon25
+y	src/group.h	/^    secp256k1_fe y;$/;"	m	struct:__anon24
+y	src/group.h	/^    secp256k1_fe_storage y;$/;"	m	struct:__anon26
+z	src/group.h	/^    secp256k1_fe z;$/;"	m	struct:__anon25

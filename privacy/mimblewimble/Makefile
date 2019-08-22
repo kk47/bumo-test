@@ -1,7 +1,7 @@
 CC = g++ 
 CXXFLAGS = -O -Wno-unused-parameter -std=c++11 -fPIC -Wno-unused-variable
-INCLUDEFLAGS = -I. 
-LDLIBS = -L.
+INCLUDEFLAGS = -I./secp256k1-zkp/include 
+LDLIBS = -L./secp256k1-zkp
 LDLIBS += -lsecp256k1
 SRC_FILES := main.cpp
 #SRC_FILES := $(wildcard *.cpp)

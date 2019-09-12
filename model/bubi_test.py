@@ -347,21 +347,21 @@ class PrivacyTest(ChainApi):
         }
         return self.req('createMwToken', payload)
 
-    def createMwTx(self, spend_key, to_public_key, to, value, inputs):
+    def createMwTx(self, spend_key, from_addr, to_addr, value, contract_addr):
         payload = {
             "spend_key": spend_key,
-            "to_public_key":to_public_key,
-            "to": to,
+            "from":from_addr,
+            "to": to_addr,
             "value":value,
-            "input_tokens":inputs
+            "contract_addr":contract_addr
         }
 
-        return self.req('createMwTx', payload, post=True)
+        return self.req('createMwTx1', payload)
 
     def issue(self, nonce, amount, token, mw_contract_addr, src_acc={}):
         payload = {'items': []}
-        mw_token = "{\"commit\":\"%s\",\"range_proof\":\"%s\",\"public_key\":\"%s\",\"blind\":\"%s\"}" % (token['commit'], token['rangeproof'], token['from_pub'], token['blind'])
-        input = "{\"method\":\"issue\",\"params\":{\"totalSupply\":\"%s\",\"name\": \"KevenTheStar\",\"symbol\": \"KTS\",\"token\":%s}}" % (amount, mw_token)
+        mw_token = "{\"commit\":\"%s\",\"range_proof\":\"%s\",\"public_key\":\"%s\",\"encrypt_value\":\"%s\"}" % (token['commit'], token['rangeproof'], token['from_pub'], token['encrypt_value'])
+        input = "{\"method\":\"issue\",\"params\":{\"name\": \"MimbleWimble\",\"symbol\": \"MWT\",\"token\":%s}}" % mw_token
         self.addPayload(payload, 'payment', [mw_contract_addr], src_acc, nonce, input_str=input)
         #print(json.dumps(payload, indent=4))
         success_count = self.sendRequest(payload)
@@ -457,17 +457,14 @@ class PrivacyTest(ChainApi):
         payload = {'items': []}
         tmp = '['
         for t in tx['inputs']:
-            token = "{\"commit\":\"%s\"}" % t['commit']
+            token = "{\"id\":\"%s\"}" % t['id']
             tmp += token + ','
         inputs = tmp.rstrip(',')
         inputs += ']'
 
         tmp = '['
         for t in tx['outputs']:
-            change = 'false'
-            if 'change' in t and t['change']:
-                change='true'
-            token = "{\"commit\":\"%s\", \"range_proof\":\"%s\", \"encrypt_value\":\"%s\", \"from_pub\":\"%s\", \"change\": %s}" % (t['commit'], t['range_proof'], t['encrypt_value'], t['from_pub'], change)
+            token = "{\"commit\":\"%s\", \"range_proof\":\"%s\", \"encrypt_value\":\"%s\", \"from_pub\":\"%s\", \"to_pub\": \"%s\"}" % (t['commit'], t['range_proof'], t['encrypt_value'], t['from_pub'], t['to_pub'])
             tmp += token + ','
         outputs = tmp.rstrip(',')
         outputs += ']'
@@ -501,15 +498,16 @@ class PrivacyTest(ChainApi):
         input_token['from_pub'] = issue_token['result']['from_pub']
         input_token['commit'] = issue_token['result']['commit']
         input_token['encrypt_value'] = issue_token['result']['encrypt_value']
+        mw_contract_addr = acc_list[0]['address']
 
-        res = self.createMwTx(mw_list[0]['priv_key'], mw_list[1]['pub_key'], acc_list[2]['address'], 5000, [input_token]) # acc_list[2] <--> mw_list[1]
+        res = self.createMwTx(mw_list[0]['priv_key'], acc_list[1]['address'], acc_list[2]['address'], 5000, mw_contract_addr) # acc_list[2] <--> mw_list[1]
         if 'result' not in res:
             logger.error(json.dumps(res, indent=4))
             return False, 'Failed to create mw transaction'
 
         res['result'].pop('verify_excess')
         #logger.info("Get tx done, %s" % json.dumps(res, indent=4))
-        mw_contract_addr = acc_list[0]['address']
+
 
         # acc_list[1] call contract
         res, msg = self.transfer(res['result']['params'], mw_contract_addr, acc_list[1])
@@ -577,7 +575,7 @@ class PrivacyTest(ChainApi):
             return False, 'Failed to get token info of issuer'
 
         input_tokens = json.loads(res['result'][key]['value'])['tokens']
-        res = self.createMwTx(mw_list[1]['priv_key'], mw_list[1]['pub_key'], acc_list[2]['address'], 3000, input_tokens)  # acc_list[2] <--> mw_list[1]
+        res = self.createMwTx(mw_list[1]['priv_key'], acc_list[2]['address'], acc_list[2]['address'], 3000, mw_contract_addr)  # acc_list[2] <--> mw_list[1]
         if 'result' not in res:
             logger.error(json.dumps(res, indent=4))
             return False, 'Failed to create mw transaction'
@@ -608,7 +606,7 @@ class PrivacyTest(ChainApi):
             return False, 'Failed to get token info of issuer'
 
         input_tokens = json.loads(res['result'][key]['value'])['tokens']
-        res = self.createMwTx(mw_list[1]['priv_key'], mw_list[2]['pub_key'], acc_list[3]['address'], 4000, input_tokens)  # acc_list[2] <--> mw_list[1]
+        res = self.createMwTx(mw_list[1]['priv_key'], acc_list[2]['address'], acc_list[3]['address'], 4000, mw_contract_addr)  # acc_list[2] <--> mw_list[1]
         if 'result' not in res:
             logger.error(json.dumps(res, indent=4))
             return False, 'Failed to create mw transaction'
@@ -639,7 +637,7 @@ class PrivacyTest(ChainApi):
             return False, 'Failed to get token info of issuer'
 
         input_tokens = json.loads(res['result'][key]['value'])['tokens']
-        res = self.createMwTx(mw_list[2]['priv_key'], mw_list[3]['pub_key'], acc_list[4]['address'], 4000, input_tokens)  # acc_list[4] <--> mw_list[3]
+        res = self.createMwTx(mw_list[2]['priv_key'], acc_list[3]['address'], acc_list[4]['address'], 4000, mw_contract_addr)  # acc_list[4] <--> mw_list[3]
         if 'result' not in res:
             logger.error(json.dumps(res, indent=4))
             return False, 'Failed to create mw transaction'
@@ -676,16 +674,15 @@ def usage():
         Arguments are as following:
             -h  print the help message
             -c  command
-            -f  keypairs file path
-            -U  upgrade dpos contract, work with -c init
+                initMw:         create mw contract, issue and do mw address mapping
+                transfer1-1-1:  one input and two output, include one change
+                split:          one token split to two token
+                transfer2-1-1:  two input and 2 output, include one change
+                transfer1-1:    one input and one output
+                getBalance:     get balance of mw token
 
     Example:
-        %s -c genKeyPairs|testPayCoin|testCreateAccount|testIssueAsset -n number [-o numOpPerTx] [-s startNonce] [-f keypairs]
-        %s -c dumpLedgerView -n span [-o startSeq]
-        %s -c getTps -n startSeq [-o endSeq]
-        %s -c init|getCfg|updateCfg|testValidatorElection|testKolElection|testCommittee [-f keypairs] [-U] [-p key=value]
-        %s -c dposTest|testAbolish|cleanProposal [-p malicious|item,operate,address]
-        %s -c initVote|testVote|testUnVote [-p 'mode=compete,voter_num=5,candidate_num=5']
+        %s -c transfer1-1-1|split|transfer2-1-1|transfer1-1
         %s -c str2Hex|hex2Str -p raw_string|hex_string
         %s -c getModulesStatus|getAccount|getLedger|getTransactionHistory|list
 
@@ -735,12 +732,10 @@ if __name__ == "__main__":
         print(pt.initMw())
     elif cmd == "transfer1-1-1":
         print(pt.transferTest())
-    elif cmd == "transfer1-2":
+    elif cmd == "split":
         print(pt.splitToken())
     elif cmd == "address_mapping":
         print(pt.addressMapping())
-    elif cmd == "getAccountInfo":
-        print(pt.getToken(params))
     elif cmd == "getBalance":
         print(pt.getBalance(params))
     elif cmd == "transfer2-1-1":

@@ -9,7 +9,7 @@ import time
 bubi_url = 'http://127.0.0.1:19333/'
 keypairs = 'keypairs'
 mw_keypairs = './mwkeypairs'
-mw_contract = 'D:/bubi-v3/src/privacy/mw_token.js'
+mw_contract = 'D:/bubiv3/src/privacy/mw_token.js'
 debug = False
 mw_contract_addr = ''
 max_items=100
@@ -339,28 +339,30 @@ class PrivacyTest(ChainApi):
                 f.write(json.dumps(account) + '\n')
         return True, ''
 
-    def getMwToken(self, spend_key, value, to):
+    def getMwToken(self, spend_key, value, to_pub, to=""):
         payload = {
             "priv_key": spend_key,
             "value": value,
-            "owner": to
+            "to_pub": to_pub,
+            "to": to
         }
         return self.req('createMwToken', payload)
 
-    def createMwTx(self, spend_key, from_addr, to_addr, value, contract_addr):
+    def createMwTx(self, spend_key, from_addr, to_addr, to_pub, value, contract_addr):
         payload = {
             "spend_key": spend_key,
             "from":from_addr,
             "to": to_addr,
+            "to_pub": to_pub,
             "value":value,
             "contract_addr":contract_addr
         }
 
-        return self.req('createMwTx1', payload)
+        return self.req('createMwTx', payload)
 
     def issue(self, nonce, amount, token, mw_contract_addr, src_acc={}):
         payload = {'items': []}
-        mw_token = "{\"commit\":\"%s\",\"range_proof\":\"%s\",\"public_key\":\"%s\",\"encrypt_value\":\"%s\"}" % (token['commit'], token['rangeproof'], token['from_pub'], token['encrypt_value'])
+        mw_token = "{\"commit\":\"%s\",\"range_proof\":\"%s\",\"from_pub\":\"%s\",\"encrypt_value\":\"%s\"}" % (token['commit'], token['rangeproof'], token['from_pub'], token['encrypt_value'])
         input = "{\"method\":\"issue\",\"params\":{\"name\": \"MimbleWimble\",\"symbol\": \"MWT\",\"token\":%s}}" % mw_token
         self.addPayload(payload, 'payment', [mw_contract_addr], src_acc, nonce, input_str=input)
         #print(json.dumps(payload, indent=4))
@@ -440,17 +442,17 @@ class PrivacyTest(ChainApi):
         else:
             logger.info('Issue mw token done')
 
-        addr_pubs = []
-        for i in range(len(mw_list)):
-            pair = {}
-            pair['pub_key'] = mw_list[i]['pub_key']
-            pair['address'] = acc_list[i+1]['address']
-            addr_pubs.append(pair)
-        res, msg = self.addressMapping(self.newNonce(genesis_account), addr_pubs, mw_contract_addr)
-        if not res:
-            return False, msg
-        else:
-            logger.info('Address mapping done')
+        # addr_pubs = []
+        # for i in range(len(mw_list)):
+        #     pair = {}
+        #     pair['pub_key'] = mw_list[i]['pub_key']
+        #     pair['address'] = acc_list[i+1]['address']
+        #     addr_pubs.append(pair)
+        # res, msg = self.addressMapping(self.newNonce(genesis_account), addr_pubs, mw_contract_addr)
+        # if not res:
+        #     return False, msg
+        # else:
+        #     logger.info('Address mapping done')
         return True, ''
 
     def transfer(self, tx, mw_contract_addr, src_acc={}):
@@ -464,12 +466,12 @@ class PrivacyTest(ChainApi):
 
         tmp = '['
         for t in tx['outputs']:
-            token = "{\"commit\":\"%s\", \"range_proof\":\"%s\", \"encrypt_value\":\"%s\", \"from_pub\":\"%s\", \"to_pub\": \"%s\"}" % (t['commit'], t['range_proof'], t['encrypt_value'], t['from_pub'], t['to_pub'])
+            token = "{\"commit\":\"%s\", \"range_proof\":\"%s\", \"encrypt_value\":\"%s\", \"from_pub\":\"%s\", \"to\": \"%s\"}" % (t['commit'], t['range_proof'], t['encrypt_value'], t['from_pub'], t['to'])
             tmp += token + ','
         outputs = tmp.rstrip(',')
         outputs += ']'
 
-        input = "{\"method\":\"transfer\", \"params\": {\"excess_sig\": \"%s\", \"inputs\":%s, \"outputs\":%s, \"to\":\"%s\"}}" % (tx['excess_sig'], inputs, outputs, tx['to'])
+        input = "{\"method\":\"transfer\", \"params\": {\"excess_sig\": \"%s\", \"excess_msg\": \"%s\", \"inputs\":%s, \"outputs\":%s}}" % (tx['excess_sig'], tx['excess_msg'], inputs, outputs)
         nonce = self.newNonce(src_acc['address'])
         self.addPayload(payload, 'payment', [mw_contract_addr], src_acc, nonce, input_str=input)
         success_count = self.sendRequest(payload)
@@ -488,26 +490,27 @@ class PrivacyTest(ChainApi):
             mw_list = [json.loads(l.strip()) for l in f.readlines()]
 
         # get issue token
-        issue_token = self.getMwToken(mw_list[0]['priv_key'], 10000, mw_list[0]['pub_key'])
-        if not issue_token:
-            return False, 'Failed to create issue token'
-        else:
-            print('Get issue token result %s' % json.dumps(issue_token, indent=4))
-
-        input_token = {}
-        input_token['from_pub'] = issue_token['result']['from_pub']
-        input_token['commit'] = issue_token['result']['commit']
-        input_token['encrypt_value'] = issue_token['result']['encrypt_value']
+        # issue_token = self.getMwToken(mw_list[0]['priv_key'], 10000, mw_list[0]['pub_key'])
+        # if not issue_token:
+        #     return False, 'Failed to create issue token'
+        # else:
+        #     print('Get issue token result %s' % json.dumps(issue_token, indent=4))
+        #
+        # input_token = {}
+        # input_token['from_pub'] = issue_token['result']['from_pub']
+        # input_token['commit'] = issue_token['result']['commit']
+        # input_token['encrypt_value'] = issue_token['result']['encrypt_value']
         mw_contract_addr = acc_list[0]['address']
 
-        res = self.createMwTx(mw_list[0]['priv_key'], acc_list[1]['address'], acc_list[2]['address'], 5000, mw_contract_addr) # acc_list[2] <--> mw_list[1]
+        res = self.createMwTx(mw_list[0]['priv_key'], acc_list[1]['address'], acc_list[2]['address'], mw_list[1]["pub_key"], 5000, mw_contract_addr) # acc_list[2] <--> mw_list[1]
         if 'result' not in res:
             logger.error(json.dumps(res, indent=4))
             return False, 'Failed to create mw transaction'
 
+        if not res['result']['verify_excess']:
+            return False, 'Verify excess error'
         res['result'].pop('verify_excess')
         #logger.info("Get tx done, %s" % json.dumps(res, indent=4))
-
 
         # acc_list[1] call contract
         res, msg = self.transfer(res['result']['params'], mw_contract_addr, acc_list[1])
@@ -575,13 +578,15 @@ class PrivacyTest(ChainApi):
             return False, 'Failed to get token info of issuer'
 
         input_tokens = json.loads(res['result'][key]['value'])['tokens']
-        res = self.createMwTx(mw_list[1]['priv_key'], acc_list[2]['address'], acc_list[2]['address'], 3000, mw_contract_addr)  # acc_list[2] <--> mw_list[1]
+        res = self.createMwTx(mw_list[1]['priv_key'], acc_list[2]['address'], acc_list[2]['address'], mw_list[1]['pub_key'], 3000, mw_contract_addr)  # acc_list[2] <--> mw_list[1]
         if 'result' not in res:
             logger.error(json.dumps(res, indent=4))
             return False, 'Failed to create mw transaction'
 
+        if not res['result']['verify_excess']:
+            return False, 'Verify excess error'
         res['result'].pop('verify_excess')
-        # logger.info("Get tx done, %s" % json.dumps(res, indent=4))
+        #logger.info("Get tx done, %s" % json.dumps(res, indent=4))
 
         # acc_list[2] call contract
         res, msg = self.transfer(res['result']['params'], mw_contract_addr, acc_list[2])
@@ -606,11 +611,13 @@ class PrivacyTest(ChainApi):
             return False, 'Failed to get token info of issuer'
 
         input_tokens = json.loads(res['result'][key]['value'])['tokens']
-        res = self.createMwTx(mw_list[1]['priv_key'], acc_list[2]['address'], acc_list[3]['address'], 4000, mw_contract_addr)  # acc_list[2] <--> mw_list[1]
+        res = self.createMwTx(mw_list[1]['priv_key'], acc_list[2]['address'], acc_list[3]['address'], mw_list[2]['pub_key'], 4000, mw_contract_addr)  # acc_list[2] <--> mw_list[1]
         if 'result' not in res:
             logger.error(json.dumps(res, indent=4))
             return False, 'Failed to create mw transaction'
 
+        if not res['result']['verify_excess']:
+            return False, 'Verify excess error'
         res['result'].pop('verify_excess')
         # logger.info("Get tx done, %s" % json.dumps(res, indent=4))
 
@@ -637,11 +644,13 @@ class PrivacyTest(ChainApi):
             return False, 'Failed to get token info of issuer'
 
         input_tokens = json.loads(res['result'][key]['value'])['tokens']
-        res = self.createMwTx(mw_list[2]['priv_key'], acc_list[3]['address'], acc_list[4]['address'], 4000, mw_contract_addr)  # acc_list[4] <--> mw_list[3]
+        res = self.createMwTx(mw_list[2]['priv_key'], acc_list[3]['address'], acc_list[4]['address'], mw_list[3]['pub_key'], 4000, mw_contract_addr)  # acc_list[4] <--> mw_list[3]
         if 'result' not in res:
             logger.error(json.dumps(res, indent=4))
             return False, 'Failed to create mw transaction'
 
+        if not res['result']['verify_excess']:
+            return False, 'Verify excess error'
         res['result'].pop('verify_excess')
         # logger.info("Get tx done, %s" % json.dumps(res, indent=4))
 

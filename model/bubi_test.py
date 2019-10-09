@@ -6,7 +6,8 @@ import logging
 import requests
 import time
 
-bubi_url = 'http://127.0.0.1:19333/'
+#bubi_url = 'http://127.0.0.1:19333/'
+bubi_url = 'http://192.168.10.100:19333/'
 keypairs = 'keypairs'
 mw_keypairs = './mwkeypairs'
 mw_contract = 'D:/bubiv3/src/privacy/mw_token.js'
@@ -697,9 +698,10 @@ def usage():
 
     '''
     prog = os.path.basename(sys.argv[0])
-    print
-    'Usage :'
-    print(u % (prog, prog, prog, prog, prog, prog, prog, prog, prog, prog))
+    if sys.version_info[0] < 3:
+        print u % (prog, prog, prog, prog, prog)
+    else:
+        print(u % (prog, prog, prog, prog, prog))
 
     sys.exit(0)
 if __name__ == "__main__":
@@ -736,6 +738,24 @@ if __name__ == "__main__":
             print('Unknown options %s' % op)
             sys.exit(1)
 
+    payload = {}
+    get_request = lambda module, payload={}: json.dumps(requests.get(base_url + module, params=payload).json(), indent=4)
+    post_request = lambda module, payload={}: json.dumps(requests.post(base_url + module, data=payload).json(), indent=4)
+
+    commands = [
+        'th',
+        'hello',
+        'createAccount',
+        'createMwKeyPair',
+        'getAccount',
+        'getGenesisAccount',
+        'getTransactionHistory',
+        'getTransactionCache',
+        'getStatus',
+        'getLedger',
+        'getModulesStatus',
+        'getConsensusInfo']
+
     pt = PrivacyTest()
     if cmd == "initMw":
         print(pt.initMw())
@@ -751,6 +771,22 @@ if __name__ == "__main__":
         print(pt.transferTest1())
     elif cmd == "transfer1-1":
         print(pt.transferTest2())
+    elif cmd in commands:
+        if cmd == 'th':
+            cmd = 'getTransactionHistory'
+        para_json = {}
+        if params:
+            if '{' in params:
+                try:
+                    para_json = json.loads(params)
+                except ValueError as msg:
+                    logger.error('Failed to parse json string, %s' % msg)
+                    sys.exit(1)
+            elif '=' in params:
+                for i in params.split(','):
+                    para_json[i.split('=')[0]] = i.split('=')[1]
+        get_request(cmd, para_json)
     else:
-        print("Unknown command %s" % cmd)
+        logger.info('Support commands: %s' % ','.join(commands))
+        logger.error('No such command: %s' % cmd)
         sys.exit(1)

@@ -20,8 +20,8 @@ void zsl_prove_shielding(
     hex_str_to_array(pk, pk_ptr);
 
     zsl_prove_shielding(rho_ptr, pk_ptr, value, proof_ptr);
-
-    output_proof = array_to_hex_str(proof_ptr, 584);
+    
+    if (proof_ptr != nullptr) output_proof = array_to_hex_str(proof_ptr, 584);
 }
 
 bool zsl_verify_shielding(

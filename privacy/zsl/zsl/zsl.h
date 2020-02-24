@@ -19,9 +19,9 @@
 #include <inttypes.h>
 #include <stdbool.h>
 
-//#ifdef __cplusplus
-//extern "C" {
-//#endif
+#ifdef __cplusplus
+extern "C" {
+#endif
 
     void zsl_initialize();
     bool zsl_verify_shielding(
@@ -88,8 +88,8 @@
         void *cm_ptr_2
     );
    
-//#ifdef __cplusplus
-//}
-//#endif
+#ifdef __cplusplus
+}
+#endif
 
 #endif

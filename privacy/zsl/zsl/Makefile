@@ -6,6 +6,7 @@ LDFLAGS += -flto
 
 LDLIBS += -lgmpxx -lgmp -lboost_system -fopenmp 
 
+
 all:
 	$(CXX) -o zsl.o -x c++ impl.tcc -c $(CXXFLAGS)
 	$(CXX) -o alt_bn128_g1.o algebra/curves/alt_bn128/alt_bn128_g1.cpp -c $(CXXFLAGS)

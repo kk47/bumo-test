@@ -2,7 +2,7 @@ CC = g++
 CXXFLAGS = -O -Wno-unused-parameter -std=c++11 -fPIC -Wno-unused-variable
 INCLUDEFLAGS = 
 LDLIBS = -L./zsl
-LDLIBS += -lgmpxx -lgmp -lcrypto -fopenmp -lzsl
+LDLIBS += -lzsl -lgmpxx -lgmp -lcrypto -fopenmp 
 SRC_FILES := $(wildcard utils/*.cpp)
 SRC_FILES += $(wildcard *.cpp)
 OBJS = $(patsubst %.cpp, %.o,$(SRC_FILES))
@@ -10,7 +10,7 @@ TARGETS = zsltest
 
 all: zsl $(TARGETS)
 
-.PHONY: zsl
+#.PHONY: zsl
 zsl:
 	make -C ./zsl
 

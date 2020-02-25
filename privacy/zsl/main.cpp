@@ -224,7 +224,7 @@ void init_param()
 int main(int argc, char *argv[])
 {
     
-    //init_param();
+    init_param();
     
     // zsl initialization, should be call before shielding and unshileding
     zsl_initialize();
